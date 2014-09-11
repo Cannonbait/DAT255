@@ -1,5 +1,8 @@
 IDÉVISION : GRUPP NULL
 
+@author Malin "Taters" Thelin
+@author Francine "Antiloop" Mäkelä 
+
 LiftUApp (or whatever)
 
 
