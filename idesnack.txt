@@ -1,0 +1,26 @@
+BARA IDÉSNACK : GRUPP NULL
+
+
+Grundidé.
+En liftarapp. I huvudsak skall lastbilschaufförer använda appen för att erbjuda liftning,
+och privatpersoner kan använda appen för att efterfråga en skjuts. Privatpersoner kan med 
+appens hjälp skriva in vart de vill åka och sedan se vilka lastbilar som är påväg dit(åt).
+
+Vad gör man när man inte kör?
+Lastbilschauffören: Väljer om hen vill plocka upp eventuella liftare, och vart hen skall åka någonstans.
+Liftaren: Väljer om hen vill lifta, och vart hen vill åka någonstans. 
+
+Vad kan man göra när man kör?
+Lastbilschauffören: Kan acceptera eller avböja förfrågningar om att ta upp en liftare. Kan även avbryta 
+
+
+Intressenter:
+Volvo
+Lastbilschaufförer
+Liftare
+Grupp NULL
+Ev. andra utvecklare
+Lastbilens ägare
+
+
+
