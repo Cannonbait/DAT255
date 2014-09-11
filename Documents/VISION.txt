@@ -3,12 +3,17 @@ IDÉVISION : GRUPP NULL
 
 LiftUApp
 
+Description
+LiftUApp is an app for android that matches hitchhikers with drivers.
+If a hitchhiker wants to hitch a ride and a driver wants to pick up a hitchhiker - the app informs both of them about eachother, granting them the opportunity to setup a hitchhike.
+
 Who is going to buy the product? Who is the target customer?
 Volvo will buy the product, noone else is expected to buy it, they get it for free. The primary target customer is truck drivers and hitchhikers
 
 Which customer needs will the product address?
 The product will address the need for social interaction for the customer aswell as improving driving safety.
-The product will also address the need to minimize enviromental footprint for the customer.
+The product will also address the need to minimize environmental footprint for the customer.
+There are few to none ways of setting up a hitchhike ahead of time, LiftUApp will satisfy this need.
 
 Which product attributes are critical to satisfy the needs selected and therefore for the success of the product?
 To succesfully match hitchikers and truckers that wish to travel in the same direction.
