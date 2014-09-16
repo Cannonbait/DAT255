@@ -1,0 +1,9 @@
+﻿2014-09-16, möte med handledare
+
+Närvarande: André, Ivar, Malin och Francine
+
+Beslutas att vi skall använda waffle, ett scrum- verktyg som kan integrerat med git.
+
+Denna vecka är målet att få sdk:t att funkar.
+
+Nästa möte med  handledare: 11.00 (el. 10.30)
