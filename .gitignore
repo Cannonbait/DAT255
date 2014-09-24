@@ -13,3 +13,6 @@ hs_err_pid*
 
 # OS X
 **/.DS_Store
+
+# System-dependent config files
+*.properties
