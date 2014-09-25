@@ -16,3 +16,6 @@ hs_err_pid*
 
 # System-dependent config files
 *.properties
+
+# intellij-idea
+**/.idea
