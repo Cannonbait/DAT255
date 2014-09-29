@@ -1,7 +1,7 @@
 package edu.chalmers.pickuapp.app.model;
 
 
-
+import java.util.HashMap;
 import edu.chalmers.pickuapp.app.events.*;
 
 abstract class Sequence implements EventListener{
@@ -30,15 +30,15 @@ abstract class Sequence implements EventListener{
      * @param sequence HashMap containing all sequences available
      */
     public static Sequence getSequence(Class<? extends Sequence> sequence) {
-    	return sequences.getValue(sequence);
+    	return sequences.get(sequence);
     }
 
     /**
      * Sets from what HashMap the sequences will fetch another sequence
      * @param sequences [description]
      */
-    public static void setSequencesSource(HashMap<Class<? extends Sequence>, Sequence> sequences) {
-    	this.sequences = sequences;
+    public static void setSequencesSource(HashMap<Class<? extends Sequence>, Sequence> sequencesSource) {
+    	sequences = sequencesSource;
     }
 
 }
