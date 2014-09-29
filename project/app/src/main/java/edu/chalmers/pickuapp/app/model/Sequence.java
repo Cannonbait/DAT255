@@ -12,6 +12,9 @@ abstract class Sequence implements EventListener{
 		
 	}
 
+	/**
+	 * Register to EventBus and call hook-method onRegister
+	 */
 	public void register() {
         EventBus.INSTANCE.registerListener(this);
         onRegister();
@@ -20,8 +23,16 @@ abstract class Sequence implements EventListener{
         EventBus.INSTANCE.removeListener(this);
         onUnregister();
     }
+
+    /**
+     * hook-method called in register()
+     */
     public abstract void onRegister();
 	public abstract Sequence execute();
+
+	/**
+	 * hook-method called in unreguster()
+	 */
     public abstract void onUnregister();
 
 
@@ -35,7 +46,7 @@ abstract class Sequence implements EventListener{
 
     /**
      * Sets from what HashMap the sequences will fetch another sequence
-     * @param sequences [description]
+     * @param sequencesSource what HashMap to get sequences from
      */
     public static void setSequencesSource(HashMap<Class<? extends Sequence>, Sequence> sequencesSource) {
     	sequences = sequencesSource;
