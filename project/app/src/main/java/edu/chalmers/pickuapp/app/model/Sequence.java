@@ -6,6 +6,8 @@ import edu.chalmers.pickuapp.app.events.*;
 
 abstract class Sequence implements EventListener{
 
+	private static HashMap<Class<? extends Sequence>, Sequence> sequences;
+
 	public Sequence() {
 		
 	}
@@ -21,5 +23,22 @@ abstract class Sequence implements EventListener{
     public abstract void onRegister();
 	public abstract Sequence execute();
     public abstract void onUnregister();
+
+
+    /**
+     * Give uniform access to HashMap of sequences for all sequences
+     * @param sequence HashMap containing all sequences available
+     */
+    public static Sequence getSequence(Class<? extends Sequence> sequence) {
+    	return sequences.getValue(sequence);
+    }
+
+    /**
+     * Sets from what HashMap the sequences will fetch another sequence
+     * @param sequences [description]
+     */
+    public static void setSequencesSource(HashMap<Class<? extends Sequence>, Sequence> sequences) {
+    	this.sequences = sequences;
+    }
 
 }

@@ -9,12 +9,13 @@ class Model {
 
 	private HashMap<Class<? extends Sequence>, Sequence> sequences;
 
-	public Model() {
+	private Model() {
 
 		//Allocate and add every sequence to the sequences hashmap here
 		sequences = new HashMap<Class<? extends Sequence>, Sequence>();
 		sequences.put(Sequence.class, new MockSequence());
 
+		Sequence.setSequencesSource(sequences);
 	}
 
 	public void start() {
