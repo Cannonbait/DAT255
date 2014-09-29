@@ -12,12 +12,11 @@ public class Mode extends Sequence {
     }
     @Override
     public void onRegister() {
-
+        EventBus.INSTANCE.reportEvent(new DrawMode());
     }
 
     @Override
     public Sequence execute() {
-
         return null;
     }
 
@@ -28,6 +27,10 @@ public class Mode extends Sequence {
 
     @Override
     public void onEvent(Event e) {
-
+       // if (e.getClass() == someEventClass){ //if pickedDriver
+            //wake up thread
+       // } else if (e.getClass() == someEventClass){ //if picked HH
+            //do shit
+        //}
     }
 }
