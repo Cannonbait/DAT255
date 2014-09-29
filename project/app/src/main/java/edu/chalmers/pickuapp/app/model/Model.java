@@ -18,7 +18,7 @@ class Model {
 	}
 
 	public void start() {
-		Sequence s = sequences.get(MockSequence.class);
+		Sequence s = sequences.get(Mode.class);
 
 		while(s != null) {
 			s.register();

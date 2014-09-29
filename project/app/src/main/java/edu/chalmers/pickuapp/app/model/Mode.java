@@ -6,6 +6,10 @@ import edu.chalmers.pickuapp.app.events.*;
  * Created by elvirajonsson on 2014-09-29.
  */
 public class Mode extends Sequence {
+
+    public Mode(){
+
+    }
     @Override
     public void onRegister() {
 
@@ -13,6 +17,7 @@ public class Mode extends Sequence {
 
     @Override
     public Sequence execute() {
+
         return null;
     }
 
