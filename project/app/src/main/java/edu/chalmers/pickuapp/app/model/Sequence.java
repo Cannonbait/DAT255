@@ -1,13 +1,25 @@
 package edu.chalmers.pickuapp.app.model;
 
 
-abstract class Sequence {
+
+import edu.chalmers.pickuapp.app.events.*;
+
+abstract class Sequence implements EventListener{
 
 	public Sequence() {
 		
 	}
 
-	public abstract void register();
+	public void register() {
+        EventBus.INSTANCE.registerListener(this);
+        onRegister();
+    }
+    public void unregister(){
+        EventBus.INSTANCE.removeListener(this);
+        onUnregister();
+    }
+    public abstract void onRegister();
 	public abstract Sequence execute();
-	public abstract void unregister();
+    public abstract void onUnregister();
+
 }

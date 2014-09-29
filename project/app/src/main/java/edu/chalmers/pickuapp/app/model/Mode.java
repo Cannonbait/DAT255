@@ -1,12 +1,14 @@
 package edu.chalmers.pickuapp.app.model;
 
+import edu.chalmers.pickuapp.app.events.*;
+
 /**
  * Created by elvirajonsson on 2014-09-29.
  */
 public class Mode extends Sequence {
     @Override
-    public void register() {
-        
+    public void onRegister() {
+
     }
 
     @Override
@@ -15,7 +17,12 @@ public class Mode extends Sequence {
     }
 
     @Override
-    public void unregister() {
+    public void onUnregister() {
+
+    }
+
+    @Override
+    public void onEvent(Event e) {
 
     }
 }
