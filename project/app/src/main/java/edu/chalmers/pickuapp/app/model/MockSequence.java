@@ -1,6 +1,7 @@
-package edu.chalmers.pickuapp.app;
+package edu.chalmers.pickuapp.app.model;
 
 import android.util.Log;
+import edu.chalmers.pickuapp.app.model.Sequence;
 
 class MockSequence extends Sequence {
 	

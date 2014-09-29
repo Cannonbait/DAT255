@@ -1,6 +1,4 @@
-package edu.chalmers.pickuapp.app;
-
-import android.util.Log;
+package edu.chalmers.pickuapp.app.model;
 
 
 abstract class Sequence {

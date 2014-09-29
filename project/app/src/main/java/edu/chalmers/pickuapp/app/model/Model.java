@@ -1,4 +1,7 @@
-package edu.chalmers.pickuapp.app;
+package edu.chalmers.pickuapp.app.model;
+
+import edu.chalmers.pickuapp.app.model.MockSequence;
+import edu.chalmers.pickuapp.app.model.Sequence;
 
 import java.util.HashMap;
 
