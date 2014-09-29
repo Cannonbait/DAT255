@@ -2,6 +2,7 @@ package edu.chalmers.pickuapp.app.model;
 
 import android.util.Log;
 import edu.chalmers.pickuapp.app.model.Sequence;
+import edu.chalmers.pickuapp.app.events.*;
 
 class MockSequence extends Sequence {
 	
@@ -10,7 +11,7 @@ class MockSequence extends Sequence {
 	}
 
 	@Override
-	public void register() {
+	public void onRegister() {
 		//Register to eventbuss
 	}
 
@@ -24,8 +25,13 @@ class MockSequence extends Sequence {
 	}
 
 	@Override
-	public void unregister() {
+	public void onUnregister() {
 		//Unregister from eventbuss
+	}
+
+	@Override
+	public void onEvent(Event e) {
+
 	}
 
 }
