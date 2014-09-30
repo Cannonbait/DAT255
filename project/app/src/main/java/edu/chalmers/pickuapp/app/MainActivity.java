@@ -14,6 +14,9 @@ import com.swedspot.automotiveapi.AutomotiveListener;
 import com.swedspot.vil.distraction.DriverDistractionLevel;
 import com.swedspot.vil.distraction.DriverDistractionListener;
 import com.swedspot.vil.policy.AutomotiveCertificate;
+import edu.chalmers.pickuapp.app.events.EventBus;
+import edu.chalmers.pickuapp.app.events.PickedDriver;
+import edu.chalmers.pickuapp.app.events.PickedHitchhiker;
 
 
 public class MainActivity extends Activity {
@@ -59,10 +62,12 @@ public class MainActivity extends Activity {
 
 	public void pickedDriver(View view) {
 		Log.i("PickUApp", "Pickeddriver");
+		EventBus.INSTANCE.reportEvent(new PickedDriver());
 	}
 
 	public void pickedHitchhiker(View view) {
 		Log.i("PickUApp", "PickedHitchhiker");
+		EventBus.INSTANCE.reportEvent(new PickedHitchhiker());
 	}
 
     @Override
