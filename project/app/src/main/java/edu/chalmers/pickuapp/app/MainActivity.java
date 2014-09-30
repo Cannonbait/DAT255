@@ -1,22 +1,24 @@
 package edu.chalmers.pickuapp.app;
 
 import android.app.Activity;
-import android.os.AsyncTask;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.Fragment;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.swedspot.automotiveapi.AutomotiveSignal;
-import android.swedspot.automotiveapi.AutomotiveSignalId;
+import android.support.v4.app.FragmentActivity;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import com.swedspot.automotiveapi.AutomotiveFactory;
-import com.swedspot.automotiveapi.AutomotiveListener;
-import com.swedspot.vil.distraction.DriverDistractionLevel;
-import com.swedspot.vil.distraction.DriverDistractionListener;
-import com.swedspot.vil.policy.AutomotiveCertificate;
+import android.widget.Button;
+import android.widget.TimePicker;
+
+import java.util.Calendar;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,7 @@ public class MainActivity extends Activity {
             }
         }.execute();
         */
+
     }
 
 	public void pickedDriver(View view) {
@@ -63,6 +66,11 @@ public class MainActivity extends Activity {
 
 	public void pickedHitchhiker(View view) {
 		Log.i("PickUApp", "PickedHitchhiker");
+
+        //THIS OPENS A TIMEPICKER WHEN YOU PRESS HITCHHIKER
+        //KOMMENTERA BORT OM DU VILL GÖRA ANNAT MED METODEN :) 
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getFragmentManager(),"timePicker");
 	}
 
     @Override
@@ -83,4 +91,27 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+    //Class to pick the date and time in setRoute
+    public static class TimePickerFragment extends DialogFragment
+            implements TimePickerDialog.OnTimeSetListener {
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current time as the default values for the picker
+            final Calendar c = Calendar.getInstance();
+            int hour = c.get(Calendar.HOUR_OF_DAY);
+            int minute = c.get(Calendar.MINUTE);
+
+            // Create a new instance of TimePickerDialog and return it
+            return new TimePickerDialog(getActivity(), this, hour, minute,
+                    DateFormat.is24HourFormat(getActivity()));
+        }
+
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            // Do something with the time chosen by the user
+        }
+    }
+
 }
