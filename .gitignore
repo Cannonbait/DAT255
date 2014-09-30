@@ -19,6 +19,7 @@ hs_err_pid*
 
 # intellij-idea
 **/.idea
+*.iml
 
 # custom build-scripts
 *.sh

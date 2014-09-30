@@ -22,6 +22,7 @@ import com.swedspot.vil.policy.AutomotiveCertificate;
 import edu.chalmers.pickuapp.app.events.EventBus;
 import edu.chalmers.pickuapp.app.events.PickedDriver;
 import edu.chalmers.pickuapp.app.events.PickedHitchhiker;
+import edu.chalmers.pickuapp.app.model.*;
 
 import java.util.Calendar;
 
@@ -32,6 +33,8 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mode);
+
+        new Thread(new Model()).start();
 
 		/*
         new AsyncTask(){

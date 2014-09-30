@@ -22,7 +22,7 @@ public class Mode extends Sequence {
 
     @Override
     public Sequence execute() {
-
+        
         if(pickedDriver){
             return getSequence(DriverSetRoute.class);
         } else if(pickedHitchhiker){
