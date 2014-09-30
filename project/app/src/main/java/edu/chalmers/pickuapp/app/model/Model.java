@@ -9,7 +9,7 @@ public class Model implements Runnable{
 
 	private HashMap<Class<? extends Sequence>, Sequence> sequences;
 
-	private Model() {
+	public Model() {
 
 		//Allocate and add every sequence to the sequences hashmap here
 		sequences = new HashMap<Class<? extends Sequence>, Sequence>();
