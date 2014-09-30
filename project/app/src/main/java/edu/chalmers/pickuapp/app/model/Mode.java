@@ -8,7 +8,7 @@ import edu.chalmers.pickuapp.app.events.*;
 public class Mode extends Sequence {
 
     public Mode(){
-
+        super();
     }
     @Override
     public void onRegister() {
@@ -27,10 +27,13 @@ public class Mode extends Sequence {
 
     @Override
     public void onEvent(Event e) {
-       // if (e.getClass() == someEventClass){ //if pickedDriver
+       String src = e.getClass().getName();
+
+
+        if (src.equals("PickedDriver")){
             //wake up thread
-       // } else if (e.getClass() == someEventClass){ //if picked HH
+        } else if (src.equals("PickedHitchhiker")){
             //do shit
-        //}
+        }
     }
 }
