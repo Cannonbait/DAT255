@@ -8,6 +8,7 @@ import android.swedspot.automotiveapi.AutomotiveSignalId;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import com.swedspot.automotiveapi.AutomotiveFactory;
 import com.swedspot.automotiveapi.AutomotiveListener;
 import com.swedspot.vil.distraction.DriverDistractionLevel;
@@ -20,8 +21,9 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_mode);
 
+		/*
         new AsyncTask(){
 
             @Override
@@ -52,8 +54,16 @@ public class MainActivity extends Activity {
                 return null;
             }
         }.execute();
+        */
     }
 
+	public void pickedDriver(View view) {
+		Log.i("PickUApp", "Pickeddriver");
+	}
+
+	public void pickedHitchhiker(View view) {
+		Log.i("PickUApp", "PickedHitchhiker");
+	}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
