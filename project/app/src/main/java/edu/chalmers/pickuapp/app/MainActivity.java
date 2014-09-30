@@ -14,6 +14,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TimePicker;
+import com.swedspot.automotiveapi.AutomotiveFactory;
+import com.swedspot.automotiveapi.AutomotiveListener;
+import com.swedspot.vil.distraction.DriverDistractionLevel;
+import com.swedspot.vil.distraction.DriverDistractionListener;
+import com.swedspot.vil.policy.AutomotiveCertificate;
+import edu.chalmers.pickuapp.app.events.EventBus;
+import edu.chalmers.pickuapp.app.events.PickedDriver;
+import edu.chalmers.pickuapp.app.events.PickedHitchhiker;
 
 import java.util.Calendar;
 
@@ -62,6 +70,7 @@ public class MainActivity extends FragmentActivity {
 
 	public void pickedDriver(View view) {
 		Log.i("PickUApp", "Pickeddriver");
+		EventBus.INSTANCE.reportEvent(new PickedDriver());
 	}
 
 	public void pickedHitchhiker(View view) {
@@ -71,6 +80,7 @@ public class MainActivity extends FragmentActivity {
         //KOMMENTERA BORT OM DU VILL GÖRA ANNAT MED METODEN :) 
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getFragmentManager(),"timePicker");
+		EventBus.INSTANCE.reportEvent(new PickedHitchhiker());
 	}
 
     @Override
