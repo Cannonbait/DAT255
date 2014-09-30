@@ -5,7 +5,7 @@ import edu.chalmers.pickuapp.app.model.Sequence;
 
 import java.util.HashMap;
 
-class Model {
+class Model implements Runnable{
 
 	private HashMap<Class<? extends Sequence>, Sequence> sequences;
 
@@ -29,4 +29,8 @@ class Model {
 		}
 	}
 
+    @Override
+    public void run() {
+        start();
+    }
 }

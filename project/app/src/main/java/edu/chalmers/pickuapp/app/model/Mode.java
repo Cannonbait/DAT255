@@ -7,16 +7,26 @@ import edu.chalmers.pickuapp.app.events.*;
  */
 public class Mode extends Sequence {
 
+    private boolean pickedDriver;
+    private boolean pickedHitchhiker;
+
     public Mode(){
         super();
     }
     @Override
     public void onRegister() {
+        pickedDriver = false;
+        pickedHitchhiker = false;
         EventBus.INSTANCE.reportEvent(new DrawMode());
     }
 
     @Override
     public Sequence execute() {
+        if(pickedDriver){
+            return getSequence(DriverSetRoute.class);
+        } else if(pickedHitchhiker){
+            return getSequence(HitchhikerSetRoute.class);
+        }
         return null;
     }
 
@@ -29,11 +39,10 @@ public class Mode extends Sequence {
     public void onEvent(Event e) {
        String src = e.getClass().getName();
 
-
-        if (src.equals("PickedDriver")){
-            //wake up thread
+       if (src.equals("PickedDriver")){
+            pickedDriver = true;
         } else if (src.equals("PickedHitchhiker")){
-            //do shit
+            pickedHitchhiker = true;
         }
     }
 }
