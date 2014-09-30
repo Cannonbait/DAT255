@@ -1,9 +1,7 @@
 package edu.chalmers.pickuapp.app;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.app.Fragment;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -12,22 +10,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TimePicker;
-import com.swedspot.automotiveapi.AutomotiveFactory;
-import com.swedspot.automotiveapi.AutomotiveListener;
-import com.swedspot.vil.distraction.DriverDistractionLevel;
-import com.swedspot.vil.distraction.DriverDistractionListener;
-import com.swedspot.vil.policy.AutomotiveCertificate;
-import edu.chalmers.pickuapp.app.events.EventBus;
-import edu.chalmers.pickuapp.app.events.PickedDriver;
-import edu.chalmers.pickuapp.app.events.PickedHitchhiker;
+import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.model.*;
-
 import java.util.Calendar;
 
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements EventListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +71,7 @@ public class MainActivity extends FragmentActivity {
         //THIS OPENS A TIMEPICKER WHEN YOU PRESS HITCHHIKER
         //KOMMENTERA BORT OM DU VILL GÖRA ANNAT MED METODEN :) 
         DialogFragment newFragment = new TimePickerFragment();
-        newFragment.show(getFragmentManager(),"timePicker");
+        newFragment.show(getFragmentManager(), "timePicker");
 		EventBus.INSTANCE.reportEvent(new PickedHitchhiker());
 	}
 
@@ -127,4 +116,8 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
-}
+	@Override
+	public void onEvent(Event event){
+		
+	}
+}//end MainActivity
