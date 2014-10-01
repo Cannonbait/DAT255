@@ -7,20 +7,24 @@
 
     <TextView
             android:text="Choose Mode"
+            android:textSize="25dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="50dp"
+            android:paddingLeft="100dp"
     />
     <Button
             android:text="@string/choose_driver"
-            android:textSize="25dp"
-            android:layout_width="wrap_content"
+            android:textSize="50dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="pickedDriver"
     />
     <Button
             android:text="@string/choose_hitchhiker"
-            android:textSize="25dp"
-            android:layout_width="wrap_content"
+            android:textSize="50dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="pickedHitchhiker"
     />

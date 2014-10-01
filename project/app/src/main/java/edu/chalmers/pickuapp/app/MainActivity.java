@@ -24,7 +24,6 @@ public class MainActivity extends FragmentActivity implements EventListener{
         setContentView(R.layout.activity_mode);
 
         new Thread(new Model()).start();
-
 		/*
         new AsyncTask(){
 
@@ -60,18 +59,16 @@ public class MainActivity extends FragmentActivity implements EventListener{
 
     }
 
-	public void pickedDriver(View view) {
-		Log.i("PickUApp", "Pickeddriver");
+	public void pickedDriver(View view){
 		EventBus.INSTANCE.reportEvent(new PickedDriver());
 	}
 
 	public void pickedHitchhiker(View view) {
-		Log.i("PickUApp", "PickedHitchhiker");
-
         //THIS OPENS A TIMEPICKER WHEN YOU PRESS HITCHHIKER
-        //KOMMENTERA BORT OM DU VILL GÖRA ANNAT MED METODEN :) 
+        //KOMMENTERA BORT OM DU VILL GÖRA ANNAT MED METODEN :)
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getFragmentManager(), "timePicker");
+
 		EventBus.INSTANCE.reportEvent(new PickedHitchhiker());
 	}
 
@@ -118,6 +115,6 @@ public class MainActivity extends FragmentActivity implements EventListener{
 
 	@Override
 	public void onEvent(Event event){
-		
+
 	}
 }//end MainActivity
