@@ -32,10 +32,10 @@ class DriverSetRoute extends Sequence implements EventListener{
 		}
 	}
 
-	public abstract Sequence getNextSequence() {
+	public Sequence getNextSequence() {
 		return nextSequence;
 	};
-    public abstract boolean isDone() {
+    public boolean isDone() {
     	return isDone;
     };
 
