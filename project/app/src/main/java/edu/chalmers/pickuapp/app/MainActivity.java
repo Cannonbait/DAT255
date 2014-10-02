@@ -23,7 +23,7 @@ public class MainActivity extends FragmentActivity implements EventListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mode);
 
-        new Thread(new Model()).start();
+        Model model = new Model();
 		/*
         new AsyncTask(){
 
