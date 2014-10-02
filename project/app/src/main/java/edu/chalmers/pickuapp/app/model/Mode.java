@@ -10,12 +10,15 @@ public class Mode extends Sequence {
 
     private boolean pickedDriver;
     private boolean pickedHitchhiker;
+    private Thread myThread;
 
     public Mode(){
         super();
     }
     @Override
     public void onRegister() {
+        Log.i("PickUApp", "OnregisterMode");
+        myThread = Thread.currentThread();
         pickedDriver = false;
         pickedHitchhiker = false;
         EventBus.INSTANCE.reportEvent(new DrawMode());
@@ -23,6 +26,11 @@ public class Mode extends Sequence {
 
     @Override
     public Sequence execute() {
+        try {
+            myThread.wait();
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
         if(pickedDriver){
             Log.i("PickUApp", "PickedDriverMode");
             return getSequence(DriverSetRoute.class);
@@ -39,11 +47,12 @@ public class Mode extends Sequence {
 
     @Override
     public void onEvent(Event e) {
-       String src = e.getClass().getName();
 
-       if (src.equals("PickedDriver")){
+       if (e instanceof PickedDriver){
+           myThread.notify();
             pickedDriver = true;
-        } else if (src.equals("PickedHitchhiker")){
+        } else if (e instanceof PickedHitchhiker){
+           myThread.notify();
             pickedHitchhiker = true;
         }
     }

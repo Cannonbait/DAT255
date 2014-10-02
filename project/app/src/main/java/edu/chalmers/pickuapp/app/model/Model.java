@@ -13,7 +13,7 @@ public class Model implements Runnable{
 
 		//Allocate and add every sequence to the sequences hashmap here
 		sequences = new HashMap<Class<? extends Sequence>, Sequence>();
-		sequences.put(Sequence.class, new MockSequence());
+		sequences.put(Mode.class, new Mode());
 
 		Sequence.setSequencesSource(sequences);
 	}
