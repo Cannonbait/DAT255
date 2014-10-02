@@ -7,43 +7,19 @@ import edu.chalmers.pickuapp.app.events.*;
  */
 public class Mode extends Sequence {
 
-    private boolean pickedDriver;
-    private boolean pickedHitchhiker;
+    private Sequence nextSequence = null;
 
     public Mode(){
         super();
     }
-    @Override
-    public void onRegister() {
-        pickedDriver = false;
-        pickedHitchhiker = false;
-        EventBus.INSTANCE.reportEvent(new DrawMode());
-    }
 
     @Override
-    public Sequence execute() {
+    public void processEvent(Event event) {
         
-        if(pickedDriver){
-            return getSequence(DriverSetRoute.class);
-        } else if(pickedHitchhiker){
-            return getSequence(HitchhikerSetRoute.class);
-        }
-        return null;
-    }
-
-    @Override
-    public void onUnregister() {
-
-    }
-
-    @Override
-    public void onEvent(Event e) {
-       String src = e.getClass().getName();
-
-       if (src.equals("PickedDriver")){
-            pickedDriver = true;
-        } else if (src.equals("PickedHitchhiker")){
-            pickedHitchhiker = true;
+        if(event instanceof PickedDriverEvent){
+            nextSequence = getSequence(DriverSetRoute.class);
+        } else if(event instanceof PickedHitchhikerEvent){
+            nextSequence = getSequence(HitchhikerSetRoute.class);
         }
     }
 }
