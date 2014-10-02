@@ -18,12 +18,13 @@ import java.util.Calendar;
 
 public class MainActivity extends FragmentActivity implements EventListener{
 
+    private Model model = new Model();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mode);
 
-        Model model = new Model();
 		/*
         new AsyncTask(){
 

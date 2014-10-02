@@ -1,5 +1,6 @@
 package edu.chalmers.pickuapp.app.model;
 
+import android.util.*;
 import edu.chalmers.pickuapp.app.model.MockSequence;
 import edu.chalmers.pickuapp.app.model.Sequence;
 import edu.chalmers.pickuapp.app.events.*;
@@ -15,23 +16,25 @@ public class Model implements EventListener {
 
 		//Allocate and add every sequence to the sequences hashmap here
 		sequences = new HashMap<Class<? extends Sequence>, Sequence>();
-		sequences.put(Sequence.class, new Mode());
+		sequences.put(Mode.class, new Mode());
 
 		Sequence.setSequencesSource(sequences);
 
 		activeSequence = sequences.get(Mode.class);
 
 
-		EventBus.INSTANCE.registerListener(this);
-	}
+
+        EventBus.INSTANCE.registerListener(this);
+    }
 
 	@Override
 	public void onEvent(Event event) {
-		activeSequence.processEvent(event);
+        activeSequence.processEvent(event);
 
 		if(activeSequence.isDone()) {
 			activeSequence = activeSequence.getNextSequence();
-			EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.class));
+            
+			EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.getClass()));
 		}
 	}
 
