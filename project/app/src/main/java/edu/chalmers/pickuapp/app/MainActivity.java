@@ -3,6 +3,7 @@ package edu.chalmers.pickuapp.app;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
+import android.content.*;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.format.DateFormat;
@@ -10,7 +11,7 @@ import android.util.*;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TimePicker;
+import android.widget.*;
 import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.events.EventListener;
 import edu.chalmers.pickuapp.app.model.*;
@@ -31,6 +32,7 @@ public class MainActivity extends FragmentActivity implements EventListener{
 
         setupSequenceViewsresources();
 
+        EventBus.INSTANCE.registerListener(this);
 		/*
         new AsyncTask(){
 
@@ -76,11 +78,6 @@ public class MainActivity extends FragmentActivity implements EventListener{
 	}
 
 	public void pickedHitchhiker(View view) {
-        //THIS OPENS A TIMEPICKER WHEN YOU PRESS HITCHHIKER
-        //KOMMENTERA BORT OM DU VILL GÖRA ANNAT MED METODEN :)
-        DialogFragment newFragment = new TimePickerFragment();
-        newFragment.show(getFragmentManager(), "timePicker");
-
 		EventBus.INSTANCE.reportEvent(new PickedHitchhikerEvent());
 	}
 
@@ -93,9 +90,7 @@ public class MainActivity extends FragmentActivity implements EventListener{
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
@@ -103,33 +98,15 @@ public class MainActivity extends FragmentActivity implements EventListener{
         return super.onOptionsItemSelected(item);
     }
 
-
-    //Class to pick the date and time in setRoute
-    public static class TimePickerFragment extends DialogFragment
-            implements TimePickerDialog.OnTimeSetListener {
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current time as the default values for the picker
-            final Calendar c = Calendar.getInstance();
-            int hour = c.get(Calendar.HOUR_OF_DAY);
-            int minute = c.get(Calendar.MINUTE);
-
-            // Create a new instance of TimePickerDialog and return it
-            return new TimePickerDialog(getActivity(), this, hour, minute,
-                    DateFormat.is24HourFormat(getActivity()));
-        }
-
-        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            // Do something with the time chosen by the user
-        }
-    }
-
 	@Override
 	public void onEvent(Event event){
         if (event instanceof ChangeViewEvent) {
             int resourceID = sequenceViewresources.get(((ChangeViewEvent)event).sequenceClass);
-            setContentView(resourceID);
+            Intent intent = new Intent(this, GenericActivity.class);
+            intent.putExtra("layoutID", resourceID);
+            startActivity(intent);
+            finish();
+
         }
 	}
 
