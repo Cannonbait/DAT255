@@ -1,6 +1,7 @@
 package edu.chalmers.pickuapp.app.model;
 
 import edu.chalmers.pickuapp.app.events.*;
+import android.util.*;
 
 /**
  * Created by elvirajonsson on 2014-09-29.
@@ -22,8 +23,8 @@ public class Mode extends Sequence {
 
     @Override
     public Sequence execute() {
-        
         if(pickedDriver){
+            Log.i("PickUApp", "PickedDriverMode");
             return getSequence(DriverSetRoute.class);
         } else if(pickedHitchhiker){
             return getSequence(HitchhikerSetRoute.class);
