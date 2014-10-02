@@ -4,7 +4,7 @@ package edu.chalmers.pickuapp.app.model;
 import java.util.HashMap;
 import edu.chalmers.pickuapp.app.events.*;
 
-abstract class Sequence {
+public abstract class Sequence {
 
 	private static HashMap<Class<? extends Sequence>, Sequence> sequences;
 
