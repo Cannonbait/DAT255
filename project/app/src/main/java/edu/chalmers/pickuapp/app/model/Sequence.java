@@ -4,7 +4,7 @@ package edu.chalmers.pickuapp.app.model;
 import java.util.HashMap;
 import edu.chalmers.pickuapp.app.events.*;
 
-abstract class Sequence implements EventListener{
+abstract class Sequence {
 
 	private static HashMap<Class<? extends Sequence>, Sequence> sequences;
 
@@ -12,29 +12,10 @@ abstract class Sequence implements EventListener{
 		
 	}
 
-	/**
-	 * Register to EventBus and call hook-method onRegister
-	 */
-	public void register() {
-        EventBus.INSTANCE.registerListener(this);
-        onRegister();
-    }
-    public void unregister(){
-        EventBus.INSTANCE.removeListener(this);
-        onUnregister();
-    }
-
-    /**
-     * hook-method called in register()
-     */
     public abstract void onRegister();
-	public abstract Sequence execute();
-
-	/**
-	 * hook-method called in unreguster()
-	 */
-    public abstract void onUnregister();
-
+	public abstract void execute();
+    public abstract Sequence getNextSequence();
+    public abstract boolean isDone();
 
     /**
      * Give uniform access to HashMap of sequences for all sequences
