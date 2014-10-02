@@ -60,7 +60,7 @@ public class MainActivity extends FragmentActivity implements EventListener{
     }
 
 	public void pickedDriver(View view){
-		EventBus.INSTANCE.reportEvent(new PickedDriver());
+		EventBus.INSTANCE.reportEvent(new PickedDriverEvent());
 	}
 
 	public void pickedHitchhiker(View view) {
@@ -69,7 +69,7 @@ public class MainActivity extends FragmentActivity implements EventListener{
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getFragmentManager(), "timePicker");
 
-		EventBus.INSTANCE.reportEvent(new PickedHitchhiker());
+		EventBus.INSTANCE.reportEvent(new PickedHitchhikerEvent());
 	}
 
     @Override
