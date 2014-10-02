@@ -2,35 +2,37 @@ package edu.chalmers.pickuapp.app.model;
 
 import edu.chalmers.pickuapp.app.model.MockSequence;
 import edu.chalmers.pickuapp.app.model.Sequence;
+import edu.chalmers.pickuapp.app.events.*;
 
 import java.util.HashMap;
 
-public class Model implements Runnable{
+public class Model implements EventListener {
 
 	private HashMap<Class<? extends Sequence>, Sequence> sequences;
+	private Sequence activeSequence;
 
 	public Model() {
 
 		//Allocate and add every sequence to the sequences hashmap here
 		sequences = new HashMap<Class<? extends Sequence>, Sequence>();
-		sequences.put(Sequence.class, new MockSequence());
+		sequences.put(Sequence.class, new Mode());
 
 		Sequence.setSequencesSource(sequences);
+
+		activeSequence = sequences.get(Mode.class);
+
+
+		EventBus.INSTANCE.registerListener(this);
 	}
 
-	public void start() {
-		Sequence s = sequences.get(Mode.class);
+	@Override
+	public void onEvent(Event event) {
+		activeSequence.processEvent(event);
 
-		while(s != null) {
-			s.register();
-			Sequence temp = s.execute();
-			s.unregister();
-			s = temp;
+		if(activeSequence.isDone()) {
+			activeSequence = activeSequence.getNextSequence();
+			EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.class));
 		}
 	}
 
-    @Override
-    public void run() {
-        start();
-    }
 }
