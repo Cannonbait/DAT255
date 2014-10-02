@@ -13,7 +13,7 @@ abstract class Sequence {
 	}
 
     public abstract void onRegister();
-	public abstract void execute();
+	public abstract void processEvent(Event event);
     public abstract Sequence getNextSequence();
     public abstract boolean isDone();
 
