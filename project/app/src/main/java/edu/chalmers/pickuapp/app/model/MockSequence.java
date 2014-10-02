@@ -13,10 +13,10 @@ class MockSequence extends Sequence {
 	@Override
 	public void processEvent(Event e) {	}
 
-	public abstract Sequence getNextSequence() {
+	public  Sequence getNextSequence() {
 		return null;
 	}
-    public abstract boolean isDone() {
+    public boolean isDone() {
     	return true;
     }
 
