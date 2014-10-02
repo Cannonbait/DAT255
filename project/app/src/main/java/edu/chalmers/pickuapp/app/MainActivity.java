@@ -6,24 +6,30 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.format.DateFormat;
-import android.util.Log;
+import android.util.*;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TimePicker;
 import edu.chalmers.pickuapp.app.events.*;
+import edu.chalmers.pickuapp.app.events.EventListener;
 import edu.chalmers.pickuapp.app.model.*;
-import java.util.Calendar;
+
+import java.util.*;
 
 
 public class MainActivity extends FragmentActivity implements EventListener{
 
     private Model model = new Model();
 
+    Map<Class<? extends Sequence>, Integer> sequenceViewresources = new HashMap<Class<? extends Sequence>, Integer>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mode);
+
+        setupSequenceViewsresources();
 
 		/*
         new AsyncTask(){
@@ -60,7 +66,12 @@ public class MainActivity extends FragmentActivity implements EventListener{
 
     }
 
-	public void pickedDriver(View view){
+    private void setupSequenceViewsresources() {
+        sequenceViewresources.put(Mode.class, R.layout.activity_mode);
+        sequenceViewresources.put(HitchhikerSetRoute.class, R.layout.hitchhiker_set_route);
+    }
+
+    public void pickedDriver(View view){
 		EventBus.INSTANCE.reportEvent(new PickedDriverEvent());
 	}
 
@@ -116,6 +127,11 @@ public class MainActivity extends FragmentActivity implements EventListener{
 
 	@Override
 	public void onEvent(Event event){
-
+        if (event instanceof ChangeViewEvent) {
+            int resourceID = sequenceViewresources.get(((ChangeViewEvent)event).sequenceClass);
+            setContentView(resourceID);
+        }
 	}
+
+
 }//end MainActivity

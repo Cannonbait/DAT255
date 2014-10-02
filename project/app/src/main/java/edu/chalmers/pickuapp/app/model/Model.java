@@ -17,12 +17,12 @@ public class Model implements EventListener {
 		//Allocate and add every sequence to the sequences hashmap here
 		sequences = new HashMap<Class<? extends Sequence>, Sequence>();
 		sequences.put(Mode.class, new Mode());
+        sequences.put(HitchhikerSetRoute.class, new HitchhikerSetRoute());
+        sequences.put(DriverSetRoute.class, new DriverSetRoute());
 
 		Sequence.setSequencesSource(sequences);
 
 		activeSequence = sequences.get(Mode.class);
-
-
 
         EventBus.INSTANCE.registerListener(this);
     }
@@ -32,8 +32,8 @@ public class Model implements EventListener {
         activeSequence.processEvent(event);
 
 		if(activeSequence.isDone()) {
-			activeSequence = activeSequence.getNextSequence();
-            
+            activeSequence = activeSequence.getNextSequence();
+
 			EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.getClass()));
 		}
 	}
