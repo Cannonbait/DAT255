@@ -33,7 +33,7 @@
             android:value="AIzaSyDy_aD05JDk1UQB_O50Vuh_Jd-vc07-QVI" />
 
         <activity
-            android:name="edu.chalmers.pickuapp.app.HitchhikerSetRoute"
+            android:name="edu.chalmers.pickuapp.app.model.HitchhikerSetRoute"
             android:label="@string/title_activity_hitchhiker_set_route" >
         </activity>
     </application>
