@@ -1,11 +1,9 @@
 package edu.chalmers.pickuapp.app.model;
 
 import edu.chalmers.pickuapp.app.events.*;
-import java.lang.*;
 
 class DriverSetRoute extends Sequence {
 
-	private Thread myThread;
 	Sequence nextSequence = null;
 	boolean isDone = false;
 
