@@ -33,10 +33,11 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     // Kuxe: You probably must install google-play-services and google repository from Android SDK manager in order to get google-maps to work
-    compile 'com.google.android.gms:play-services:5.0.+'
     // You must install or update the Support Repository through the SDK manager to use this dependency.
+    // You must install or update the Google Repository through the SDK manager to use this dependency.
+    // You must install or update the Google Repository through the SDK manager to use this dependency.
+    compile 'com.google.android.gms:play-services:5.0.+'
     compile 'com.android.support:appcompat-v7:19.+'
-    compile 'org.slf4j:slf4j-android:1.7.7'
 }
 task downloadSDP(type: MyDownload) {
     sourceUrl = 'http://developer.lindholmen.se/repo/artifacts/SDP/1.0/SDP-1.0.jar'
@@ -65,6 +66,7 @@ class MyDownload extends DefaultTask {
         ant.get(src: sourceUrl, dest: target)
     }
 }
+
 task libsClean(type: Delete) {
     delete 'app/libs'
 }
