@@ -11,25 +11,14 @@ public class HitchhikerSetRoute extends Sequence {
         super();
     }
 
-    public void onRegister() {
-
+    public void processEvent(Event event) {
+        
     }
-    public Sequence execute() {
-        //Sleep until ok-button
-        //Then return appropiate sequence, for now return MockSequence
-        return getSequence(MockSequence.class);
-    }
-    public void onUnregister() {
-
-    }
-
-    public void onEvent(Event e) {
-
-        //ON NEW MAP LOCATION SELECTED-event
-        //Save google-maps location data to variable
-
-        //ON OK BUTTON
-        //unsleep main thread, which will resume execute()
-    }
+    public Sequence getNextSequence() {
+        return null;
+    };
+    public boolean isDone() {
+        return false;
+    };
 
 }

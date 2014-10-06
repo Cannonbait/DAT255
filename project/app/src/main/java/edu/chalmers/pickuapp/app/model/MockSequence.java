@@ -11,27 +11,13 @@ class MockSequence extends Sequence {
 	}
 
 	@Override
-	public void onRegister() {
-		//Register to eventbuss
-	}
+	public void processEvent(Event e) {	}
 
-	@Override
-	public Sequence execute() {
-
-		//Wait for input from eventbuss and then process the input
-		Log.d("PickUApp", "MockSequence.exeute()!!");
+	public  Sequence getNextSequence() {
 		return null;
-
 	}
-
-	@Override
-	public void onUnregister() {
-		//Unregister from eventbuss
-	}
-
-	@Override
-	public void onEvent(Event e) {
-
-	}
+    public boolean isDone() {
+    	return true;
+    }
 
 }

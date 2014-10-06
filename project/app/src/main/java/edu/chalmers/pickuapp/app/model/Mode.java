@@ -8,52 +8,29 @@ import android.util.*;
  */
 public class Mode extends Sequence {
 
-    private boolean pickedDriver;
-    private boolean pickedHitchhiker;
-    private Thread myThread;
+    private Sequence nextSequence = null;
+    private boolean isDone = false;
 
     public Mode(){
         super();
     }
-    @Override
-    public void onRegister() {
-        Log.i("PickUApp", "OnregisterMode");
-        myThread = Thread.currentThread();
-        pickedDriver = false;
-        pickedHitchhiker = false;
-        EventBus.INSTANCE.reportEvent(new DrawMode());
-    }
 
     @Override
-    public Sequence execute() {
-        try {
-            myThread.wait();
-        } catch (InterruptedException e){
-            e.printStackTrace();
-        }
-        if(pickedDriver){
-            Log.i("PickUApp", "PickedDriverMode");
-            return getSequence(DriverSetRoute.class);
-        } else if(pickedHitchhiker){
-            return getSequence(HitchhikerSetRoute.class);
-        }
-        return null;
-    }
-
-    @Override
-    public void onUnregister() {
-
-    }
-
-    @Override
-    public void onEvent(Event e) {
-
-       if (e instanceof PickedDriver){
-           myThread.notify();
-            pickedDriver = true;
-        } else if (e instanceof PickedHitchhiker){
-           myThread.notify();
-            pickedHitchhiker = true;
+    public void processEvent(Event event) {
+        
+        if(event instanceof PickedDriverEvent){
+            nextSequence = getSequence(DriverSetRoute.class);
+            isDone = true;
+        } else if(event instanceof PickedHitchhikerEvent){
+            nextSequence = getSequence(HitchhikerSetRoute.class);
+            isDone = true;
         }
     }
+
+    public Sequence getNextSequence() {
+        return nextSequence;
+    };
+    public boolean isDone() {
+        return isDone;
+    };
 }

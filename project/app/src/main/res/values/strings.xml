@@ -4,9 +4,9 @@
     <string name="app_name">PickUApp</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
     <string name="welcome">Welcome to PickUApp!</string>
     <string name="choose_driver">Driver</string>
     <string name="choose_hitchhiker">Hitchhiker</string>
+    <string name="title_activity_hitchhiker_set_route">HitchhikerSetRoute</string>
 
 </resources>
