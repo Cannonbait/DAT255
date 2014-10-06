@@ -21,14 +21,19 @@ import java.util.*;
 
 public class MainActivity extends FragmentActivity implements EventListener{
 
-    private Model model = new Model();
+    private static final String RESOURCE_ID_KEY = "layoutID";
+
+    private static Model model = new Model();
 
     Map<Class<? extends Sequence>, Integer> sequenceViewresources = new HashMap<Class<? extends Sequence>, Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mode);
+
+        Intent intent = getIntent();
+        int resourceID = intent.getIntExtra(RESOURCE_ID_KEY, R.layout.activity_mode);
+        setContentView(resourceID);
 
         setupSequenceViewsresources();
 
@@ -75,11 +80,23 @@ public class MainActivity extends FragmentActivity implements EventListener{
 
     public void pickedDriver(View view){
 		EventBus.INSTANCE.reportEvent(new PickedDriverEvent());
-	}
+    }
 
 	public void pickedHitchhiker(View view) {
 		EventBus.INSTANCE.reportEvent(new PickedHitchhikerEvent());
 	}
+
+    public void doneWithPicking(View view){
+        Log.i("PickUApp", "tjobalahop");
+        TimePicker timePicker = (TimePicker)findViewById(R.id.time_picker);
+        DatePicker datePicker = (DatePicker)findViewById(R.id.date_picker);
+        Log.i("PickUApp", String.format("%d:%d %d/%d-%d",
+                timePicker.getCurrentHour(),
+                timePicker.getCurrentMinute(),
+                datePicker.getDayOfMonth(),
+                datePicker.getMonth(),
+                datePicker.getYear()) );
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -102,8 +119,8 @@ public class MainActivity extends FragmentActivity implements EventListener{
 	public void onEvent(Event event){
         if (event instanceof ChangeViewEvent) {
             int resourceID = sequenceViewresources.get(((ChangeViewEvent)event).sequenceClass);
-            Intent intent = new Intent(this, GenericActivity.class);
-            intent.putExtra("layoutID", resourceID);
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra(RESOURCE_ID_KEY, resourceID);
             startActivity(intent);
             finish();
 
