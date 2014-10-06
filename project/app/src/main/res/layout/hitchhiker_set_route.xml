@@ -6,24 +6,163 @@
               android:layout_height="match_parent">
 
     <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:text="Welcome to hitchhiker set route view" />
+            android:gravity="center"
+            android:textSize="22sp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Hitchhiker\nSet Route" />
 
-    <TimePicker android:id="@+id/time_picker"
-                android:layout_weight="2"
-                android:layout_width="match_parent"
-                android:layout_height="0dp" />
 
-    <DatePicker android:id="@+id/date_picker"
-                android:layout_weight="4"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"/>
+    <LinearLayout
+            android:layout_gravity="top"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+        <TextView
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Date:" />
+
+        <EditText
+                android:gravity="right"
+                android:id="@+id/set_route_day"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        <TextView
+                android:textSize="22sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="/" />
+
+        <EditText
+                android:id="@+id/set_route_month"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        <TextView
+                android:textSize="22sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="-" />
+        <EditText
+                android:id="@+id/set_route_year"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+        <ImageButton
+                android:layout_gravity="right"
+                android:onClick="setRouteEditDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/ic_menu_edit" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_gravity="top"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+        <TextView
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Time:" />
+
+        <EditText
+                android:gravity="right"
+                android:id="@+id/set_route_hour"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+        <TextView
+                android:textSize="22sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=":" />
+
+        <EditText
+                android:id="@+id/set_route_minute"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+        <ImageButton
+                android:layout_gravity="right"
+                android:onClick="setRouteEditTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/ic_menu_edit" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+        <TextView
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="From:" />
+
+        <EditText
+                android:id="@+id/set_route_from"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3" />
+
+        <ImageButton
+                android:layout_gravity="right"
+                android:onClick="setRouteEditFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/ic_menu_edit" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+        <TextView
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="To:" />
+
+        <EditText
+                android:id="@+id/set_route_to"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3" />
+
+        <ImageButton
+                android:layout_gravity="right"
+                android:onClick="setRouteEditTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/ic_menu_edit" />
+
+    </LinearLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
     <Button
+            android:layout_gravity="bottom"
             android:text="Done!"
-            android:layout_weight="1"
             android:onClick="doneWithPicking"
             android:layout_width="match_parent"
-            android:layout_height="0dp"/>
+            android:layout_height="48dp"/>
 </LinearLayout>

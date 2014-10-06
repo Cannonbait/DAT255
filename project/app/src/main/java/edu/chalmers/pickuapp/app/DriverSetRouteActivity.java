@@ -15,17 +15,7 @@ public class DriverSetRouteActivity extends Activity {
     }
 
     public void doneWithPicking(View view) {
-        DatePicker datePicker = (DatePicker)findViewById(R.id.date_picker );
-        TimePicker timePicker = (TimePicker)findViewById(R.id.time_picker);
-
-        System.out.println(
-                String.format("%d:%d %d/%d-%d",
-                        timePicker.getCurrentHour(),
-                        timePicker.getCurrentMinute(),
-                        datePicker.getDayOfMonth(),
-                        datePicker.getMonth(),
-                        datePicker.getYear() )
-        );
+        //To be implemented
     }
 
     @Override
