@@ -38,38 +38,6 @@ public class MainActivity extends FragmentActivity implements EventListener{
         setupSequenceViewsresources();
 
         EventBus.INSTANCE.registerListener(this);
-		/*
-        new AsyncTask(){
-
-            @Override
-            protected Object doInBackground(Object[] objects) {
-                AutomotiveFactory.createAutomotiveManagerInstance(new AutomotiveCertificate(new byte[0]),
-
-                        new AutomotiveListener() {
-                            @Override
-                            public void receive(AutomotiveSignal automotiveSignal) {
-                                Log.i("PickUApp", "Signal recieved");
-                            }
-
-                            @Override
-                            public void timeout(int i) {
-
-                            }
-
-                            @Override
-                            public void notAllowed(int i) {
-
-                            }
-                        }, new DriverDistractionListener() {
-                    @Override
-                    public void levelChanged(DriverDistractionLevel driverDistractionLevel) {
-                        Log.i("PickUApp", "Level changed");
-                    }
-                }).register(AutomotiveSignalId.FMS_CURRENT_GEAR);
-                return null;
-            }
-        }.execute();
-        */
 
     }
 
