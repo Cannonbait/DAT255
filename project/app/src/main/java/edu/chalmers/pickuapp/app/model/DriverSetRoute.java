@@ -13,17 +13,17 @@ class DriverSetRoute extends Sequence {
 
 	public void processEvent(Event event) {
 		
-		//ON NEW MAP LOCATION SELECTED-event
-		//Save google-maps location data to variable
-		
 		//ON OK BUTTON
 		//unsleep main thread, which will resume execute()
 		if(event instanceof DriverPickedRouteEvent) {
-			RouteData routeData = new RouteData(((DriverPickedRouteEvent)event).routeData);
-
-			//Set nextSequence to be matchmaker
-			//Give routeData to nextSequence (matchmaker)
+			RouteData routeData = new RouteData(((DriverPickedRouteEvent)event).routeData);		
 			
+			//Give routeData to nextSequence (matchmaker)
+			DriverMatchmaker driverMatchmaker = (DriverMatchmaker) getSequence(DriverMatchmaker.class);
+			driverMatchmaker.insert(routeData);
+			
+			//Set nextSequence to be matchmaker
+			nextSequence = driverMatchmaker;
 
 			//This sequence is done now, nothing more to do here
 			isDone = true;
