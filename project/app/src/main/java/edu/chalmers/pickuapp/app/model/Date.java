@@ -14,12 +14,21 @@ public class Date {
 	public int minute;
 	public int second;
 
-	Date(int year, int month, int day, int hour, int minute, int second) {
+	public Date(int year, int month, int day, int hour, int minute, int second) {
 		this.year = year;
 		this.month = month;
 		this.day = day;
 		this.hour = hour;
 		this.minute = minute;
 		this.second = second;
+	}
+
+	public Date(Date date) {
+		year = date.year;
+		month = date.month;
+		day = date.day;
+		hour = date.hour;
+		minute = date.minute;
+		second = date.second;
 	}
 }
