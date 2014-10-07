@@ -16,7 +16,7 @@ public class DriverSetRoute extends Sequence {
 		//ON OK BUTTON
 		//unsleep main thread, which will resume execute()
 		if(event instanceof DriverPickedRouteEvent) {
-			RouteData routeData = new RouteData(((DriverPickedRouteEvent)event).routeData);		
+			RouteData routeData = new RouteData(((DriverPickedRouteEvent)event).getRouteData());		
 			
 			//Give routeData to nextSequence (matchmaker)
 			DriverMatchmaker driverMatchmaker = (DriverMatchmaker) getSequence(DriverMatchmaker.class);
