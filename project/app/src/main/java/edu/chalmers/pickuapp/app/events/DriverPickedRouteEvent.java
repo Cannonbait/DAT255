@@ -7,7 +7,7 @@ import edu.chalmers.pickuapp.app.model.*;
  */
 public class DriverPickedRouteEvent implements Event {
 
-	public RouteData routeData;
+	private RouteData routeData;
 
 	/**
 	 * @param routeData what route did the driver select?
@@ -15,5 +15,9 @@ public class DriverPickedRouteEvent implements Event {
 	public DriverPickedRouteEvent(RouteData routeData) {
 		this.routeData = routeData;
 	}
+
+    public RouteData getRouteData(){
+        return routeData;
+    }
 
 }

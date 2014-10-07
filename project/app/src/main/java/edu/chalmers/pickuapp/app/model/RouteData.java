@@ -26,7 +26,7 @@ public class RouteData {
 		return new Coordinate(source);
 	}
 
-	public Coordinate getDestionation() {
+	public Coordinate getDestination() {
 		return new Coordinate(destination);
 	}
 
