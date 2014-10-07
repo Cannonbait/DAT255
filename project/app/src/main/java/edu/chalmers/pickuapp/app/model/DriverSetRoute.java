@@ -2,10 +2,10 @@ package edu.chalmers.pickuapp.app.model;
 
 import edu.chalmers.pickuapp.app.events.*;
 
-class DriverSetRoute extends Sequence {
+public class DriverSetRoute extends Sequence {
 
-	Sequence nextSequence = null;
-	boolean isDone = false;
+	private Sequence nextSequence = null;
+	private boolean isDone = false;
 
 	public DriverSetRoute() {
 		super();
