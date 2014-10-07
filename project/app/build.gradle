@@ -28,6 +28,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+    android {
+    lintOptions {
+        disable 'ValidFragment'
+    }
+}
 }
 
 dependencies {
