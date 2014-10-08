@@ -39,6 +39,10 @@ public class MainActivity extends FragmentActivity implements EventListener{
 		EventBus.INSTANCE.reportEvent(new PickedHitchhikerEvent());
 	}
 
+    public void driverAbortMatchmaking(View view) {
+        EventBus.INSTANCE.reportEvent(new DriverAbortMatchmakingEvent());
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

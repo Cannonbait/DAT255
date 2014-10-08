@@ -37,6 +37,10 @@
             android:name="edu.chalmers.pickuapp.app.DriverSetRouteActivity"
             android:label="@string/title_activity_driver_set_route" >
         </activity>
+        <activity
+            android:name="edu.chalmers.pickuapp.app.DriverMatchmakerActivity"
+            android:label="@string/title_activity_driver_matchmaker" >
+        </activity>
     </application>
 
     <uses-feature
