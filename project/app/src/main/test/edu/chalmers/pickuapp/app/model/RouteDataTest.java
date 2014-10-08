@@ -20,6 +20,15 @@ public class RouteDataTest extends Assert {
        routeData = new RouteData(source, destination);
     }
 
+    /**
+     * Test RouteData(RouteData)-constructor
+     */
+    @Test
+    public void RouteDataRouteData() {
+        RouteData copyRouteData = new RouteData(routeData);
+        assertEquals(copyRouteData, routeData);
+    }
+
     @Test
     public void testEquals() {
         RouteData nullRouteData = null;
