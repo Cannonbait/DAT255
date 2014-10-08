@@ -1,25 +1,11 @@
 package edu.chalmers.pickuapp.app;
 
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.TimePickerDialog;
-import android.content.*;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.text.format.DateFormat;
-import android.util.*;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.*;
+import android.os.*;
+import android.view.*;
 import edu.chalmers.pickuapp.app.events.*;
-import edu.chalmers.pickuapp.app.events.EventListener;
-import edu.chalmers.pickuapp.app.model.*;
-
-import java.util.*;
 
 
-public class MainActivity extends ChildActivity {
+public class ChooseModeActivity extends ChildActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
