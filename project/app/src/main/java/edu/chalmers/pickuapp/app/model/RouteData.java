@@ -35,6 +35,9 @@ public class RouteData {
 		if(rhs == null) {
 			return false;
 		}
+		if(rhs == this) {
+			return true;
+		}
 		if(this.getClass() != rhs.getClass()) {
 			return false;
 		}
