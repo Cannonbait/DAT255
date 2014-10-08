@@ -13,8 +13,10 @@ public class DriverResponse extends Sequence {
 	}
     public Sequence getNextSequence() {
     	//TODO: implement
+    	return null;
     }
     public boolean isDone() {
     	//TODO: implement
+    	return false;
     }
 }
