@@ -53,4 +53,11 @@ public class DriverMatchmaker extends Sequence {
 		routeData = new RouteData(routeData);
 	}
 
+	/**
+	 * @return deep-copy of routeData
+	 */
+	public RouteData getRouteData() {
+		return new RouteData(routeData);
+	}
+
 }
