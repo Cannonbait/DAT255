@@ -53,7 +53,7 @@ public class DriverMatchmaker extends Sequence {
 	 * @param routeData The route that the driver will drive
 	 */
 	public void insert(RouteData routeData) {
-		routeData = new RouteData(routeData);
+		this.routeData = new RouteData(routeData);
 	}
 
 	/**
