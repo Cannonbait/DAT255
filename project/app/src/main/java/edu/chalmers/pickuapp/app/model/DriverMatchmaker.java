@@ -3,7 +3,10 @@ package edu.chalmers.pickuapp.app.model;
 import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.model.*;
 
-
+/**
+ * This class represents the "Matchmaking..."-screen.
+ * Whenever a driver is waiting for a match to be made by matchmaking-server, this sequence should be the active sequence
+ */
 public class DriverMatchmaker extends Sequence {
 
 	private RouteData routeData;
@@ -22,7 +25,7 @@ public class DriverMatchmaker extends Sequence {
 		if(event instanceof DriverMatchFoundEvent) {
 
 			isDone = true;
-			nextSequence = getSequence(MockSequence.class);
+			nextSequence = getSequence(DriverResponse.class);
 		}
 
 		//If driver aborted matchmaking, return to DriverSetRoute
