@@ -19,16 +19,13 @@ import edu.chalmers.pickuapp.app.model.*;
 import java.util.*;
 
 
-public class MainActivity extends FragmentActivity implements EventListener{
-
-    private static Model model = new Model();
+public class MainActivity extends ChildActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mode);
 
-        EventBus.INSTANCE.registerListener(this);
     }
 
     public void pickedDriver(View view){
@@ -59,17 +56,4 @@ public class MainActivity extends FragmentActivity implements EventListener{
         }
         return super.onOptionsItemSelected(item);
     }
-
-	@Override
-	public void onEvent(Event event){
-        if (event instanceof ChangeViewEvent) {
-            ChangeViewEvent e = (ChangeViewEvent)event;
-            Class clazz = e.sequenceClass == HitchhikerSetRoute.class ? HitchhikerSetRouteActivity.class : DriverSetRouteActivity.class ;
-            Intent intent = new Intent(this, clazz);
-            startActivity(intent);
-            finish();
-        }
-	}
-
-
 }//end MainActivity

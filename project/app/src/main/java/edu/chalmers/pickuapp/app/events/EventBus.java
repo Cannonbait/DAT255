@@ -1,7 +1,8 @@
 package edu.chalmers.pickuapp.app.events;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.util.*;
+
+import java.util.*;
 
 /**
  * EventBuss handels connections between Listeners and occuring events
@@ -9,7 +10,7 @@ import java.util.List;
 public enum EventBus {
     INSTANCE;
 
-    private List<EventListener> listeners = new ArrayList<EventListener>();
+    private Set<EventListener> listeners = new HashSet<EventListener>();
 
     public void registerListener(EventListener listener) {
         listeners.add(listener);

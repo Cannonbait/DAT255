@@ -11,5 +11,6 @@
     <string name="title_activity_hitchhiker_set_route">HitchhikerSetRoute</string>
     <string name="title_activity_driver_set_route">DriverSetRouteActivity</string>
     <string name="title_activity_driver_matchmaker">DriverMatchmakerActivity</string>
+    <string name="title_activity_master">MasterActivity</string>
 
 </resources>

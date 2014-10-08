@@ -12,7 +12,7 @@ import edu.chalmers.pickuapp.app.model.*;
 import java.util.*;
 
 
-public class DriverMatchmakerActivity extends Activity {
+public class DriverMatchmakerActivity extends ChildActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

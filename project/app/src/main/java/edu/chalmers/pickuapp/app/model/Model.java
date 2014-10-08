@@ -27,12 +27,13 @@ public class Model implements EventListener {
 		activeSequence = sequences.get(Mode.class);
 
         EventBus.INSTANCE.registerListener(this);
+        EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.getClass()));
+
     }
 
 	@Override
 	public void onEvent(Event event) {
         activeSequence.processEvent(event);
-
 		if(activeSequence.isDone()) {
             activeSequence = activeSequence.getNextSequence();
 

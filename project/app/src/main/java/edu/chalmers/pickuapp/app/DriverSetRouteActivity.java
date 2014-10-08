@@ -6,7 +6,7 @@ import android.view.*;
 import android.widget.*;
 
 
-public class DriverSetRouteActivity extends Activity {
+public class DriverSetRouteActivity extends ChildActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

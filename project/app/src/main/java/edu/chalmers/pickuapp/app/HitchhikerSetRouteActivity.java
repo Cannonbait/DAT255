@@ -12,7 +12,7 @@ import edu.chalmers.pickuapp.app.model.*;
 import java.util.*;
 
 
-public class HitchhikerSetRouteActivity extends Activity {
+public class HitchhikerSetRouteActivity extends ChildActivity {
 
     private EditText minute;
     private EditText hour;
