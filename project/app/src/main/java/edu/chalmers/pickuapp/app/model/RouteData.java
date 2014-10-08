@@ -30,4 +30,16 @@ public class RouteData {
 		return new Coordinate(destination);
 	}
 
+	@Override
+	public boolean equals(Object rhs) {
+		if(rhs == null) {
+			return false;
+		}
+		if(this.getClass() != rhs.getClass()) {
+			return false;
+		}
+		RouteData temp = (RouteData)rhs;
+		return source.equals(temp.source) && destination.equals(temp.destination);
+	}
+
 }
