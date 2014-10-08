@@ -36,6 +36,9 @@ public class Coordinate {
 			//This is boring
 			return false;
 		}
+		if(rhs == this) {
+			return true;
+		}
 		if(!getClass().equals(rhs.getClass())) {
 			return false;
 		}
