@@ -30,4 +30,18 @@ public class Coordinate {
 		return longitude;
 	}
 
+	@Override
+	public boolean equals(Object rhs) {
+		if(rhs == null) {
+			//This is boring
+			return false;
+		}
+		if(!getClass().equals(rhs.getClass())) {
+			return false;
+		}
+		//equals() sucks
+		Coordinate temp = (Coordinate)rhs;
+		return latitude == temp.latitude && longitude == temp.longitude;
+	}
+
 }
