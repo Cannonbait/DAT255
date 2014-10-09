@@ -15,7 +15,6 @@ public abstract class Sequence {
 
 	public abstract void processEvent(Event event);
     public abstract Sequence getNextSequence();
-//    public abstract boolean isDone();
 
     /**
      * Give uniform access to HashMap of sequences for all sequences
@@ -33,6 +32,9 @@ public abstract class Sequence {
     	sequences = sequencesSource;
     }
 
+    /*
+     * Should run at the start of each sequence
+     */
     public void onStart() {
         isDone = false;
     }
