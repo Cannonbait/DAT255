@@ -8,6 +8,7 @@ import android.view.*;
 import android.widget.*;
 import com.google.android.gms.maps.*;
 import edu.chalmers.pickuapp.app.model.*;
+import edu.chalmers.pickuapp.app.events.*;
 
 import java.util.*;
 
@@ -20,6 +21,10 @@ public class DriverMatchmakerActivity extends ChildActivity {
         setContentView(R.layout.driver_matchmaker);
     }
 
+
+    public void driverAbortMatchmaking(View view) {
+        EventBus.INSTANCE.reportEvent(new DriverAbortMatchmakingEvent());
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
