@@ -16,9 +16,9 @@ import java.util.*;
 public class MasterActivity extends Activity implements EventListener {
 
     private Model model;
-    private final Map<Class<? extends Sequence>, Class<? extends Activity>> availableActivities = new HashMap<Class<? extends Sequence>, Class<? extends Activity>>();
+    private final Map<Class<? extends Sequence>, Class<? extends ChildActivity>> availableActivities = new HashMap<Class<? extends Sequence>, Class<? extends ChildActivity>>();
 
-    private static Activity currentRunningChild = null;
+    private static ChildActivity currentRunningChild = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class MasterActivity extends Activity implements EventListener {
         availableActivities.put(DriverMatchmaker.class, DriverMatchmakerActivity.class);
     }
 
-    public static void setCurrentRunningChild(Activity childActivity) {
+    public static void setCurrentRunningChild(ChildActivity childActivity) {
         if (currentRunningChild != null) {
             currentRunningChild.finish();
         }
@@ -60,6 +60,8 @@ public class MasterActivity extends Activity implements EventListener {
             startActivity(i);
 
             Log.i("PickUApp", "Good?");
+        } else {
+            currentRunningChild.processEvent(e);
         }
     }
 }
