@@ -48,7 +48,9 @@ public class EventBusTest extends Assert {
 
         @Override
         public void onEvent(Event e) {
-            reportedBoolValue = ((TestBooleanDataEvent)e).boolValue;
+            if (e instanceof TestBooleanDataEvent) {
+                reportedBoolValue = ((TestBooleanDataEvent)e).boolValue;
+            }
         }
 
         public boolean getCurrentBoolValue() {
