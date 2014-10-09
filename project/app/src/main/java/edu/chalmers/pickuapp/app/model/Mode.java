@@ -9,7 +9,6 @@ import android.util.*;
 public class Mode extends Sequence {
 
     private Sequence nextSequence = null;
-    private boolean isDone = false;
 
     public Mode(){
         super();
@@ -30,7 +29,5 @@ public class Mode extends Sequence {
     public Sequence getNextSequence() {
         return nextSequence;
     };
-    public boolean isDone() {
-        return isDone;
-    };
+
 }

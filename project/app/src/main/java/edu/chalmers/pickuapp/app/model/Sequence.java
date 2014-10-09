@@ -7,6 +7,7 @@ import edu.chalmers.pickuapp.app.events.*;
 public abstract class Sequence {
 
 	private static HashMap<Class<? extends Sequence>, Sequence> sequences;
+    protected boolean isDone;
 
 	public Sequence() {
 		
@@ -14,7 +15,7 @@ public abstract class Sequence {
 
 	public abstract void processEvent(Event event);
     public abstract Sequence getNextSequence();
-    public abstract boolean isDone();
+//    public abstract boolean isDone();
 
     /**
      * Give uniform access to HashMap of sequences for all sequences
@@ -30,6 +31,14 @@ public abstract class Sequence {
      */
     public static void setSequencesSource(HashMap<Class<? extends Sequence>, Sequence> sequencesSource) {
     	sequences = sequencesSource;
+    }
+
+    public void onStart() {
+        isDone = false;
+    }
+
+    public boolean isDone(){
+        return isDone;
     }
 
 }
