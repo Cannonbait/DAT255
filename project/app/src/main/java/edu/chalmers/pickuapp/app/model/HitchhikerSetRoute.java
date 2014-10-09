@@ -17,8 +17,5 @@ public class HitchhikerSetRoute extends Sequence {
     public Sequence getNextSequence() {
         return null;
     };
-    public boolean isDone() {
-        return false;
-    };
 
 }
