@@ -10,26 +10,51 @@ import static org.junit.Assert.*;
 public class ModeTest extends Assert {
 
     private Mode mode;
+    private Model model;
 
     @Before
     public void setUp() throws Exception {
-        mode = new Mode();
+        model = new Model();
+        mode = (Mode)Sequence.getSequence(Mode.class);
     }
 
     @Test
     public void testProcessEvent() throws Exception {
-       /* Event evt = new PickedDriverEvent();
-        mode.processEvent(evt);
-        assertTrue(mode.isDone());*/
+        //Nothing to test
     }
 
     @Test
-    public void testGetNextSequence() throws Exception {
-
+    public void testGetNextNull() throws Exception {
+        assertEquals(mode.getNextSequence(), null);
     }
 
     @Test
-    public void testIsDone() throws Exception {
+    public void testGetNextPickedDriver() throws Exception {
+        assertTrue(!mode.isDone());
+        mode.processEvent(new PickedDriverEvent());
+        assertEquals(mode.getNextSequence().getClass(), DriverSetRoute.class);
+    }
 
+    @Test
+    public void testGetNextHHSetRoute() throws Exception {
+        assertTrue(!mode.isDone());
+        mode.processEvent(new PickedHitchhikerEvent());
+        assertEquals(mode.getNextSequence().getClass(), HitchhikerSetRoute.class);
+    }
+
+    @Test
+    public void testIsDoneFalse() throws Exception {
+        assertTrue(!mode.isDone());
+    }
+    @Test
+    public void testIsDonePickedDriver() throws Exception {
+        mode.processEvent(new PickedDriverEvent());
+        assertTrue(mode.isDone());
+    }
+
+    @Test
+    public void testIsDonePickedHitchhiker() throws Exception {
+        mode.processEvent(new PickedHitchhikerEvent());
+        assertTrue(mode.isDone());
     }
 }
