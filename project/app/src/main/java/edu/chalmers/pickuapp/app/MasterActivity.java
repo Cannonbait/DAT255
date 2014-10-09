@@ -43,6 +43,7 @@ public class MasterActivity extends Activity implements EventListener {
         availableActivities.put(DriverSetRoute.class, DriverSetRouteActivity.class);
         availableActivities.put(HitchhikerSetRoute.class, HitchhikerSetRouteActivity.class);
         availableActivities.put(DriverMatchmaker.class, DriverMatchmakerActivity.class);
+		availableActivities.put(DriverResponse.class, DriverResponseActivity.class);
     }
 
     public static void setCurrentRunningChild(ChildActivity childActivity) {

@@ -4,9 +4,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import edu.chalmers.pickuapp.app.events.Event;
+import edu.chalmers.pickuapp.app.model.Date;
+import edu.chalmers.pickuapp.app.model.RouteData;
 
 
-public class DriverResponseActivity extends Activity {
+public class DriverResponseActivity extends ChildActivity{
+
+	private RouteData routeData;
+	private Date date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,4 +39,20 @@ public class DriverResponseActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+	public void showMeetingPointOnMap(){
+
+	}
+
+	public void yesSelected(){
+
+	}
+
+	public void noKeepSearchingSelected(){
+
+	}
+
+	public void noStopSearchingSelected(){
+
+	}
 }
