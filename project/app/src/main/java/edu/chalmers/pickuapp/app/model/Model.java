@@ -38,7 +38,9 @@ public class Model implements EventListener {
             activeSequence = activeSequence.getNextSequence();
 
 			EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.getClass()));
-		}
+            activeSequence.onStart();
+
+        }
 	}
 
 }
