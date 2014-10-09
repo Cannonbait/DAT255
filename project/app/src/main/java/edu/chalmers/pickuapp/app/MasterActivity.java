@@ -7,6 +7,7 @@ import android.util.*;
 import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.events.EventListener;
 import edu.chalmers.pickuapp.app.model.*;
+import edu.chalmers.pickuapp.app.server.MockServer;
 
 import java.util.*;
 
@@ -18,7 +19,10 @@ public class MasterActivity extends Activity implements EventListener {
     private Model model;
     private final Map<Class<? extends Sequence>, Class<? extends ChildActivity>> availableActivities = new HashMap<Class<? extends Sequence>, Class<? extends ChildActivity>>();
 
+
     private static ChildActivity currentRunningChild = null;
+    private MockServer mockServer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,10 @@ public class MasterActivity extends Activity implements EventListener {
         if (savedInstanceState == null) {
             model = new Model();
         }
+
+        //start mockserver
+        Log.i("hej","hallå");
+        mockServer = new MockServer();
     }
 
     @Override
