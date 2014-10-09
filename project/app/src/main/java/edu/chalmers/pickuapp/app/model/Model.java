@@ -21,6 +21,7 @@ public class Model implements EventListener {
         sequences.put(DriverSetRoute.class, new DriverSetRoute());
         sequences.put(DriverMatchmaker.class, new DriverMatchmaker());
         sequences.put(DriverResponse.class, new DriverResponse());
+        sequences.put(DisplayInfo.class, new DisplayInfo());
 
 		Sequence.setSequencesSource(sequences);
 
