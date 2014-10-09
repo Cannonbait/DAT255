@@ -15,8 +15,5 @@ public class DriverResponse extends Sequence {
     	//TODO: implement
     	return null;
     }
-    public boolean isDone() {
-    	//TODO: implement
-    	return false;
-    }
+
 }
