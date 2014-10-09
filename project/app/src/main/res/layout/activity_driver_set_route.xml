@@ -56,7 +56,7 @@
                 android:layout_below="@+id/driver_set_to_input"
                 android:layout_toLeftOf="@+id/driver_set_to_time"
                 android:layout_alignParentLeft="true"
-                android:onClick="showDatePicker"
+                android:onClick="setRouteEditDate"
             />
 
     <TextView   android:id="@+id/driver_set_to_time"
