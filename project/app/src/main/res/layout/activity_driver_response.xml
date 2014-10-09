@@ -23,17 +23,17 @@
         <TextView
                 android:id="@+id/time_and_date"
                 android:text="@string/time_and_date"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
                 android:paddingBottom="13dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="10dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="10dp"
                 />
         <Button
                 android:text="Place to meet"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="showMeetingPointOnMap"
@@ -42,21 +42,21 @@
 
     <Button
             android:text="Yes"
-            android:textSize="50dp"
+            android:textSize="50sp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="yesSelected"
             />
     <Button
             android:text="No, keep searching"
-            android:textSize="50dp"
+            android:textSize="50sp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="noKeepSearchingSelected"
             />
     <Button
             android:text="No, stop searching"
-            android:textSize="50dp"
+            android:textSize="50sp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="noStopSearchingSelected"
