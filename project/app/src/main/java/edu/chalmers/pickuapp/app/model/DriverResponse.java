@@ -19,13 +19,12 @@ public class DriverResponse extends Sequence{
 	@Override
 	public void onStart() {
 		super.onStart();
-		//TODO- what gonna happen?
 	}
 
 	@Override
 	public void processEvent(Event event) {
 		/* TODO- waiting for event
-		if(event instanceof EventFromMockServer){
+		if(event instanceof EventFormMatchMaking){
 			nextSequens = getSequence(WhateversIsNext.class);
 			RouteData routeData = new RouteData();
 			Date date = new Date(((WhateverIsNext)(event)).getRouteData()));

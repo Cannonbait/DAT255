@@ -12,11 +12,12 @@
     <string name="title_activity_driver_set_route">DriverSetRouteActivity</string>
     <string name="title_activity_driver_matchmaker">DriverMatchmakerActivity</string>
     <string name="title_activity_master">MasterActivity</string>
-
     <string name="driver_set_from_desc">From:</string>
     <string name="driver_set_from_hint">Chalmers tvärgata 4</string>
     <string name="driver_set_to_desc">To:</string>
     <string name="driver_set_to_hint">Kviberg 4</string>
     <string name="driver_set_done">Done</string>
+    <string name="time_and_date">00:00 01/01-14</string>
+    <string name="title_activity_driver_response">DriverResponseActivity</string>
 
 </resources>

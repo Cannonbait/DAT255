@@ -16,14 +16,14 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-                android:name="edu.chalmers.pickuapp.app.MasterActivity"
-                android:label="@string/title_activity_master" >
+            android:name=".MasterActivity"
+            android:label="@string/title_activity_master" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ChooseModeActivity"
             android:label="@string/app_name" >
@@ -34,16 +34,20 @@
             android:value="AIzaSyDy_aD05JDk1UQB_O50Vuh_Jd-vc07-QVI" />
 
         <activity
-            android:name="edu.chalmers.pickuapp.app.HitchhikerSetRouteActivity"
+            android:name=".HitchhikerSetRouteActivity"
             android:label="@string/title_activity_hitchhiker_set_route" >
         </activity>
         <activity
-            android:name="edu.chalmers.pickuapp.app.DriverSetRouteActivity"
+            android:name=".DriverSetRouteActivity"
             android:label="@string/title_activity_driver_set_route" >
         </activity>
         <activity
-            android:name="edu.chalmers.pickuapp.app.DriverMatchmakerActivity"
+            android:name=".DriverMatchmakerActivity"
             android:label="@string/title_activity_driver_matchmaker" >
+        </activity>
+        <activity
+            android:name=".DriverResponseActivity"
+            android:label="@string/title_activity_driver_response" >
         </activity>
     </application>
 
