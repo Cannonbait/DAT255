@@ -11,7 +11,7 @@ public class DriverMatchmaker extends Sequence {
 
 	private RouteData routeData;
 	private Sequence nextSequence;
-	private boolean isDone = false;
+
 
 
 	public DriverMatchmaker() {
@@ -42,10 +42,6 @@ public class DriverMatchmaker extends Sequence {
 		return nextSequence;
 	}
 
-	@Override
-	public boolean isDone() {
-		return isDone;
-	}
 
 	/**
 	 * Matchmaker must know what route the Driver wants to take in order to properly match

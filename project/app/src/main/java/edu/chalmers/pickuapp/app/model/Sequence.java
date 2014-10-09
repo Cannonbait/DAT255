@@ -36,6 +36,7 @@ public abstract class Sequence {
      * Should run at the start of each sequence
      */
     public void onStart() {
+        //Override this method if you want it to do anything else
         isDone = false;
     }
 
