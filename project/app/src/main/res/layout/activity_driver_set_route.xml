@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+
+    <TextView   android:id="@+id/driver_set_from_desc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/driver_set_from_desc"/>
+
+    <EditText   android:id="@+id/driver_set_from_input"
+                android:paddingBottom="16dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/driver_set_from_hint"
+                android:layout_below="@+id/driver_set_from_desc"/>
+
+    <TextView   android:id="@+id/driver_set_from_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DATUM"
+                android:layout_below="@+id/driver_set_from_input"
+                android:layout_toLeftOf="@+id/driver_set_from_time"
+                android:layout_alignParentLeft="true"
+                android:onClick="showDatePicker"/>
+
+    <TextView   android:id="@+id/driver_set_from_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TID"
+                android:layout_below="@+id/driver_set_from_input"
+                android:layout_alignParentRight="true"/>
+
+
+    <TextView   android:id="@+id/driver_set_to_desc"
+                android:paddingTop="32dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/driver_set_to_desc"
+                android:layout_below="@+id/driver_set_from_date"/>
+
+    <EditText   android:id="@+id/driver_set_to_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/driver_set_to_hint"
+                android:layout_below="@+id/driver_set_to_desc"/>
+
+    <TextView   android:id="@+id/driver_set_to_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DATUM"
+                android:layout_below="@+id/driver_set_to_input"
+                android:layout_toLeftOf="@+id/driver_set_to_time"
+                android:layout_alignParentLeft="true"
+                android:onClick="showDatePicker"
+            />
+
+    <TextView   android:id="@+id/driver_set_to_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TID"
+                android:layout_below="@+id/driver_set_to_input"
+                android:layout_alignParentRight="true"/>
+
+    <Button     android:id="@+id/driver_set_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/driver_set_done"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                />
+
+</RelativeLayout>
