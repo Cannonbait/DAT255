@@ -42,4 +42,4 @@ public class ChooseModeActivity extends ChildActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-}//end MainActivity
+}

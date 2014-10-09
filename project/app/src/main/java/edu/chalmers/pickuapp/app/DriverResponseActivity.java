@@ -55,4 +55,15 @@ public class DriverResponseActivity extends ChildActivity{
 	public void noStopSearchingSelected(){
 
 	}
+
+	@Override
+	public void processEvent(Event e) {
+		/*
+		if(e instanceof Whatever){
+			Whatever wtf= new Whatever(((Whatever)e));
+			routeData = wtf.getRouterData();
+			date = wtf.getDate();
+		}
+		*/
+	}
 }
