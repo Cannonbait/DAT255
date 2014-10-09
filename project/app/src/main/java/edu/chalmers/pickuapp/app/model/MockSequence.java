@@ -16,6 +16,8 @@ class MockSequence extends Sequence {
 	public  Sequence getNextSequence() {
 		return null;
 	}
+
+    @Override
     public boolean isDone() {
     	return true;
     }
