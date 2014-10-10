@@ -31,4 +31,19 @@ public class Date {
 		minute = date.minute;
 		second = date.second;
 	}
+
+    @Override
+    public boolean equals(Object rhs){
+        if(rhs == null){
+            return false;
+        } else if (rhs == this){
+            return true;
+        } else if(!this.getClass().equals(rhs.getClass())){
+            return false;
+        }
+        Date tmp = (Date)rhs;
+
+        return year == tmp.year && month == tmp.month && day == tmp.day && hour == tmp.hour && minute == tmp.minute &&
+                second == tmp.second;
+    }
 }
