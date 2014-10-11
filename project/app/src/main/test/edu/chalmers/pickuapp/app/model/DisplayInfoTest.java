@@ -1,7 +1,7 @@
 package edu.chalmers.pickuapp.app.model;
 
 import edu.chalmers.pickuapp.app.events.DisplayInfoOKEvent;
-import edu.chalmers.pickuapp.app.events.DriverAbortMatchmakingEvent;
+import edu.chalmers.pickuapp.app.events.AbortMatchmakingEvent;
 import edu.chalmers.pickuapp.app.events.MeetupEvent;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,7 +35,7 @@ public class DisplayInfoTest {
         assertNull(displayInfo.getNextSequence());
 
         //Wrong event
-        displayInfo.processEvent(new DriverAbortMatchmakingEvent());
+        displayInfo.processEvent(new AbortMatchmakingEvent());
         assertNull(displayInfo.getNextSequence());
 
         //MeetupEvent
