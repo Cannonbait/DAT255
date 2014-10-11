@@ -7,7 +7,7 @@
     <string name="welcome">Welcome to PickUApp!</string>
     <string name="choose_driver">Driver</string>
     <string name="choose_hitchhiker">Hitchhiker</string>
-    <string name="driver_abort">Abort</string>
+    <string name="abort">Abort</string>
     <string name="title_activity_hitchhiker_set_route">HitchhikerSetRoute</string>
     <string name="title_activity_driver_set_route">DriverSetRouteActivity</string>
     <string name="title_activity_driver_matchmaker">DriverMatchmakerActivity</string>

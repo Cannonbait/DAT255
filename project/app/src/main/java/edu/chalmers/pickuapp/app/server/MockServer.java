@@ -29,7 +29,7 @@ public class MockServer implements EventListener {
             //match routeData with existing data in mockserver
         }
 
-        if (event instanceof DriverAbortMatchmakingEvent) {
+        if (event instanceof AbortMatchmakingEvent) {
             System.out.println("Aborted matchmaking");
         }
     }

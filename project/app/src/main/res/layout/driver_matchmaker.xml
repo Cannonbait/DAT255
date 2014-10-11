@@ -15,10 +15,10 @@
             android:paddingLeft="100dp"
     />
     <Button
-            android:text="@string/driver_abort"
+            android:text="@string/abort"
             android:textSize="50dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="driverAbortMatchmaking"
+            android:onClick="abortMatchmaking"
     />
 </LinearLayout>

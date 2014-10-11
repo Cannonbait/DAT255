@@ -22,8 +22,8 @@ public class ChooseModeActivity extends ChildActivity {
 		EventBus.INSTANCE.reportEvent(new PickedHitchhikerEvent());
 	}
 
-    public void driverAbortMatchmaking(View view) {
-        EventBus.INSTANCE.reportEvent(new DriverAbortMatchmakingEvent());
+    public void abortMatchmaking(View view) {
+        EventBus.INSTANCE.reportEvent(new AbortMatchmakingEvent());
     }
 
     @Override

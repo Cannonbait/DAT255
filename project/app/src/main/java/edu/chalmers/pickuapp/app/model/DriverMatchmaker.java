@@ -29,7 +29,7 @@ public class DriverMatchmaker extends Sequence {
 		}
 
 		//If driver aborted matchmaking, return to DriverSetRoute
-		if(event instanceof DriverAbortMatchmakingEvent) {
+		if(event instanceof AbortMatchmakingEvent) {
 
 			isDone = true;
 			nextSequence = getSequence(DriverSetRoute.class);

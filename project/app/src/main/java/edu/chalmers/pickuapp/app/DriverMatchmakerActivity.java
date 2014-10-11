@@ -22,8 +22,8 @@ public class DriverMatchmakerActivity extends ChildActivity {
     }
 
 
-    public void driverAbortMatchmaking(View view) {
-        EventBus.INSTANCE.reportEvent(new DriverAbortMatchmakingEvent());
+    public void abortMatchmaking(View view) {
+        EventBus.INSTANCE.reportEvent(new AbortMatchmakingEvent());
     }
 
     @Override

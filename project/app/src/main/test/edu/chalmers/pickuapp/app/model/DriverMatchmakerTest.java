@@ -41,8 +41,8 @@ public class DriverMatchmakerTest extends Assert {
         assertEquals(driverMatchmaker.getNextSequence().getClass(), DriverResponse.class);
         
         //If match was aborted, next sequence should be driverSetRoute
-        Event driverAbortMatchmaking = new DriverAbortMatchmakingEvent();
-        driverMatchmaker.processEvent(driverAbortMatchmaking);
+        Event abortMatchmaking = new AbortMatchmakingEvent();
+        driverMatchmaker.processEvent(abortMatchmaking);
         assertEquals(driverMatchmaker.getNextSequence().getClass(), DriverSetRoute.class);
     }
 
@@ -58,8 +58,8 @@ public class DriverMatchmakerTest extends Assert {
         assertTrue(driverMatchmaker.isDone());
 
         //If matchmaking was aborted, it's done
-        Event driverAbortMatchmaking = new DriverAbortMatchmakingEvent();
-        driverMatchmaker.processEvent(driverAbortMatchmaking);
+        Event abortMatchmaking = new AbortMatchmakingEvent();
+        driverMatchmaker.processEvent(abortMatchmaking);
         assertTrue(driverMatchmaker.isDone());
     }
 
