@@ -21,6 +21,7 @@ public class Model implements EventListener {
         sequences.put(HitchhikerSetRoute.class, new HitchhikerSetRoute());
         sequences.put(DriverSetRoute.class, new DriverSetRoute());
         sequences.put(DriverMatchmaker.class, new DriverMatchmaker());
+        sequences.put(HitchhikerMatchmaker.class, new HitchhikerMatchmaker());
         sequences.put(DriverResponse.class, new DriverResponse());
         sequences.put(DisplayInfo.class, new DisplayInfo());
 
