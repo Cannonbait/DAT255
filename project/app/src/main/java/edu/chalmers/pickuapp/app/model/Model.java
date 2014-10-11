@@ -17,6 +17,7 @@ public class Model implements EventListener {
 		//Allocate and add every sequence to the sequences hashmap here
 		sequences = new HashMap<Class<? extends Sequence>, Sequence>();
 		sequences.put(Mode.class, new Mode());
+		sequences.put(MockSequence.class, new MockSequence());
         sequences.put(HitchhikerSetRoute.class, new HitchhikerSetRoute());
         sequences.put(DriverSetRoute.class, new DriverSetRoute());
         sequences.put(DriverMatchmaker.class, new DriverMatchmaker());
