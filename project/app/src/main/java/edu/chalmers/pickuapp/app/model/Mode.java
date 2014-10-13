@@ -23,9 +23,4 @@ public class Mode extends Sequence {
             isDone = true;
         }
     }
-
-    public Sequence getNextSequence() {
-        return nextSequence;
-    };
-
 }

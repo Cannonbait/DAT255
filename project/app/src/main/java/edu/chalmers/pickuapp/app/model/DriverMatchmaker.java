@@ -37,11 +37,6 @@ public class DriverMatchmaker extends Sequence {
 		}
 	}
 
-	@Override
-	public Sequence getNextSequence() {
-		return nextSequence;
-	}
-
 
 	/**
 	 * Matchmaker must know what route the Driver wants to take in order to properly match

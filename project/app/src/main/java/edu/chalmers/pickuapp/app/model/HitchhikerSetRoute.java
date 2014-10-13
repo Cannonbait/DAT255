@@ -14,8 +14,4 @@ public class HitchhikerSetRoute extends Sequence {
     public void processEvent(Event event) {
         
     }
-    public Sequence getNextSequence() {
-        return null;
-    };
-
 }

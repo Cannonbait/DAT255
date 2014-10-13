@@ -15,7 +15,9 @@ public abstract class Sequence {
 	}
 
 	public abstract void processEvent(Event event);
-    public abstract Sequence getNextSequence();
+    public Sequence getNextSequence() {
+        return nextSequence;
+    }
 
     /**
      * Give uniform access to HashMap of sequences for all sequences

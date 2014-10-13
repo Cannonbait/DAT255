@@ -33,11 +33,6 @@ public class DriverResponse extends Sequence{
 	}
 
 	@Override
-	public Sequence getNextSequence() {
-		return nextSequence;
-	}
-
-	@Override
 	public boolean isDone() {
 		return isDone;
 	}

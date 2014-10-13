@@ -40,11 +40,6 @@ public class HitchhikerMatchmaker extends Sequence {
 		}
 	}
 
-	@Override
-	public Sequence getNextSequence() {
-		return nextSequence;
-	}
-
 
 	/**
 	 * Matchmaker must know what route the Hitchhiker wants to take in order to properly match

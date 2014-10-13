@@ -28,8 +28,4 @@ public class DriverSetRoute extends Sequence {
 		}
 	}
 
-	public Sequence getNextSequence() {
-		return nextSequence;
-	};
-
 }
