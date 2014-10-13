@@ -20,12 +20,14 @@ public class CoordinateTest extends Assert {
 
     @Test
     public void testGetLatitude() {
-        assertEquals(coordinate.getLatitude(), latitute);
+		//(expected, actual, diff)
+        assertEquals(coordinate.getLatitude(), latitute, 1e-8);
     }
 
     @Test
     public void testGetLongitude() {
-        assertEquals(coordinate.getLongitude(), longitude);
+		//(expected, actual, diff)
+        assertEquals(coordinate.getLongitude(), longitude, 1e-8);
     }
 
     @Test
