@@ -25,8 +25,6 @@ public class DriverResponse extends Sequence{
 		/* TODO- waiting for event
 		if(event instanceof EventFormMatchMaking){
 			nextSequens = getSequence(WhateversIsNext.class);
-			RouteData routeData = new RouteData();
-			Date date = new Date(((WhateverIsNext)(event)).getRouteData()));
 			isDone = true;
 		}
 		*/

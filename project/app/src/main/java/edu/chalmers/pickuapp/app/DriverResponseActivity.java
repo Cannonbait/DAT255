@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.model.Date;
 import edu.chalmers.pickuapp.app.model.RouteData;
@@ -19,6 +20,7 @@ public class DriverResponseActivity extends ChildActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_response);
+		TextView timeAndDate = (TextView) findViewById(R.id.time_and_date);
     }
 
 
@@ -42,7 +44,7 @@ public class DriverResponseActivity extends ChildActivity{
     }
 
 	public void showMeetingPointOnMap(View view){
-
+		//TODO- create activity or fragment to show map
 	}
 
 	public void yesSelected(View view){
@@ -59,12 +61,14 @@ public class DriverResponseActivity extends ChildActivity{
 
 	@Override
 	public void processEvent(Event e) {
-		/*
+		/* TODO- which event?
 		if(e instanceof Whatever){
 			Whatever wtf= new Whatever(((Whatever)e));
 			routeData = wtf.getRouterData();
 			date = wtf.getDate();
+			timeAndDate.setText(String.format("%s:%s %s/%s-%s", date.hour, date.minute, date.day, date.month, date.year));
 		}
 		*/
+
 	}
 }
