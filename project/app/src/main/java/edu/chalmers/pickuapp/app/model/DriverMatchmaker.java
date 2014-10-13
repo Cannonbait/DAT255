@@ -9,6 +9,7 @@ import edu.chalmers.pickuapp.app.model.*;
  */
 public class DriverMatchmaker extends Sequence {
 
+	private Date date;
 	private RouteData routeData;
 
 	public DriverMatchmaker() {
@@ -23,6 +24,8 @@ public class DriverMatchmaker extends Sequence {
 
 			isDone = true;
 			nextSequence = getSequence(DriverResponse.class);
+			//Forwards routeData and date
+			((DriverResponse)nextSequence).insert(routeData, date);
 		}
 
 		//If driver aborted matchmaking, return to DriverSetRoute
@@ -45,7 +48,8 @@ public class DriverMatchmaker extends Sequence {
 	 * So insert that routeData to the matchmaker here
 	 * @param routeData The route that the driver will drive
 	 */
-	public void insert(RouteData routeData) {
+	public void insert(RouteData routeData, Date date) {
+		this.date = new Date(date);
 		this.routeData = new RouteData(routeData);
 	}
 
@@ -54,6 +58,10 @@ public class DriverMatchmaker extends Sequence {
 	 */
 	public RouteData getRouteData() {
 		return new RouteData(routeData);
+	}
+
+	public Date getDate(){
+		return date;
 	}
 
 }
