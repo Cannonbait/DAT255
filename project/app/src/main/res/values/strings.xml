@@ -24,6 +24,6 @@
     <string name="set_to_desc">To:</string>
     <string name="set_to_hint">Kviberg 4</string>
     <string name="set_done">Done!</string>
->>>>>>> Stashed changes
+    <string name="title_activity_display_info">DisplayInfoActivity</string>
 
 </resources>

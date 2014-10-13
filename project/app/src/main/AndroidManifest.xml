@@ -57,6 +57,14 @@
             android:name=".ShowMapActivity"
             android:label="@string/title_activity_show_map" >
         </activity>
+        <activity
+            android:name=".DisplayInfoActivity"
+            android:label="@string/title_activity_display_info"
+            android:parentActivityName=".ChildActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.chalmers.pickuapp.app.ChildActivity" />
+        </activity>
     </application>
 
     <uses-feature
