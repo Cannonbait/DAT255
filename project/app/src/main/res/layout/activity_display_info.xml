@@ -15,6 +15,12 @@
             android:paddingRight="75dp"
             />
 
+    <TextView
+            android:id="@+id/meetup_info_time"
+            android:textSize="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     <Button
             android:text="OK"
             android:textSize="50dp"

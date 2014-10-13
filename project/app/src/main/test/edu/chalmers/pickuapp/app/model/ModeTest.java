@@ -25,7 +25,7 @@ public class ModeTest extends Assert {
 
     @Test
     public void testGetNextNull() throws Exception {
-        assertEquals(mode.getNextSequence(), null);
+        assertNull(mode.getNextSequence());
     }
 
     @Test
@@ -46,6 +46,7 @@ public class ModeTest extends Assert {
     public void testIsDoneFalse() throws Exception {
         assertTrue(!mode.isDone());
     }
+
     @Test
     public void testIsDonePickedDriver() throws Exception {
         mode.processEvent(new PickedDriverEvent());
