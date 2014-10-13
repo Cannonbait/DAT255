@@ -49,6 +49,10 @@
             android:name=".MapsActivity"
             android:label="@string/title_maps_activity" >
         </activity>
+        <activity
+            android:name=".ShowMapActivity"
+            android:label="@string/title_activity_show_map" >
+        </activity>
     </application>
 
     <uses-feature
