@@ -49,6 +49,10 @@
             android:name=".DriverResponseActivity"
             android:label="@string/title_activity_driver_response" >
         </activity>
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_maps_activity" >
+        </activity>
     </application>
 
     <uses-feature

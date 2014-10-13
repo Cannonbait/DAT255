@@ -1,6 +1,7 @@
 package edu.chalmers.pickuapp.app;
 
 import android.app.*;
+import android.content.*;
 import android.os.Bundle;
 import android.text.format.*;
 import android.util.*;
@@ -44,6 +45,8 @@ public class DriverSetRouteActivity extends ChildActivity {
         Log.i("PickUApp", "Time");
     }
     public void setRouteEditFrom(View view) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
         Log.i("PickUApp", "From");
     }
     public void setRouteEditTo(View view) {
