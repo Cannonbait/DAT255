@@ -1,73 +1,35 @@
 package edu.chalmers.pickuapp.app;
 
-import android.app.*;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.text.format.*;
-import android.util.*;
+import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.*;
-import android.widget.*;
-import com.google.android.gms.maps.*;
-import edu.chalmers.pickuapp.app.model.*;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 
-import java.util.*;
+import java.util.Calendar;
 
 
 public class HitchhikerSetRouteActivity extends ChildActivity {
 
-    private EditText minute;
-    private EditText hour;
-    private EditText day;
-    private EditText month;
-    private EditText year;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hitchhiker_set_route);
-
-        minute = (EditText)findViewById(R.id.set_route_minute);
-        hour = (EditText)findViewById(R.id.set_route_hour);
-        day = (EditText)findViewById(R.id.set_route_day);
-        month = (EditText)findViewById(R.id.set_route_month);
-        year = (EditText)findViewById(R.id.set_route_year);
+        setContentView(R.layout.set_route);
     }
 
-    public void setRouteEditDate(View view) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getFragmentManager(), "datePicker");
-
-        Log.i("PickUApp", "Date");
-    }
-    public void setRouteEditTime(View view) {
-
-        DialogFragment newFragment = new TimePickerFragment();
-        newFragment.show(getFragmentManager(), "timePicker");
-
-        Log.i("PickUApp", "Time");
-    }
-    public void setRouteEditFrom(View view) {
-        Log.i("PickUApp", "From");
-    }
-    public void setRouteEditTo(View view) {
-        Log.i("PickUApp", "To");
-    }
     public void doneWithPicking(View view) {
-        Log.i("PickUApp",
-                String.format("%s:%s %s/%s-%s",
-                        minute.getText(),
-                        hour.getText(),
-                        day.getText(),
-                        month.getText(),
-                        year.getText()
-                )
-        );
+        //To be implemented
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.hitchhiker_set_route, menu);
+        getMenuInflater().inflate(R.menu.driver_set_route, menu);
         return true;
     }
 
@@ -82,6 +44,40 @@ public class HitchhikerSetRouteActivity extends ChildActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void pickOrigin(View view){
+
+    }
+
+    public void pickStartDate(View view){
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getFragmentManager(), "datePicker");
+    }
+
+    public void pickStartTime(View view){
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getFragmentManager(), "timePicker");
+    }
+
+    public void pickDestination(View view){
+
+    }
+
+    public void pickStopDate(View view){
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getFragmentManager(), "datePicker");
+    }
+
+    public void pickStopTime(View view){
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getFragmentManager(), "timePicker");
+    }
+
+    public void done(View view){
+
+    }
+
+
 
     public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
 
@@ -99,8 +95,7 @@ public class HitchhikerSetRouteActivity extends ChildActivity {
 
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            HitchhikerSetRouteActivity.this.hour.setText(hourOfDay + "");
-            HitchhikerSetRouteActivity.this.minute.setText(minute + "");
+
         }
     }
 
@@ -120,9 +115,6 @@ public class HitchhikerSetRouteActivity extends ChildActivity {
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
-            HitchhikerSetRouteActivity.this.day.setText(day + "");
-            HitchhikerSetRouteActivity.this.month.setText(month + "");
-            HitchhikerSetRouteActivity.this.year.setText(year + "");
         }
     }
 }

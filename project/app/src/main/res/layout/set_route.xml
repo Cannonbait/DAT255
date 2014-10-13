@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+    <TextView
+            android:id="@+id/set_route_header"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Set Route" />
+
+
+    <TextView
+            android:id="@+id/set_from_desc"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="@string/set_from_desc"
+            android:layout_below="@+id/set_route_header"/>
+
+
+    <EditText
+            android:id="@+id/set_from_input"
+            android:paddingBottom="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/set_from_hint"
+            android:layout_below="@+id/set_from_desc"
+            android:layout_toLeftOf="@+id/from_mapbutton"
+            android:layout_alignParentLeft="true"/>
+
+    <ImageButton
+            android:id="@+id/from_mapbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/ic_menu_edit"
+            android:layout_below="@+id/set_from_desc"
+            android:layout_alignParentRight="true"
+            android:onClick="pickOrigin"/>
+
+    <TextView
+            android:id="@+id/set_from_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DATUM"
+            android:textSize="20sp"
+            android:layout_below="@+id/set_from_input"
+            android:layout_toLeftOf="@+id/set_from_time"
+            android:layout_alignParentLeft="true"
+            android:onClick="pickStartDate"
+            android:clickable="true"/>
+
+    <TextView
+            android:id="@+id/set_from_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TID"
+            android:textSize="20sp"
+            android:layout_below="@+id/set_from_input"
+            android:layout_alignParentRight="true"
+            android:onClick="pickStartTime"
+            android:clickable="true"/>
+
+
+    <TextView
+            android:id="@+id/set_to_desc"
+            android:paddingTop="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="@string/set_to_desc"
+            android:layout_below="@+id/set_from_date"/>
+
+
+    <EditText
+            android:id="@+id/set_to_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/set_to_hint"
+            android:layout_below="@+id/set_to_desc"
+            android:layout_toLeftOf="@+id/to_mapbutton"/>
+
+    <ImageButton
+            android:id="@+id/to_mapbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/ic_menu_edit"
+            android:layout_below="@+id/set_to_desc"
+            android:layout_alignParentRight="true"
+            android:onClick="pickDestination"/>
+
+    <TextView
+            android:id="@+id/set_to_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DATUM"
+            android:textSize="22sp"
+            android:layout_below="@+id/set_to_input"
+            android:layout_toLeftOf="@+id/set_to_time"
+            android:layout_alignParentLeft="true"
+            android:onClick="pickStopDate"
+            android:clickable="true"/>
+
+    <TextView
+            android:id="@+id/set_to_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TID"
+            android:textSize="22sp"
+            android:layout_below="@+id/set_to_input"
+            android:layout_alignParentRight="true"
+            android:onClick="pickStopTime"
+            android:clickable="true"/>
+
+    <Button
+            android:id="@+id/set_done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/set_done"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:onClick="done"/>
+
+</RelativeLayout>

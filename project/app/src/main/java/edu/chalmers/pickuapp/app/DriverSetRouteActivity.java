@@ -13,55 +13,10 @@ import java.util.*;
 
 public class DriverSetRouteActivity extends ChildActivity {
 
-    private EditText minute;
-    private EditText hour;
-    private EditText day;
-    private EditText month;
-    private EditText year;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hitchhiker_set_route); //TODO change the resource once a resource for DriverSetRoute is available
-
-        minute = (EditText)findViewById(R.id.set_route_minute);
-        hour = (EditText)findViewById(R.id.set_route_hour);
-        day = (EditText)findViewById(R.id.set_route_day);
-        month = (EditText)findViewById(R.id.set_route_month);
-        year = (EditText)findViewById(R.id.set_route_year);
-    }
-
-    public void setRouteEditDate(View view) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getFragmentManager(), "datePicker");
-
-        Log.i("PickUApp", "Date");
-    }
-    public void setRouteEditTime(View view) {
-
-        DialogFragment newFragment = new TimePickerFragment();
-        newFragment.show(getFragmentManager(), "timePicker");
-
-        Log.i("PickUApp", "Time");
-    }
-    public void setRouteEditFrom(View view) {
-        Intent intent = new Intent(this, MapsActivity.class);
-        startActivity(intent);
-        Log.i("PickUApp", "From");
-    }
-    public void setRouteEditTo(View view) {
-        Log.i("PickUApp", "To");
-    }
-    public void doneWithPicking(View view) {
-        Log.i("PickUApp",
-                String.format("%s:%s %s/%s-%s",
-                        minute.getText(),
-                        hour.getText(),
-                        day.getText(),
-                        month.getText(),
-                        year.getText()
-                )
-        );
+        setContentView(R.layout.set_route);
     }
 
     @Override
@@ -70,7 +25,6 @@ public class DriverSetRouteActivity extends ChildActivity {
         getMenuInflater().inflate(R.menu.driver_set_route, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -83,7 +37,47 @@ public class DriverSetRouteActivity extends ChildActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void pickOrigin(View view){
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+        Log.i("PickUApp", "From");
+    }
+
+    public void pickStartDate(View view){
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getFragmentManager(), "datePicker");
+    }
+
+    public void pickStartTime(View view){
+        DialogFragment newFragment = new TimePickerFragment(view);
+        newFragment.show(getFragmentManager(), "timePicker");
+    }
+
+    public void pickDestination(View view){
+
+    }
+
+    public void pickStopDate(View view){
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getFragmentManager(), "datePicker");
+    }
+
+    public void pickStopTime(View view){
+        DialogFragment newFragment = new TimePickerFragment(view);
+        newFragment.show(getFragmentManager(), "timePicker");
+    }
+
+    public void done(View view){
+
+    }
+
     public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
+
+        private final TextView view;
+        public TimePickerFragment(View view){
+            super();
+            this.view = (TextView)view;
+        }
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -99,8 +93,7 @@ public class DriverSetRouteActivity extends ChildActivity {
 
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            DriverSetRouteActivity.this.hour.setText(hourOfDay + "");
-            DriverSetRouteActivity.this.minute.setText(minute + "");
+            this.view.setText(Integer.toString(hourOfDay));
         }
     }
 
@@ -120,9 +113,6 @@ public class DriverSetRouteActivity extends ChildActivity {
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
-            DriverSetRouteActivity.this.day.setText(day + "");
-            DriverSetRouteActivity.this.month.setText(month + "");
-            DriverSetRouteActivity.this.year.setText(year + "");
         }
     }
 }

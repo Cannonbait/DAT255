@@ -48,7 +48,7 @@ public class MasterActivity extends Activity implements EventListener {
 
     private void setupAvailableActivities() {
         availableActivities.put(Mode.class, ChooseModeActivity.class);
-        availableActivities.put(DriverSetRoute.class, DriverSetRouteActivity.class);
+        availableActivities.put(DriverSetRoute.class, HitchhikerSetRouteActivity.class);
         availableActivities.put(HitchhikerSetRoute.class, HitchhikerSetRouteActivity.class);
         availableActivities.put(DriverMatchmaker.class, DriverMatchmakerActivity.class);
         availableActivities.put(HitchhikerMatchmaker.class, HitchhikerMatchmakerActivity.class);
