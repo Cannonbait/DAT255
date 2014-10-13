@@ -11,7 +11,7 @@ public class DriverResponse extends Sequence{
 
 	public DriverResponse(){
 		super();
-		//nextSequens = getSequence(DisplayInfo.class);
+		nextSequens = getSequence(DisplayInfo.class);
 		isDone = true;
 	}
 
@@ -22,7 +22,12 @@ public class DriverResponse extends Sequence{
 
 	@Override
 	public void processEvent(Event event) {
-		//Nothing to do here
+		/* TODO- which event to listen for?
+		if(event instanceof FunEvent){
+			nextSequens = getSequence(DisplayInfo.class);
+			isDone = true;
+		}
+		*/
 	}
 
 	public void insert(RouteData routeData, Date date){
@@ -39,4 +44,4 @@ public class DriverResponse extends Sequence{
 	public boolean isDone() {
 		return isDone;
 	}
-}
+}//end DriverResponse
