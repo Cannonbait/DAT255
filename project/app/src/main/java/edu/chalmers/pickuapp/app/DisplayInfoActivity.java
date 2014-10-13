@@ -4,10 +4,17 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.*;
 import edu.chalmers.pickuapp.app.events.DisplayInfoOKEvent;
+import edu.chalmers.pickuapp.app.events.Event;
 import edu.chalmers.pickuapp.app.events.EventBus;
+import edu.chalmers.pickuapp.app.events.MeetupEvent;
+import edu.chalmers.pickuapp.app.model.Coordinate;
+import edu.chalmers.pickuapp.app.model.Date;
 
 
 public class DisplayInfoActivity extends ChildActivity {
+
+    private Coordinate meetupPoint;
+    private Date date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,4 +44,13 @@ public class DisplayInfoActivity extends ChildActivity {
     public void okButtonClicked(View view){
         EventBus.INSTANCE.reportEvent(new DisplayInfoOKEvent());
     }
+
+    @Override
+    public void processEvent(Event e){
+        if(e instanceof MeetupEvent){
+            meetupPoint = ((MeetupEvent) e).getMeetupPoint();
+            date = ((MeetupEvent) e).getDate();
+        }
+    }
+
 }

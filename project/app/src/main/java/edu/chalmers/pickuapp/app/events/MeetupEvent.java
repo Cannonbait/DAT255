@@ -6,7 +6,7 @@ import edu.chalmers.pickuapp.app.model.Date;
 /**
  * Created by elvirajonsson on 2014-10-10.
  */
-//This event is to be trown by the server containing the data on where and when the driver and HH should meet up
+//This event is to be trown by the model containing the data on where and when the driver and HH should meet up
 public class MeetupEvent implements Event {
 
     private Coordinate meetupPoint;

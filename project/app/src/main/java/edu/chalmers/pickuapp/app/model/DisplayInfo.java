@@ -6,7 +6,6 @@ import edu.chalmers.pickuapp.app.events.*;
  * Created by elvirajonsson on 2014-10-09.
  */
 public class DisplayInfo extends Sequence {
-    private Sequence nextSequence;
     private Coordinate meetupPoint = null;
     private Date date = null;
 
@@ -30,8 +29,7 @@ public class DisplayInfo extends Sequence {
     @Override
     public void onStart(){
         super.onStart();
-        meetupPoint = null;
-        date = null;
+        EventBus.INSTANCE.reportEvent(new MeetupEvent(meetupPoint, date));
     }
 
     public void insert(Coordinate meetupPoint, Date date){
