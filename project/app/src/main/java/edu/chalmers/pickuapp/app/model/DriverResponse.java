@@ -11,8 +11,6 @@ public class DriverResponse extends Sequence{
 
 	public DriverResponse(){
 		super();
-		nextSequens = getSequence(DisplayInfo.class);
-		isDone = true;
 	}
 
 	@Override
