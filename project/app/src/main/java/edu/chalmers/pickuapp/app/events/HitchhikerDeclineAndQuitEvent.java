@@ -5,6 +5,6 @@ import edu.chalmers.pickuapp.app.model.*;
 /**
  * Event that occurs when the hitchhiker clicks the "DeclineAndQuit"-button
  */
-class HitchhikerDeclineAndQuitEvent {
+public class HitchhikerDeclineAndQuitEvent {
 	//No data is required
 }
