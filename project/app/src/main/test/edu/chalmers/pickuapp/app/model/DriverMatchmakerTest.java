@@ -66,7 +66,7 @@ public class DriverMatchmakerTest extends Assert {
     @Test
     public void testInsert() {
     	//Make sure the routeData is actually inserted into the class without losing any data
-		driverMatchmaker.insert(mockRouteData);
+		driverMatchmaker.insert(mockRouteData, mockDate);
 		assertEquals(mockRouteData, driverMatchmaker.getRouteData());
 	}
 

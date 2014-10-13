@@ -13,12 +13,14 @@ public class DriverSetRouteTest extends Assert {
     private Coordinate mockCoordinate;
     private RouteData mockRouteData;
     private Model model;
+    private Date mockDate;
 
     @Before
     public void setUp() throws Exception {
         model = new Model(); //Messed-up architecture here... Need to instantiate model to make sequences aware of eachother.
         driverSetRoute = (DriverSetRoute)Sequence.getSequence(DriverSetRoute.class);
         mockCoordinate = new Coordinate(0, 0);
+        mockDate = new Date(2014, 10, 13, 17, 46, 0);
         mockRouteData = new RouteData(mockCoordinate, mockCoordinate);
     }
 
@@ -33,7 +35,7 @@ public class DriverSetRouteTest extends Assert {
         //If nothing has happend, there is no next sequence
         assertEquals(driverSetRoute.getNextSequence(), null);
 
-        DriverPickedRouteEvent driverPickedRouteEvent = new DriverPickedRouteEvent(mockRouteData); //need args
+        DriverPickedRouteEvent driverPickedRouteEvent = new DriverPickedRouteEvent(mockRouteData, mockDate); //need args
         driverSetRoute.processEvent(driverPickedRouteEvent);
 
         //If driverPickedRouteEvent was processed, enter matchmaking
@@ -46,7 +48,7 @@ public class DriverSetRouteTest extends Assert {
         //If nothing has happend, it's not done
         assertTrue(!driverSetRoute.isDone());
 
-        DriverPickedRouteEvent driverPickedRouteEvent = new DriverPickedRouteEvent(mockRouteData);
+        DriverPickedRouteEvent driverPickedRouteEvent = new DriverPickedRouteEvent(mockRouteData, mockDate);
         driverSetRoute.processEvent(driverPickedRouteEvent);
 
         //If driverPickedRouteEvent was processed, this sequence is done
