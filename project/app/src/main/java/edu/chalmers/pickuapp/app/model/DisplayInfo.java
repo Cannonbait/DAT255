@@ -16,14 +16,10 @@ public class DisplayInfo extends Sequence {
     //How do I get the meetup data from model to view?
     @Override
     public void processEvent(Event event) {
-        if(event instanceof MeetupEvent){
-            meetupPoint = ((MeetupEvent) event).getMeetupPoint();
-            date = ((MeetupEvent) event).getDate();
-        } else if(event instanceof DisplayInfoOKEvent){
+         if(event instanceof DisplayInfoOKEvent){
             nextSequence = getSequence(Mode.class);
             isDone = true;
         }
-
     }
 
     @Override
@@ -36,6 +32,11 @@ public class DisplayInfo extends Sequence {
         super.onStart();
         meetupPoint = null;
         date = null;
+    }
+
+    public void insert(Coordinate meetupPoint, Date date){
+        this.meetupPoint = meetupPoint;
+        this.date = date;
     }
 
     public Date getDate(){
