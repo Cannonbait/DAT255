@@ -8,6 +8,7 @@ public abstract class Sequence {
 
 	private static HashMap<Class<? extends Sequence>, Sequence> sequences;
     protected boolean isDone;
+    protected Sequence nextSequence;
 
 	public Sequence() {
 		

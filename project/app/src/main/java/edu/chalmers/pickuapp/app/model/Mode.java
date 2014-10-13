@@ -8,8 +8,6 @@ import android.util.*;
  */
 public class Mode extends Sequence {
 
-    private Sequence nextSequence = null;
-
     public Mode(){
         super();
     }

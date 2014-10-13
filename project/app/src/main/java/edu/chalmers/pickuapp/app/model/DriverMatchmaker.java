@@ -10,9 +10,6 @@ import edu.chalmers.pickuapp.app.model.*;
 public class DriverMatchmaker extends Sequence {
 
 	private RouteData routeData;
-	private Sequence nextSequence;
-
-
 
 	public DriverMatchmaker() {
 		super();

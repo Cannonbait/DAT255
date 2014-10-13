@@ -7,7 +7,6 @@ import edu.chalmers.pickuapp.app.events.Event;
  */
 public class DriverResponse extends Sequence{
 
-	private Sequence nextSequens;
 	private boolean isDone = false;
 	private RouteData routeData;
 	private Date date;
@@ -40,7 +39,7 @@ public class DriverResponse extends Sequence{
 
 	@Override
 	public Sequence getNextSequence() {
-		return nextSequens;
+		return nextSequence;
 	}
 
 	@Override

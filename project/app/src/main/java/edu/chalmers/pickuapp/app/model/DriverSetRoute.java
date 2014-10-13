@@ -4,8 +4,6 @@ import edu.chalmers.pickuapp.app.events.*;
 
 public class DriverSetRoute extends Sequence {
 
-	private Sequence nextSequence = null;
-
 	public DriverSetRoute() {
 		super();
 	}

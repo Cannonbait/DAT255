@@ -10,7 +10,6 @@ import edu.chalmers.pickuapp.app.model.*;
 public class HitchhikerMatchmaker extends Sequence {
 
 	private RouteData routeData;
-	private Sequence nextSequence;
 
 	public HitchhikerMatchmaker() {
 		super();
