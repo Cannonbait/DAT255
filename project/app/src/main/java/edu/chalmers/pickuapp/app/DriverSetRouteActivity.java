@@ -13,10 +13,17 @@ import java.util.*;
 
 public class DriverSetRouteActivity extends ChildActivity {
 
+
+    private EditText originEditText;
+    private EditText destinationEditText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.set_route);
+
+        originEditText = (EditText) findViewById(R.id.set_from_input);
+        destinationEditText= (EditText) findViewById(R.id.set_to_input);
     }
 
     @Override
@@ -37,10 +44,27 @@ public class DriverSetRouteActivity extends ChildActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (resultCode == RESULT_OK) {
+            double[] latLon = data.getDoubleArrayExtra(MapsActivity.INTENT_CORDS_KEY);
+            if (requestCode == 1) {
+                originEditText.setText(String.format("%f ; %f", latLon[0], latLon[1]));
+            } else if (requestCode == 2) {
+                destinationEditText.setText(String.format("%f ; %f", latLon[0], latLon[1]));
+            }
+        }
+    }
+
     public void pickOrigin(View view){
-        Log.i("PickUApp", "From");
         Intent intent = new Intent(this, MapsActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
+    }
+
+    public void pickDestination(View view){
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivityForResult(intent, 2);
     }
 
     public void pickStartDate(View view){
@@ -51,10 +75,6 @@ public class DriverSetRouteActivity extends ChildActivity {
     public void pickStartTime(View view){
         DialogFragment newFragment = new TimePickerFragment(view);
         newFragment.show(getFragmentManager(), "timePicker");
-    }
-
-    public void pickDestination(View view){
-
     }
 
     public void pickStopDate(View view){
