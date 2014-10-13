@@ -23,6 +23,7 @@ public class Model implements EventListener {
         sequences.put(DriverMatchmaker.class, new DriverMatchmaker());
         sequences.put(HitchhikerMatchmaker.class, new HitchhikerMatchmaker());
         sequences.put(DriverResponse.class, new DriverResponse());
+        sequences.put(HitchhikerResponse.class, new HitchhikerResponse());
         sequences.put(DisplayInfo.class, new DisplayInfo());
 
 		Sequence.setSequencesSource(sequences);
