@@ -1,13 +1,14 @@
 package edu.chalmers.pickuapp.app.model;
 
 import edu.chalmers.pickuapp.app.events.Event;
+import edu.chalmers.pickuapp.app.events.MeetupEvent;
 
 public class DriverResponse extends Sequence{
 
 	private boolean isDone = false;
 	private RouteData routeData;
 	private Date date;
-	private Sequence nextSequens;
+	private Sequence nextSequence;
 
 	public DriverResponse(){
 		super();
@@ -20,12 +21,10 @@ public class DriverResponse extends Sequence{
 
 	@Override
 	public void processEvent(Event event) {
-		/* TODO- which event to listen for?
-		if(event instanceof FunEvent){
-			nextSequens = getSequence(DisplayInfo.class);
+		if(event instanceof MeetupEvent){
+			nextSequence = getSequence(DisplayInfo.class);
 			isDone = true;
 		}
-		*/
 	}
 
 	public void insert(RouteData routeData, Date date){
