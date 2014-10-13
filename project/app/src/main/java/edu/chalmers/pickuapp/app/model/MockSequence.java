@@ -14,6 +14,11 @@ class MockSequence extends Sequence {
 	public void processEvent(Event e) {	}
 
     @Override
+    public Sequence getBackSequence() {
+        return null;
+    }
+
+    @Override
     public boolean isDone() {
     	return true;
     }

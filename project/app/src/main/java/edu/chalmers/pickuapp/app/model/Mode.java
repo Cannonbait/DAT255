@@ -23,4 +23,9 @@ public class Mode extends Sequence {
             isDone = true;
         }
     }
+
+    @Override
+    public Sequence getBackSequence() {
+        return getSequence(ExitApp.class);
+    }
 }

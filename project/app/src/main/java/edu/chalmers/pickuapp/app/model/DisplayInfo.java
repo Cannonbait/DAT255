@@ -22,6 +22,11 @@ public class DisplayInfo extends Sequence {
     }
 
     @Override
+    public Sequence getBackSequence() {
+        return getSequence(Mode.class); //TODO where should this goto?
+    }
+
+    @Override
     public Sequence getNextSequence() {
         return nextSequence;
     }

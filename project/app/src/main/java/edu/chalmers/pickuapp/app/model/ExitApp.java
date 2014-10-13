@@ -18,7 +18,7 @@ public class ExitApp extends Sequence {
     }
 
     @Override
-    public Sequence getPreviousSequence() {
+    public Sequence getBackSequence() {
         return null;
     }
 }

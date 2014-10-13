@@ -25,6 +25,7 @@ public class Model implements EventListener {
         sequences.put(DriverResponse.class, new DriverResponse());
         sequences.put(HitchhikerResponse.class, new HitchhikerResponse());
         sequences.put(DisplayInfo.class, new DisplayInfo());
+        sequences.put(ExitApp.class, new ExitApp());
 
 		Sequence.setSequencesSource(sequences);
 

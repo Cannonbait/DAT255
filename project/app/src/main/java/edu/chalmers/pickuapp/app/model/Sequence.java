@@ -15,6 +15,7 @@ public abstract class Sequence {
 	}
 
 	public abstract void processEvent(Event event);
+    public abstract Sequence getBackSequence();
     public Sequence getNextSequence() {
         return nextSequence;
     }

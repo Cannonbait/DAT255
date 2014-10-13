@@ -40,8 +40,13 @@ public class HitchhikerMatchmaker extends Sequence {
 		}
 	}
 
+    @Override
+    public Sequence getBackSequence() {
+        return getSequence(HitchhikerSetRoute.class);
+    }
 
-	/**
+
+    /**
 	 * Matchmaker must know what route the Hitchhiker wants to take in order to properly match
 	 * So insert that routeData to the matchmaker here
 	 * @param routeData The route that the hitchhiker will wants to go
