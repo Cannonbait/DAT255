@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import edu.chalmers.pickuapp.app.events.Event;
+import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.model.Date;
 import edu.chalmers.pickuapp.app.model.RouteData;
 
@@ -46,15 +46,15 @@ public class DriverResponseActivity extends ChildActivity{
 	}
 
 	public void yesSelected(View view){
-
+		EventBus.INSTANCE.reportEvent(new DriverPicksUpHitchhikerEvent(routeData, date));
 	}
 
 	public void noKeepSearchingSelected(View view){
-
+		EventBus.INSTANCE.reportEvent(new DriverDeclineKeepSearch());
 	}
 
 	public void noStopSearchingSelected(View view){
-
+		EventBus.INSTANCE.reportEvent(new DriverDeclineHitchhiker());
 	}
 
 	@Override
