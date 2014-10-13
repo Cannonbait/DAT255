@@ -18,7 +18,7 @@ public class DriverMatchmakerActivity extends ChildActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.driver_matchmaker);
+        setContentView(R.layout.activity_driver_matchmaker);
     }
 
 
