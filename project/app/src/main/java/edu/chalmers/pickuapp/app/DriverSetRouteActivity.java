@@ -38,9 +38,9 @@ public class DriverSetRouteActivity extends ChildActivity {
     }
 
     public void pickOrigin(View view){
+        Log.i("PickUApp", "From");
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
-        Log.i("PickUApp", "From");
     }
 
     public void pickStartDate(View view){

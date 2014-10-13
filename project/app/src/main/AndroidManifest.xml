@@ -35,7 +35,11 @@
 
         <activity
             android:name=".HitchhikerSetRouteActivity"
-            android:label="@string/title_activity_driver_set_route" >
+            android:label="@string/title_activity_hitchhiker_set_route" >
+        </activity>
+        <activity
+                android:name=".DriverSetRouteActivity"
+                android:label="@string/title_activity_driver_set_route" >
         </activity>
         <activity
             android:name=".DriverMatchmakerActivity"
