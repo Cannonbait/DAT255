@@ -18,7 +18,7 @@ public class HitchhikerMatchmakerActivity extends ChildActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.driver_matchmaker);
+        setContentView(R.layout.activity_hitchhiker_matchmaker);
     }
 
 
@@ -29,7 +29,7 @@ public class HitchhikerMatchmakerActivity extends ChildActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.driver_matchmaker, menu);
+        getMenuInflater().inflate(R.menu.activity_hitchhiker_matchmaker, menu);
         return true;
     }
 
