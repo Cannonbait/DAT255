@@ -60,7 +60,7 @@ public class DisplayInfoTest {
     public void testGetDate() throws Exception {
         assertNull(displayInfo.getDate());
 
-        displayInfo.processEvent(new MeetupEvent(meetupPoint, date));
+        displayInfo.insert(meetupPoint, date);
         assertEquals(displayInfo.getDate(), date);
 
     }
@@ -69,7 +69,7 @@ public class DisplayInfoTest {
     public void testGetMeetupPoint() throws Exception {
         assertNull(displayInfo.getMeetupPoint());
 
-        displayInfo.processEvent(new MeetupEvent(meetupPoint, date));
+        displayInfo.insert(meetupPoint, date);
         assertEquals(displayInfo.getMeetupPoint(), meetupPoint);
 
     }
