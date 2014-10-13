@@ -4,22 +4,28 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
+import android.content.*;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.*;
-import android.widget.DatePicker;
-import android.widget.TimePicker;
+import android.widget.*;
 
 import java.util.Calendar;
 
 
 public class HitchhikerSetRouteActivity extends ChildActivity {
 
+    private EditText originEditText;
+    private EditText destinationEditText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.set_route);
+
+        originEditText = (EditText) findViewById(R.id.set_from_input);
+        destinationEditText = (EditText) findViewById(R.id.set_to_input);
     }
 
     public void doneWithPicking(View view) {
@@ -45,8 +51,27 @@ public class HitchhikerSetRouteActivity extends ChildActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void pickOrigin(View view){
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        if (resultCode == RESULT_OK) {
+            double[] latLon = data.getDoubleArrayExtra(MapsActivity.INTENT_CORDS_KEY);
+            if (requestCode == 1) {
+                originEditText.setText(String.format("%f ; %f", latLon[0], latLon[1]));
+            } else if (requestCode == 2) {
+                destinationEditText.setText(String.format("%f ; %f", latLon[0], latLon[1]));
+            }
+        }
+    }
+
+    public void pickOrigin(View view){
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivityForResult(intent, 1);
+    }
+
+    public void pickDestination(View view){
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivityForResult(intent, 2);
     }
 
     public void pickStartDate(View view){
@@ -57,10 +82,6 @@ public class HitchhikerSetRouteActivity extends ChildActivity {
     public void pickStartTime(View view){
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getFragmentManager(), "timePicker");
-    }
-
-    public void pickDestination(View view){
-
     }
 
     public void pickStopDate(View view){
