@@ -2,17 +2,17 @@ package edu.chalmers.pickuapp.app.model;
 
 import edu.chalmers.pickuapp.app.events.Event;
 
-/**
- * Created by Ance on 2014-10-06.
- */
 public class DriverResponse extends Sequence{
 
 	private boolean isDone = false;
 	private RouteData routeData;
 	private Date date;
+	private Sequence nextSequens;
 
 	public DriverResponse(){
 		super();
+		//nextSequens = getSequence(DisplayInfo.class);
+		isDone = true;
 	}
 
 	@Override
@@ -22,12 +22,7 @@ public class DriverResponse extends Sequence{
 
 	@Override
 	public void processEvent(Event event) {
-		/* TODO- waiting for event
-		if(event instanceof EventFormMatchMaking){
-			nextSequens = getSequence(WhateversIsNext.class);
-			isDone = true;
-		}
-		*/
+		//Nothing to do here
 	}
 
 	public void insert(RouteData routeData, Date date){
