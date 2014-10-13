@@ -71,7 +71,10 @@ public class MasterActivity extends Activity implements EventListener {
             startActivity(i);
 
             Log.i("PickUApp", "Good?");
-        } else {
+        } else if (e instanceof ExitAppEvent) {
+            finish();
+        }
+        else {
             currentRunningChild.processEvent(e);
         }
     }
