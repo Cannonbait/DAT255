@@ -4,6 +4,15 @@ public class RouteData {
 
 	private Coordinate origin;
 	private Coordinate destination;
+    private Date originDate;
+    private Date destinationDate;
+
+    /**
+     * Needs to be defined for lazy initialization
+     */
+    public RouteData(){
+
+    }
 
 	/**
 	 * @param  origin      Where to pickup
