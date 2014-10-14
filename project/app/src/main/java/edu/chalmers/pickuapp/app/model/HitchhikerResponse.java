@@ -4,10 +4,8 @@ import edu.chalmers.pickuapp.app.events.*;
 
 public class HitchhikerResponse extends Sequence {
 
-	private boolean isDone = false;
 	private RouteData routeData;
 	private Date date;
-	private Sequence nextSequence = null;
 
 	public HitchhikerResponse(){
 		super();
