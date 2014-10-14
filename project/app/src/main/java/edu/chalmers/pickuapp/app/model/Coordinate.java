@@ -33,9 +33,9 @@ public class Coordinate {
 		return longitude;
 	}
 
-    public void setLatitude() { this.latitude = latitude; }
+    public void setLatitude(double latitude) { this.latitude = latitude; }
 
-    public void setLongitude() { this.longitude = longitude; }
+    public void setLongitude(double longitude) { this.longitude = longitude; }
 
 	@Override
 	public boolean equals(Object rhs) {
