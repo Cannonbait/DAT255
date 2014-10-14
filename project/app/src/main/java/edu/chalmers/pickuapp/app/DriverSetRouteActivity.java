@@ -7,12 +7,14 @@ import android.text.format.*;
 import android.util.*;
 import android.view.*;
 import android.widget.*;
-
+import edu.chalmers.pickuapp.app.Fragments.DatePickerFragment;
+import edu.chalmers.pickuapp.app.Fragments.TimePickerFragment;
+import edu.chalmers.pickuapp.app.events.EventBus;
+import edu.chalmers.pickuapp.app.events.SetRouteEvent;
 import java.util.*;
 
 
 public class DriverSetRouteActivity extends ChildActivity {
-
 
     private EditText originEditText;
     private EditText destinationEditText;
@@ -68,7 +70,7 @@ public class DriverSetRouteActivity extends ChildActivity {
     }
 
     public void pickStartDate(View view){
-        DialogFragment newFragment = new DatePickerFragment();
+        DialogFragment newFragment = new DatePickerFragment(view);
         newFragment.show(getFragmentManager(), "datePicker");
     }
 
@@ -78,7 +80,7 @@ public class DriverSetRouteActivity extends ChildActivity {
     }
 
     public void pickStopDate(View view){
-        DialogFragment newFragment = new DatePickerFragment();
+        DialogFragment newFragment = new DatePickerFragment(view);
         newFragment.show(getFragmentManager(), "datePicker");
     }
 
@@ -89,50 +91,10 @@ public class DriverSetRouteActivity extends ChildActivity {
 
     public void done(View view){
 
+
     }
 
-    public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
 
-        private final TextView view;
-        public TimePickerFragment(View view){
-            super();
-            this.view = (TextView)view;
-        }
 
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current time as the default values for the picker
-            final Calendar c = Calendar.getInstance();
-            int hour = c.get(Calendar.HOUR_OF_DAY);
-            int minute = c.get(Calendar.MINUTE);
 
-            // Create a new instance of TimePickerDialog and return it
-            return new TimePickerDialog(getActivity(), this, hour, minute,
-                    DateFormat.is24HourFormat(getActivity()));
-        }
-
-        @Override
-        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            this.view.setText(Integer.toString(hourOfDay));
-        }
-    }
-
-    public class DatePickerFragment extends DialogFragment
-            implements DatePickerDialog.OnDateSetListener {
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current date as the default date in the picker
-            final Calendar c = Calendar.getInstance();
-            int year = c.get(Calendar.YEAR);
-            int month = c.get(Calendar.MONTH);
-            int day = c.get(Calendar.DAY_OF_MONTH);
-
-            // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(), this, year, month, day);
-        }
-
-        public void onDateSet(DatePicker view, int year, int month, int day) {
-        }
-    }
 }
