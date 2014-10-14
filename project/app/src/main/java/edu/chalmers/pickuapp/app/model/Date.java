@@ -14,6 +14,10 @@ public class Date {
 	public int minute;
 	public int second;
 
+    public Date(){
+
+    }
+
 	public Date(int year, int month, int day, int hour, int minute, int second) {
 		this.year = year;
 		this.month = month;
