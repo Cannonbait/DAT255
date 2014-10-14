@@ -4,6 +4,9 @@ public class Coordinate {
 	private double latitude = 0.0;
 	private double longitude = 0.0;
 
+
+    public Coordinate(){}
+
 	/**
 	 * Create coordinate with latitude and longitude
 	 * @param  latitude  Geographical latitude-coordinate
@@ -29,6 +32,10 @@ public class Coordinate {
 	public double getLongitude() {
 		return longitude;
 	}
+
+    public double setLatitude() { this.latitude = latitude}
+
+    public double setLongitude() { this.longitude = longitude}
 
 	@Override
 	public boolean equals(Object rhs) {
