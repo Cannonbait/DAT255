@@ -11,13 +11,20 @@ import edu.chalmers.pickuapp.app.Fragments.DatePickerFragment;
 import edu.chalmers.pickuapp.app.Fragments.TimePickerFragment;
 import edu.chalmers.pickuapp.app.events.EventBus;
 import edu.chalmers.pickuapp.app.events.SetRouteEvent;
-import java.util.*;
+import edu.chalmers.pickuapp.app.model.Coordinate;
+import edu.chalmers.pickuapp.app.model.Date;
+import edu.chalmers.pickuapp.app.model.RouteData;
+
 
 
 public class DriverSetRouteActivity extends ChildActivity {
 
     private EditText originEditText;
     private EditText destinationEditText;
+    private Date startDate;
+    private Date stopDate;
+    private Coordinate origin;
+    private Coordinate destination;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +33,10 @@ public class DriverSetRouteActivity extends ChildActivity {
 
         originEditText = (EditText) findViewById(R.id.set_from_input);
         destinationEditText= (EditText) findViewById(R.id.set_to_input);
+        startDate = new Date();
+        stopDate = new Date();
+        origin = new Coordinate();
+        destination = new Coordinate();
     }
 
     @Override
@@ -53,6 +64,7 @@ public class DriverSetRouteActivity extends ChildActivity {
             double[] latLon = data.getDoubleArrayExtra(MapsActivity.INTENT_CORDS_KEY);
             if (requestCode == 1) {
                 originEditText.setText(String.format("%f ; %f", latLon[0], latLon[1]));
+
             } else if (requestCode == 2) {
                 destinationEditText.setText(String.format("%f ; %f", latLon[0], latLon[1]));
             }
@@ -70,22 +82,22 @@ public class DriverSetRouteActivity extends ChildActivity {
     }
 
     public void pickStartDate(View view){
-        DialogFragment newFragment = new DatePickerFragment(view);
+        DialogFragment newFragment = new DatePickerFragment(view, startDate);
         newFragment.show(getFragmentManager(), "datePicker");
     }
 
     public void pickStartTime(View view){
-        DialogFragment newFragment = new TimePickerFragment(view);
+        DialogFragment newFragment = new TimePickerFragment(view, startDate);
         newFragment.show(getFragmentManager(), "timePicker");
     }
 
     public void pickStopDate(View view){
-        DialogFragment newFragment = new DatePickerFragment(view);
+        DialogFragment newFragment = new DatePickerFragment(view, stopDate);
         newFragment.show(getFragmentManager(), "datePicker");
     }
 
     public void pickStopTime(View view){
-        DialogFragment newFragment = new TimePickerFragment(view);
+        DialogFragment newFragment = new TimePickerFragment(view, stopDate);
         newFragment.show(getFragmentManager(), "timePicker");
     }
 

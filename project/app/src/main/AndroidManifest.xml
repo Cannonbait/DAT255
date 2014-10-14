@@ -34,10 +34,6 @@
             android:value="AIzaSyDy_aD05JDk1UQB_O50Vuh_Jd-vc07-QVI" />
 
         <activity
-            android:name=".HitchhikerSetRouteActivity"
-            android:label="@string/title_activity_hitchhiker_set_route" >
-        </activity>
-        <activity
                 android:name=".DriverSetRouteActivity"
                 android:label="@string/title_activity_driver_set_route" >
         </activity>
