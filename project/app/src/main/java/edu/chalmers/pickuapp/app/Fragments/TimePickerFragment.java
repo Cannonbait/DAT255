@@ -8,6 +8,7 @@ import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import edu.chalmers.pickuapp.app.model.Date;
 
 import java.util.Calendar;
 
@@ -17,9 +18,12 @@ import java.util.Calendar;
 public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
 
     private final TextView view;
-    public TimePickerFragment(View view){
+    private final Date date;
+
+    public TimePickerFragment(View view, Date date){
         super();
         this.view = (TextView)view;
+        this.date = date;
     }
 
     @Override
@@ -37,5 +41,7 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         this.view.setText(Integer.toString(hourOfDay)+ ":" + Integer.toString(minute));
+        date.hour = hourOfDay;
+        date.minute = minute;
     }
 }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import edu.chalmers.pickuapp.app.model.Date;
 
 import java.util.Calendar;
 
@@ -17,9 +18,12 @@ public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 
     private final TextView view;
-    public DatePickerFragment(View view){
+    private final Date date;
+
+    public DatePickerFragment(View view, Date date){
         super();
         this.view = (TextView)view;
+        this.date = date;
     }
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -36,5 +40,8 @@ public class DatePickerFragment extends DialogFragment
     @Override
     public void onDateSet(DatePicker view, int year, int month, int day) {
         this.view.setText(Integer.toString(year) + "/" + Integer.toString(month) + "/" + Integer.toString(day));
+        date.year = year;
+        date.month = month;
+        date.day = day;
     }
 }
