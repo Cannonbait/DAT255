@@ -42,7 +42,7 @@ public class MockServer implements EventListener {
 
         RouteData mockRouteData = new RouteData(new Coordinate(10,10),new Coordinate(20,20));
 
-        if(routeData.getSource() == mockRouteData.getSource()){
+        if(routeData.getOrigin() == mockRouteData.getOrigin()){
             if(routeData.getDestination() == mockRouteData.getDestination()) {
                 System.out.println("Match made!");
             }

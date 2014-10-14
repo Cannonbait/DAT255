@@ -2,15 +2,15 @@ package edu.chalmers.pickuapp.app.model;
 
 public class RouteData {
 
-	private Coordinate source;
+	private Coordinate origin;
 	private Coordinate destination;
 
 	/**
-	 * @param  source      Where to pickup
+	 * @param  origin      Where to pickup
 	 * @param  destination Where to go
 	 */
-	public RouteData(Coordinate source, Coordinate destination) {
-		this.source = new Coordinate(source);
+	public RouteData(Coordinate origin, Coordinate destination) {
+		this.origin = new Coordinate(origin);
 		this.destination = new Coordinate(destination);
 	}
 
@@ -19,11 +19,11 @@ public class RouteData {
 	 * @param  routeData routeData to copy 
 	 */
 	public RouteData(RouteData routeData) {
-		this(routeData.source, routeData.destination);
+		this(routeData.origin, routeData.destination);
 	}
 
-	public Coordinate getSource() {
-		return new Coordinate(source);
+	public Coordinate getOrigin() {
+		return new Coordinate(origin);
 	}
 
 	public Coordinate getDestination() {
@@ -42,7 +42,7 @@ public class RouteData {
 			return false;
 		}
 		RouteData temp = (RouteData)rhs;
-		return source.equals(temp.source) && destination.equals(temp.destination);
+		return origin.equals(temp.origin) && destination.equals(temp.destination);
 	}
 
 }
