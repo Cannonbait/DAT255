@@ -1,5 +1,6 @@
 package edu.chalmers.pickuapp.app.model;
 
+import android.util.Log;
 import edu.chalmers.pickuapp.app.events.*;
 
 /**
@@ -24,11 +25,6 @@ public class DisplayInfo extends Sequence {
     @Override
     public Sequence getBackSequence() {
         return getSequence(Mode.class); //TODO where should this goto?
-    }
-
-    @Override
-    public Sequence getNextSequence() {
-        return nextSequence;
     }
 
     @Override

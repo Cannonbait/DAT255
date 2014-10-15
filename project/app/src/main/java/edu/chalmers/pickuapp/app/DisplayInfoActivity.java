@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.TextView;
-import edu.chalmers.pickuapp.app.events.DisplayInfoOKEvent;
-import edu.chalmers.pickuapp.app.events.Event;
-import edu.chalmers.pickuapp.app.events.EventBus;
-import edu.chalmers.pickuapp.app.events.MeetupEvent;
+import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.model.Coordinate;
 import edu.chalmers.pickuapp.app.model.Date;
 
@@ -46,6 +43,7 @@ public class DisplayInfoActivity extends ChildActivity {
     }
     public void okButtonClicked(View view){
         EventBus.INSTANCE.reportEvent(new DisplayInfoOKEvent());
+        EventBus.INSTANCE.reportEvent(new ForwardClickedEvent());
     }
 
     @Override
