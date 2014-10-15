@@ -39,7 +39,7 @@ public class HitchhikerMatchmakerTest extends Assert {
         //If match was found, next sequence should prompt the hitchiker to accept or decline
         Event hitchhikerMatchFoundEvent = new HitchhikerMatchFoundEvent(mockRouteData, mockDate);
         hitchhikerMatchmaker.processEvent(hitchhikerMatchFoundEvent);
-        assertEquals(hitchhikerMatchmaker.getNextSequence().getClass(), MockSequence.class); //Until there is a HitchikerResponse.class
+        assertEquals(hitchhikerMatchmaker.getNextSequence().getClass(), HitchhikerResponse.class); //Until there is a HitchikerResponse.class
         
         //If match was aborted, next sequence should be hitchhikerSetRoute
         Event abortMatchmaking = new AbortMatchmakingEvent();

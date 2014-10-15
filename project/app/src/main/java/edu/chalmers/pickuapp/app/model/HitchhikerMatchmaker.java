@@ -20,15 +20,11 @@ public class HitchhikerMatchmaker extends Sequence {
 
 		//On match found, set nextSequence to be HitchkerResponse
 		if(event instanceof HitchhikerMatchFoundEvent) {
+			HitchhikerMatchFoundEvent hitchhikerMatchFoundEvent = (HitchhikerMatchFoundEvent)event;
 
 			isDone = true;
-			nextSequence = getSequence(MockSequence.class); //MockSequence until there is a HitchhikerResponse.class
-
-			//NOTE to whoever implements HitchhikerResponse:
-			//You probably want to insert data from HitchhikerMatchFoundEvent into HitchhikerResponse
-			//since that data should be displayed for the Hitchhiker when he decides to answer yes or no
-			//to the match
-			//Joakim Thorén aka Kuxe
+			nextSequence = getSequence(HitchhikerResponse.class);
+			((HitchhikerResponse)nextSequence).insert(hitchhikerMatchFoundEvent.routeData, hitchhikerMatchFoundEvent.date);
 		}
 
 		//If hitchhiker aborted matchmaking, return to HitchhikerSetRoute
