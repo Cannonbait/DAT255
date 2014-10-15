@@ -26,7 +26,7 @@ public class DriverSetRoute extends Sequence {
 
     @Override
     public boolean isDone(){
-        return true;
+        return nextSequence != null;
     }
 
 }
