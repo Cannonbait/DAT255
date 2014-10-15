@@ -4,7 +4,7 @@ import android.util.Log;
 import edu.chalmers.pickuapp.app.model.Sequence;
 import edu.chalmers.pickuapp.app.events.*;
 
-class HitchhikerWaitResponse extends Sequence {
+public class HitchhikerWaitResponse extends Sequence {
 	
 	public HitchhikerWaitResponse() {
 		super();

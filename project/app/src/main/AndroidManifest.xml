@@ -54,6 +54,10 @@
             android:label="@string/title_activity_hitchhiker_response" >
         </activity>
         <activity
+            android:name=".HitchhikerWaitResponseActivity"
+            android:label="@string/title_activity_hitchhiker_wait_response" >
+        </activity>
+        <activity
             android:name=".MapsActivity"
             android:label="@string/title_maps_activity" >
         </activity>
