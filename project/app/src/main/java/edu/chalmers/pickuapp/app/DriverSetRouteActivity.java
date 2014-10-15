@@ -10,6 +10,7 @@ import android.widget.*;
 import edu.chalmers.pickuapp.app.Fragments.DatePickerFragment;
 import edu.chalmers.pickuapp.app.Fragments.TimePickerFragment;
 import edu.chalmers.pickuapp.app.events.EventBus;
+import edu.chalmers.pickuapp.app.events.ForwardClickedEvent;
 import edu.chalmers.pickuapp.app.events.SetRouteEvent;
 import edu.chalmers.pickuapp.app.model.Coordinate;
 import edu.chalmers.pickuapp.app.model.Date;
@@ -107,6 +108,7 @@ public class DriverSetRouteActivity extends ChildActivity {
 
     public void done(View view){
         EventBus.INSTANCE.reportEvent(new SetRouteEvent(new RouteData(origin,destination, startDate, stopDate)));
+        EventBus.INSTANCE.reportEvent(new ForwardClickedEvent());
     }
 
 

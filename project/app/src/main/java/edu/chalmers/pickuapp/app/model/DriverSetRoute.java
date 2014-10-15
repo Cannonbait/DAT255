@@ -15,12 +15,18 @@ public class DriverSetRoute extends Sequence {
 		
 		if (event instanceof SetRouteEvent){
             route = new RouteData(((SetRouteEvent) event).getRoute());
+            nextSequence = getSequence(DriverMatchmaker.class);
         }
 	}
 
     @Override
     public Sequence getBackSequence() {
         return getSequence(Mode.class);
+    }
+
+    @Override
+    public boolean isDone(){
+        return true;
     }
 
 }
