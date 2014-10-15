@@ -12,11 +12,15 @@ public class HitchhikerWaitResponseTest {
     private HitchhikerWaitResponse hitchhikerWaitResponse = (HitchhikerWaitResponse)Sequence.getSequence(HitchhikerWaitResponse.class);
     private RouteData mockRouteData;
     private Date mockDate;
+    private Date mockStartDate;
+    private Date mockStopDate;
 
     @Before
     public void setUp(){
         model = new Model();
-        mockRouteData = new RouteData(new Coordinate(0, 0), new Coordinate(1, 1));
+        mockStartDate = new Date(2014, 10, 15, 21, 30, 59);
+        mockStopDate = new Date(2014, 10, 15, 21, 29, 59);
+        mockRouteData = new RouteData(new Coordinate(0, 0), new Coordinate(1, 1), mockStartDate, mockStopDate);
         mockDate = new Date(2014, 10, 15, 21, 19, 59);
     }
 
