@@ -12,12 +12,16 @@ public class RouteDataTest extends Assert {
     RouteData routeData;
     Coordinate source;
     Coordinate destination;
+    Date startDate;
+    Date endDate;
 
     @Before
     public void setUp() throws Exception {
        source = new Coordinate(0, 0);
        destination = new Coordinate(100, 100);
-       routeData = new RouteData(source, destination);
+       startDate = new Date(2014, 10, 15, 16, 28, 40);
+        endDate = new Date(2014, 10, 15, 17, 28, 40);
+       routeData = new RouteData(source, destination, startDate, endDate);
     }
 
     /**
@@ -32,7 +36,7 @@ public class RouteDataTest extends Assert {
     @Test
     public void testEquals() {
         RouteData nullRouteData = null;
-        RouteData differentRouteData = new RouteData(new Coordinate(5, 5), new Coordinate(6, 6));
+        RouteData differentRouteData = new RouteData(new Coordinate(5, 5), new Coordinate(6, 6), startDate, endDate);
         RouteData identicalRouteData = new RouteData(routeData);
         RouteData sameRouteData = routeData;
 

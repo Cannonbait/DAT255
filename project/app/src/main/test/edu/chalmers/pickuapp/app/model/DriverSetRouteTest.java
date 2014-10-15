@@ -21,7 +21,7 @@ public class DriverSetRouteTest extends Assert {
         driverSetRoute = (DriverSetRoute)Sequence.getSequence(DriverSetRoute.class);
         mockCoordinate = new Coordinate(0, 0);
         mockDate = new Date(2014, 10, 13, 17, 46, 0);
-        mockRouteData = new RouteData(mockCoordinate, mockCoordinate);
+        mockRouteData = new RouteData(mockCoordinate, mockCoordinate, mockDate, mockDate);
     }
 
     @Test

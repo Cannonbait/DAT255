@@ -20,8 +20,9 @@ public class DriverMatchmakerTest extends Assert {
         model = new Model(); //Messed-up architecture here... Need to instantiate model to make sequences aware of eachother.
         driverMatchmaker = (DriverMatchmaker)Sequence.getSequence(DriverMatchmaker.class);
         mockCoordinate = new Coordinate(0, 0);
-        mockRouteData = new RouteData(mockCoordinate, mockCoordinate);
         mockDate = new Date(2014, 9, 8, 13, 51, 0); //2014 October 8th 13:51:00
+        mockRouteData = new RouteData(mockCoordinate, mockCoordinate, mockDate, mockDate);
+
     }
 
     @Test

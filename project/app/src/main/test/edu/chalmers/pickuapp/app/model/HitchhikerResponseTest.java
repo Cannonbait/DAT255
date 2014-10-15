@@ -11,6 +11,7 @@ public class HitchhikerResponseTest extends Assert {
 
     private HitchhikerResponse hitchhikerResponse;
     private Coordinate mockCoordinate;
+    private Date mockDate;
     private RouteData mockRouteData;
     private Model model;
 
@@ -19,7 +20,8 @@ public class HitchhikerResponseTest extends Assert {
         model = new Model(); //Messed-up architecture here... Need to instantiate model to make sequences aware of eachother.
         hitchhikerResponse = (HitchhikerResponse)Sequence.getSequence(HitchhikerResponse.class);
         mockCoordinate = new Coordinate(0, 0);
-        mockRouteData = new RouteData(mockCoordinate, mockCoordinate);
+        mockDate = new Date(2014, 10, 15, 16, 27, 35);
+        mockRouteData = new RouteData(mockCoordinate, mockCoordinate, mockDate, mockDate);
     }
 
     @Test
