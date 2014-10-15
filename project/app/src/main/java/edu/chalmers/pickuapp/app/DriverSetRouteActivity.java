@@ -106,7 +106,7 @@ public class DriverSetRouteActivity extends ChildActivity {
     }
 
     public void done(View view){
-        
+        EventBus.INSTANCE.reportEvent(new SetRouteEvent(new RouteData(origin,destination, startDate, stopDate)));
     }
 
 
