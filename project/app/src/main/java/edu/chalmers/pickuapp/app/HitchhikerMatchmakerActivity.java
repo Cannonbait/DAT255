@@ -24,6 +24,7 @@ public class HitchhikerMatchmakerActivity extends ChildActivity {
 
     public void abortMatchmaking(View view) {
         EventBus.INSTANCE.reportEvent(new AbortMatchmakingEvent());
+        EventBus.INSTANCE.reportEvent(new ForwardClickedEvent());
     }
 
     @Override
