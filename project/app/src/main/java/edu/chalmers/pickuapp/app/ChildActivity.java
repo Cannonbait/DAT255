@@ -18,4 +18,10 @@ public class ChildActivity extends Activity {
     public void processEvent(Event e){
 
     }
+
+    // Child-activities closes when the master sais they do.
+    @Override
+    public void onBackPressed() {
+        EventBus.INSTANCE.reportEvent(new BackClickedEvent());
+    }
 }
