@@ -1,5 +1,6 @@
 package edu.chalmers.pickuapp.app.server;
 
+import android.util.Log;
 import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.model.Coordinate;
 import edu.chalmers.pickuapp.app.model.Date;
@@ -25,7 +26,7 @@ public class MockServer implements EventListener {
         if (event instanceof StartMatchmakingEvent) {
             StartMatchmakingEvent sme = (StartMatchmakingEvent)event;
             //write driver's data to a txt file. then start matchmaking from the hitchhiker txt file
-            writeToFile(sme.getDate(),sme.getRouteData(),sme.getID());
+            saveToServer(sme.getDate(),sme.getRouteData(),sme.getID());
 
             match(sme.getRouteData(),sme.getDate(),sme.getID());
         }
@@ -43,6 +44,9 @@ public class MockServer implements EventListener {
         RouteData mockRouteData = new RouteData(new Coordinate(10,10),new Coordinate(20,20));
 
         if(routeData.getOrigin() == mockRouteData.getOrigin()){
+
+        Log.i("MATCHING","Doing match...");
+        if(routeData.getSource() == mockRouteData.getSource()){
             if(routeData.getDestination() == mockRouteData.getDestination()) {
                 System.out.println("Match made!");
             }
@@ -50,7 +54,7 @@ public class MockServer implements EventListener {
 
     }
 
-    public void writeToFile(Date date, RouteData routeData, String id){
+    public void saveToServer(Date date, RouteData routeData, String id){
         if(id.equals("d")){
             //we're using phones so writing to a  txt file is stupid.
         }
