@@ -5,10 +5,8 @@ import edu.chalmers.pickuapp.app.events.MeetupEvent;
 
 public class DriverResponse extends Sequence{
 
-	private boolean isDone = false;
 	private RouteData routeData;
 	private Date date;
-	private Sequence nextSequence;
 
 	public DriverResponse(){
 		super();
@@ -23,6 +21,7 @@ public class DriverResponse extends Sequence{
 	public void processEvent(Event event) {
 		if(event instanceof MeetupEvent){
 			nextSequence = getSequence(DisplayInfo.class);
+            ((DisplayInfo)nextSequence).insert(routeData.getOrigin(), date);
 			isDone = true;
 		}
 	}
