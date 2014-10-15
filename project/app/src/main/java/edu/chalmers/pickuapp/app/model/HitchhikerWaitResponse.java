@@ -31,7 +31,7 @@ class HitchhikerWaitResponse extends Sequence {
 
     @Override
     public Sequence getBackSequence() {
-        return this; //Don't go anywhere else when waiting for answer - you can't regret your accept
+        return null; //Don't go anywhere else when waiting for answer - you can't regret your accept
     }
 
     @Override
