@@ -42,6 +42,10 @@
             android:label="@string/title_activity_driver_matchmaker" >
         </activity>
         <activity
+            android:name=".HitchhikerMatchmakerActivity"
+            android:label="@string/title_activity_hitchhiker_matchmaker" >
+        </activity>
+        <activity
             android:name=".DriverResponseActivity"
             android:label="@string/title_activity_driver_response" >
         </activity>
