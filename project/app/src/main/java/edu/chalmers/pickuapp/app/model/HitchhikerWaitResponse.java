@@ -6,15 +6,27 @@ import edu.chalmers.pickuapp.app.events.*;
 
 class HitchhikerWaitResponse extends Sequence {
 	
-	public MockSequence() {
+	public HitchhikerWaitResponse() {
 		super();
 	}
 
 	@Override
 	public void processEvent(Event e) {
 		//If driver declined this hitchhiker, return to matchmaking
-		
+		if(e instanceof DriverDeclineHitchhiker || e instanceof DriverDeclineKeepSearch) {
+			nextSequence = Sequence.getSequence(HitchhikerMatchmaker.class);
+
+			isDone = true;
+		}
+
 		//If driver accepted this hitchhiker, goto displayinfo
+		if(e instanceof DriverPicksUpHitchhikerEvent) {
+			DriverPicksUpHitchhikerEvent temp = (DriverPicksUpHitchhikerEvent)e;
+			nextSequence = Sequence.getSequence(DisplayInfo.class);
+			((DisplayInfo)nextSequence).insert(temp.getRouteData().getOrigin(), temp.getDate());
+
+			isDone = true;
+		}
 	}
 
     @Override
@@ -24,7 +36,7 @@ class HitchhikerWaitResponse extends Sequence {
 
     @Override
     public boolean isDone() {
-    	return true;
+    	return isDone;
     }
 
 }
