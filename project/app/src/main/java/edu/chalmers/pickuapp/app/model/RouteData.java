@@ -4,23 +4,23 @@ public class RouteData {
 
 	private Coordinate origin;
 	private Coordinate destination;
-    private Date originDate;
-    private Date destinationDate;
+    private Date startDate;
+    private Date stopDate;
 
     /**
      * Needs to be defined for lazy initialization
      */
-    public RouteData(){
-
-    }
+    public RouteData(){}
 
 	/**
 	 * @param  origin      Where to pickup
 	 * @param  destination Where to go
 	 */
-	public RouteData(Coordinate origin, Coordinate destination) {
+	public RouteData(Coordinate origin, Coordinate destination, Date startDate, Date stopDate) {
 		this.origin = new Coordinate(origin);
 		this.destination = new Coordinate(destination);
+        this.startDate = startDate;
+        this.stopDate = stopDate;
 	}
 
 	/**
@@ -28,7 +28,8 @@ public class RouteData {
 	 * @param  routeData routeData to copy 
 	 */
 	public RouteData(RouteData routeData) {
-		this(routeData.origin, routeData.destination);
+		this(new Coordinate(routeData.origin), new Coordinate(routeData.destination), new Date(routeData.startDate), new Date(routeData.stopDate));
+
 	}
 
 	public Coordinate getOrigin() {

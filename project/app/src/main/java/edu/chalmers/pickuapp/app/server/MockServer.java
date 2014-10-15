@@ -41,7 +41,7 @@ public class MockServer implements EventListener {
     //n0000b matchmaking
     public void match(RouteData routeData, Date date, String id){
 
-        RouteData mockRouteData = new RouteData(new Coordinate(10,10),new Coordinate(20,20));
+        RouteData mockRouteData = new RouteData(new Coordinate(10,10),new Coordinate(20,20), new Date(2014, 10, 14, 24, 50, 30), new Date(2014, 10, 14, 24, 50, 30));
 
         if(routeData.getOrigin() == mockRouteData.getOrigin()){
 
