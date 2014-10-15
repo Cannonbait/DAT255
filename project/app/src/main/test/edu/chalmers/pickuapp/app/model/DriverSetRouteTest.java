@@ -1,6 +1,7 @@
 package edu.chalmers.pickuapp.app.model;
 
 import edu.chalmers.pickuapp.app.events.*;
+import edu.chalmers.pickuapp.app.events.SetRouteEvent;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,8 +36,8 @@ public class DriverSetRouteTest extends Assert {
         //If nothing has happend, there is no next sequence
         assertEquals(driverSetRoute.getNextSequence(), null);
 
-        DriverPickedRouteEvent driverPickedRouteEvent = new DriverPickedRouteEvent(mockRouteData, mockDate); //need args
-        driverSetRoute.processEvent(driverPickedRouteEvent);
+        SetRouteEvent setRouteEvent = new SetRouteEvent(mockRouteData); //need args
+        driverSetRoute.processEvent(setRouteEvent);
 
         //If driverPickedRouteEvent was processed, enter matchmaking
         assertEquals(driverSetRoute.getNextSequence().getClass(), new DriverMatchmaker().getClass());
@@ -48,8 +49,8 @@ public class DriverSetRouteTest extends Assert {
         //If nothing has happend, it's not done
         assertTrue(!driverSetRoute.isDone());
 
-        DriverPickedRouteEvent driverPickedRouteEvent = new DriverPickedRouteEvent(mockRouteData, mockDate);
-        driverSetRoute.processEvent(driverPickedRouteEvent);
+        SetRouteEvent setRouteEvent = new SetRouteEvent(mockRouteData); //need args
+        driverSetRoute.processEvent(setRouteEvent);
 
         //If driverPickedRouteEvent was processed, this sequence is done
         assertTrue(driverSetRoute.isDone());
