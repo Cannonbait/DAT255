@@ -39,12 +39,19 @@ public class Model implements EventListener {
 	@Override
 	public void onEvent(Event event) {
         activeSequence.processEvent(event);
-		if(activeSequence.isDone()) {
-            activeSequence = activeSequence.getNextSequence();
 
-			EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.getClass()));
+        if(event instanceof ForwardClickedEvent) {
+           if(activeSequence.isDone()) {
+               activeSequence = activeSequence.getNextSequence();
+           }
+
+            EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.getClass()));
             activeSequence.onStart();
+        } else if(event instanceof BackClickedEvent) {
+            activeSequence = activeSequence.getBackSequence();
 
+            EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.getClass()));
+            activeSequence.onStart();
         }
 	}
 

@@ -1,7 +1,6 @@
 package edu.chalmers.pickuapp.app.model;
 
 import edu.chalmers.pickuapp.app.events.*;
-import android.util.*;
 
 /**
  * Created by elvirajonsson on 2014-09-29.
@@ -17,11 +16,16 @@ public class Mode extends Sequence {
         
         if(event instanceof PickedDriverEvent){
             nextSequence = getSequence(DriverSetRoute.class);
-            isDone = true;
+            setSequenceDoneAndReportForward();
         } else if(event instanceof PickedHitchhikerEvent){
             nextSequence = getSequence(HitchhikerSetRoute.class);
-            isDone = true;
+            setSequenceDoneAndReportForward();
         }
+    }
+
+    private void setSequenceDoneAndReportForward() {
+        isDone = true;
+        EventBus.INSTANCE.reportEvent(new ForwardClickedEvent());
     }
 
     @Override
