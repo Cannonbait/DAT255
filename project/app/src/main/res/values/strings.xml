@@ -17,6 +17,7 @@
 
     <string name="time_and_date">00:00 01/01-14</string>
     <string name="title_activity_driver_response">DriverResponseActivity</string>
+    <string name="title_activity_hitchhiker_response">HitchhikerResponseActivity</string>
     <string name="title_maps_activity">MapsActivity</string>
     <string name="title_activity_show_map">ShowMap</string>
 

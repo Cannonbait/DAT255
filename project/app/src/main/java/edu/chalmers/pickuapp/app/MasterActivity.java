@@ -52,6 +52,7 @@ public class MasterActivity extends Activity implements EventListener {
         availableActivities.put(DriverMatchmaker.class, DriverMatchmakerActivity.class);
         availableActivities.put(HitchhikerSetRoute.class, DriverSetRouteActivity.class);
         availableActivities.put(HitchhikerMatchmaker.class, HitchhikerMatchmakerActivity.class);
+        availableActivities.put(HitchhikerResponse.class, HitchhikerResponseActivity.class);
 		availableActivities.put(DriverResponse.class, DriverResponseActivity.class);
         availableActivities.put(DisplayInfo.class, DisplayInfoActivity.class);
     }
