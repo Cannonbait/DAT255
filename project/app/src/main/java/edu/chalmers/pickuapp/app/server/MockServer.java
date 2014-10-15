@@ -46,7 +46,6 @@ public class MockServer implements EventListener {
         if(routeData.getOrigin() == mockRouteData.getOrigin()){
 
         Log.i("MATCHING","Doing match...");
-        if(routeData.getSource() == mockRouteData.getSource()){
             if(routeData.getDestination() == mockRouteData.getDestination()) {
                 System.out.println("Match made!");
             }
