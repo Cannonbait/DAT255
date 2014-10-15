@@ -35,8 +35,8 @@ public class DriverSetRouteActivity extends ChildActivity {
         destinationEditText= (EditText) findViewById(R.id.set_to_input);
         startDate = new Date();
         stopDate = new Date();
-        origin = new Coordinate();
-        destination = new Coordinate();
+        origin = new Coordinate(60, 60);
+        destination = new Coordinate(70, 70);
     }
 
     @Override
@@ -64,9 +64,13 @@ public class DriverSetRouteActivity extends ChildActivity {
             double[] latLon = data.getDoubleArrayExtra(MapsActivity.INTENT_CORDS_KEY);
             if (requestCode == 1) {
                 originEditText.setText(String.format("%f ; %f", latLon[0], latLon[1]));
+                origin.setLatitude(latLon[0]);
+                origin.setLongitude(latLon[1]);
 
             } else if (requestCode == 2) {
                 destinationEditText.setText(String.format("%f ; %f", latLon[0], latLon[1]));
+                destination.setLatitude(latLon[0]);
+                destination.setLongitude(latLon[1]);
             }
         }
     }
@@ -102,8 +106,7 @@ public class DriverSetRouteActivity extends ChildActivity {
     }
 
     public void done(View view){
-
-
+        
     }
 
 
