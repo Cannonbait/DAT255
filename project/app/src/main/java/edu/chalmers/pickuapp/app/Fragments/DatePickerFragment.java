@@ -39,9 +39,17 @@ public class DatePickerFragment extends DialogFragment
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        this.view.setText(Integer.toString(year) + "/" + Integer.toString(month) + "/" + Integer.toString(day));
+        this.view.setText(Integer.toString(year) + "/" + monthToString(month) + "/" + Integer.toString(day));
         date.year = year;
-        date.month = month;
+        date.month = month+1;
         date.day = day;
+    }
+
+    private String monthToString(int month){
+        month++;
+        if (month < 10){
+            return "0"+month;
+        }
+        return Integer.toString(month);
     }
 }
