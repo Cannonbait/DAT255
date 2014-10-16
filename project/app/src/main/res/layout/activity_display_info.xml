@@ -22,6 +22,10 @@
             android:textSize="25dp"
             android:layout_width="match_parent"
             android:layout_height="100dp"/>
+    <ImageView
+            android:id="@+id/meetup_point_on_map"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
 
     <Button
             android:text="OK"
