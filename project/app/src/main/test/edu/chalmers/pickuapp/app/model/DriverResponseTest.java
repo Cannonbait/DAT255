@@ -33,7 +33,6 @@ public class DriverResponseTest extends Assert{
 
 	@Test
 	public void testOnStart(){
-		//TODO- fail test
 		boolean temp = dr.isDone();
 		DriverPicksUpHitchhikerEvent dpu = new DriverPicksUpHitchhikerEvent(routeData, date);
 		dr.processEvent(dpu);
@@ -42,7 +41,7 @@ public class DriverResponseTest extends Assert{
 
 	@Test
 	public void testProssesEvent_Event(){
-
+		//TODO
 	}
 
 	@Test
@@ -75,7 +74,6 @@ public class DriverResponseTest extends Assert{
 
 	@Test
 	public void testGetNextSequnce(){
-		//TODO- not done, nullpointer
 		assertTrue(dr.getNextSequence() == null);
 
 		DriverPicksUpHitchhikerEvent drPick = new DriverPicksUpHitchhikerEvent(routeData, date);
