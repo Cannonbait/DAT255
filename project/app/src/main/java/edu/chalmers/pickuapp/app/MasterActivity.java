@@ -68,10 +68,15 @@ public class MasterActivity extends Activity implements EventListener {
     public void onEvent(Event e) {
         if (e instanceof ChangeViewEvent) {
             ChangeViewEvent event = (ChangeViewEvent) e;
+            if (event.sequenceClass == ExitApp.class) {
+                currentRunningChild.finish();
+                finish();
+                return;
+            }
+
             Intent i = new Intent(this, availableActivities.get(event.sequenceClass));
             startActivity(i);
 
-            Log.i("PickUApp", "Good?");
         } else if (e instanceof ExitAppEvent) {
             finish();
         }
