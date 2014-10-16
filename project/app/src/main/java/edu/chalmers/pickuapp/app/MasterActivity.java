@@ -35,7 +35,6 @@ public class MasterActivity extends Activity implements EventListener {
         }
 
         //start mockserver
-        Log.i("hej","hallå");
         mockServer = new MockServer();
     }
 

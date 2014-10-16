@@ -11,12 +11,9 @@ import edu.chalmers.pickuapp.app.model.RouteData;
  */
 public class MockServer implements EventListener {
 
-    private RouteData routeData;
-
 
     public MockServer(){
         EventBus.INSTANCE.registerListener(this);
-        System.out.println("Hallo");
      }
 
 
@@ -26,13 +23,13 @@ public class MockServer implements EventListener {
         if (event instanceof StartMatchmakingEvent) {
             StartMatchmakingEvent sme = (StartMatchmakingEvent)event;
             //write driver's data to a txt file. then start matchmaking from the hitchhiker txt file
-            saveToServer(sme.getDate(),sme.getRouteData(),sme.getID());
+            saveToServer(sme.getDate(), sme.getRouteData(), sme.getID());
 
             match(sme.getRouteData(),sme.getDate(),sme.getID());
         }
 
         if (event instanceof AbortMatchmakingEvent) {
-            System.out.println("Aborted matchmaking");
+            Log.i("MockServer","Aborted matchmaking");
         }
     }
 
@@ -41,14 +38,16 @@ public class MockServer implements EventListener {
     //n0000b matchmaking
     public void match(RouteData routeData, Date date, String id){
 
-        RouteData mockRouteData = new RouteData(new Coordinate(10,10),new Coordinate(20,20), new Date(2014, 10, 14, 24, 50, 30), new Date(2014, 10, 14, 24, 50, 30));
+        RouteData mockRouteData = new RouteData(new Coordinate(10,10),new Coordinate(20,20), new Date(),new Date());
+        String mockID = "h";
+        Date mockDate = date;
+        Log.i("MockServer","Matching...");
 
-        if(routeData.getOrigin() == mockRouteData.getOrigin()){
-
-        Log.i("MATCHING","Doing match...");
-            if(routeData.getDestination() == mockRouteData.getDestination()) {
-                System.out.println("Match made!");
-            }
+        if(routeData.getOrigin() == mockRouteData.getOrigin()
+                && routeData.getDestination() == mockRouteData.getDestination()
+                && id != mockID && date == mockDate){
+            EventBus.INSTANCE.reportEvent(new DriverMatchFoundEvent(routeData,date));
+            Log.i("MockServer","Match Found!");
         }
 
     }

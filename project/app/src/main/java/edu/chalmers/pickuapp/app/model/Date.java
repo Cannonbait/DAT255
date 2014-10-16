@@ -15,7 +15,7 @@ public class Date {
 	public int second;
 
     public Date(){
-
+        new Date(2014,12,12,12,00,00);
     }
 
 	public Date(int year, int month, int day, int hour, int minute, int second) {
