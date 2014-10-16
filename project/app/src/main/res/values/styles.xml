@@ -1,9 +1,10 @@
 <resources>
-
-	<style name="AppTheme" parent="android:Theme">
-    	<item name="android:windowFullscreen">true</item>
-    	<item name="android:windowNoTitle">true</item>
-    	 <item name="android:windowBackground">@drawable/background</item>
-	</style>
-
+    <style name="button" parent="@android:style/Widget.Button">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">#EDEDED</item>
+        <item name="android:textSize">48dip</item>
+        <item name="android:background">@drawable/button</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
 </resources>
