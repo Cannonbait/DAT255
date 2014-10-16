@@ -36,6 +36,10 @@ public abstract class Sequence {
     	sequences = sequencesSource;
     }
 
+    public static HashMap<Class<? extends Sequence>, Sequence> getSequencesSource() {
+        return sequences;
+    }
+
     /*
      * Should run at the start of each sequence
      */
