@@ -26,10 +26,13 @@ public class MockServerTest extends Assert implements EventListener {
     }
 
     @Test
-    public void testOnEvent(){
-
-
+    public void testStartMatchMakingEvent(){
         EventBus.INSTANCE.reportEvent(new StartMatchmakingEvent(mockDate,mockRouteData,mockID));
+    }
+
+    @Test
+    public void testAbortMatchMakingEvent(){
+
     }
 
 

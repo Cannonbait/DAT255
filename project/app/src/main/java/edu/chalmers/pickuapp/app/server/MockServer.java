@@ -9,8 +9,9 @@ import edu.chalmers.pickuapp.app.model.RouteData;
 /**
  * Created by Malin on 2014-10-06.
  */
-public class MockServer implements EventListener {
+public class MockServer implements EventListener, Runnable {
 
+    private boolean doMatch,matchFound;
 
     public MockServer(){
         EventBus.INSTANCE.registerListener(this);
@@ -26,9 +27,11 @@ public class MockServer implements EventListener {
            //saveToServer(sme.getDate(), sme.getRouteData(), sme.getID());
 
             match(sme.getRouteData(),sme.getDate(),sme.getID());
+            doMatch = true;
         }
 
         if (event instanceof AbortMatchmakingEvent) {
+            doMatch = false;
         }
     }
 
@@ -41,18 +44,33 @@ public class MockServer implements EventListener {
         String mockID = "h";
         Date mockDate = date;
 
-        if(routeData.getOrigin() == mockRouteData.getOrigin()
-                && routeData.getDestination() == mockRouteData.getDestination()
-                && id != mockID && date == mockDate){
-            EventBus.INSTANCE.reportEvent(new DriverMatchFoundEvent(routeData,date));
-            System.out.println("Match found!");
+        while(doMatch && !matchFound){
+            if(routeData.getOrigin() == mockRouteData.getOrigin()
+                    && routeData.getDestination() == mockRouteData.getDestination()
+                    && id != mockID && date == mockDate) {
+                EventBus.INSTANCE.reportEvent(new DriverMatchFoundEvent(routeData, date));
+                System.out.println("Match found!");
+                matchFound = true;
+            }
         }
 
     }
-/**
-    public void saveToServer(Date date, RouteData routeData, String id){
-        if(id.equals("d")){
-            //we're using phones so writing to a  txt file is stupid.
-        }
-    }*/
+
+
+    /**
+     * Methods that in the future (?) seems to be reasonable to have.
+     * for now we add them to an array
+     */
+    public void addDriver(){
+
+    }
+
+    public void sddHH(){
+
+    }
+
+    @Override
+    public void run() {
+
+    }
 }
