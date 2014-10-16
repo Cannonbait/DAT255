@@ -20,13 +20,14 @@ public class MockServerTest extends Assert implements EventListener {
     @Before
     public void setUp(){
         mockServer = new MockServer();
-        mockRouteData = new RouteData(new Coordinate(10,10),new Coordinate(20,20));
+        mockRouteData = new RouteData(new Coordinate(10,10),new Coordinate(20,20),new Date(),new Date());
         mockDate = new Date();
         mockID = "d";
     }
 
     @Test
     public void testOnEvent(){
+
 
         EventBus.INSTANCE.reportEvent(new StartMatchmakingEvent(mockDate,mockRouteData,mockID));
     }

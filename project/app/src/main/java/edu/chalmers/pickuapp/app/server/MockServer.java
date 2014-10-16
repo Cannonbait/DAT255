@@ -23,13 +23,12 @@ public class MockServer implements EventListener {
         if (event instanceof StartMatchmakingEvent) {
             StartMatchmakingEvent sme = (StartMatchmakingEvent)event;
             //write driver's data to a txt file. then start matchmaking from the hitchhiker txt file
-            saveToServer(sme.getDate(), sme.getRouteData(), sme.getID());
+           //saveToServer(sme.getDate(), sme.getRouteData(), sme.getID());
 
             match(sme.getRouteData(),sme.getDate(),sme.getID());
         }
 
         if (event instanceof AbortMatchmakingEvent) {
-            Log.i("MockServer","Aborted matchmaking");
         }
     }
 
@@ -41,20 +40,19 @@ public class MockServer implements EventListener {
         RouteData mockRouteData = new RouteData(new Coordinate(10,10),new Coordinate(20,20), new Date(),new Date());
         String mockID = "h";
         Date mockDate = date;
-        Log.i("MockServer","Matching...");
 
         if(routeData.getOrigin() == mockRouteData.getOrigin()
                 && routeData.getDestination() == mockRouteData.getDestination()
                 && id != mockID && date == mockDate){
             EventBus.INSTANCE.reportEvent(new DriverMatchFoundEvent(routeData,date));
-            Log.i("MockServer","Match Found!");
+            System.out.println("Match found!");
         }
 
     }
-
+/**
     public void saveToServer(Date date, RouteData routeData, String id){
         if(id.equals("d")){
             //we're using phones so writing to a  txt file is stupid.
         }
-    }
+    }*/
 }
