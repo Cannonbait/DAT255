@@ -1,6 +1,6 @@
 package edu.chalmers.pickuapp.app;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -45,6 +45,8 @@ public class DriverResponseActivity extends ChildActivity{
 
 	public void showMeetingPointOnMap(View view){
 		//TODO- create activity or fragment to show map
+		Intent intent = new Intent(this, MapsActivity.class);
+		startActivityForResult(intent, 1);
 	}
 
 	public void yesSelected(View view){
@@ -52,11 +54,11 @@ public class DriverResponseActivity extends ChildActivity{
 	}
 
 	public void noKeepSearchingSelected(View view){
-		EventBus.INSTANCE.reportEvent(new DriverDeclineKeepSearch());
+		EventBus.INSTANCE.reportEvent(new DriverDeclineKeepSearchEvent());
 	}
 
 	public void noStopSearchingSelected(View view){
-		EventBus.INSTANCE.reportEvent(new DriverDeclineHitchhiker());
+		EventBus.INSTANCE.reportEvent(new DriverDeclineHitchhikerEvent());
 	}
 
 	@Override

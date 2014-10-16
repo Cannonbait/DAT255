@@ -39,11 +39,11 @@ public class HitchhikerWaitResponseTest {
     public void testGetNextSequence() throws Exception {
         assertNull(hitchhikerWaitResponse.getNextSequence());
 
-        hitchhikerWaitResponse.processEvent(new DriverDeclineHitchhiker());
+        hitchhikerWaitResponse.processEvent(new DriverDeclineHitchhikerEvent());
         assertEquals(hitchhikerWaitResponse.getNextSequence().getClass(), HitchhikerMatchmaker.class);
 
         hitchhikerWaitResponse.onStart();
-        hitchhikerWaitResponse.processEvent(new DriverDeclineKeepSearch());
+        hitchhikerWaitResponse.processEvent(new DriverDeclineKeepSearchEvent());
         assertEquals(hitchhikerWaitResponse.getNextSequence().getClass(), HitchhikerMatchmaker.class);
 
         hitchhikerWaitResponse.onStart();
@@ -55,11 +55,11 @@ public class HitchhikerWaitResponseTest {
     public void testIsDone() throws Exception {
         assertFalse(hitchhikerWaitResponse.isDone());
 
-        hitchhikerWaitResponse.processEvent(new DriverDeclineHitchhiker());
+        hitchhikerWaitResponse.processEvent(new DriverDeclineHitchhikerEvent());
         assertTrue(hitchhikerWaitResponse.isDone());
 
         hitchhikerWaitResponse.onStart();
-        hitchhikerWaitResponse.processEvent(new DriverDeclineKeepSearch());
+        hitchhikerWaitResponse.processEvent(new DriverDeclineKeepSearchEvent());
         assertTrue(hitchhikerWaitResponse.isDone());
 
         hitchhikerWaitResponse.onStart();

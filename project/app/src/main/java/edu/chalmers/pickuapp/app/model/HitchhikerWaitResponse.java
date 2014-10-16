@@ -13,7 +13,7 @@ public class HitchhikerWaitResponse extends Sequence {
 	@Override
 	public void processEvent(Event e) {
 		//If driver declined this hitchhiker, return to matchmaking
-		if(e instanceof DriverDeclineHitchhiker || e instanceof DriverDeclineKeepSearch) {
+		if(e instanceof DriverDeclineHitchhikerEvent || e instanceof DriverDeclineKeepSearchEvent) {
 			nextSequence = Sequence.getSequence(HitchhikerMatchmaker.class);
 
 			isDone = true;

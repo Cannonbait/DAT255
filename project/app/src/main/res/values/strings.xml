@@ -13,15 +13,12 @@
     <string name="title_activity_driver_matchmaker">DriverMatchmakerActivity</string>
     <string name="title_activity_hitchhiker_matchmaker">HitchhikerMatchmakerActivity</string>
     <string name="title_activity_master">MasterActivity</string>
-
-
     <string name="time_and_date">00:00 01/01-14</string>
     <string name="title_activity_driver_response">DriverResponseActivity</string>
     <string name="title_activity_hitchhiker_response">HitchhikerResponseActivity</string>
     <string name="title_activity_hitchhiker_wait_response">HitchhikerWaitResponseActivity</string>
     <string name="title_maps_activity">MapsActivity</string>
     <string name="title_activity_show_map">ShowMap</string>
-
     <string name="set_from_desc">From:</string>
     <string name="set_from_hint">Chalmers tvärgata 4</string>
     <string name="set_to_desc">To:</string>
