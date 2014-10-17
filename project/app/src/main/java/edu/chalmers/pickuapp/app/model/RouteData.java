@@ -39,6 +39,10 @@ public class RouteData {
 		return new Coordinate(destination);
 	}
 
+    public Date getStartDate() { return new Date(startDate); }
+
+    public Date getStopDate() { return new Date(stopDate); }
+
 	@Override
 	public boolean equals(Object rhs) {
 		if(rhs == null) {
