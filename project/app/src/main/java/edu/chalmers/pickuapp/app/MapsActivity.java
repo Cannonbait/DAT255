@@ -1,18 +1,19 @@
 package edu.chalmers.pickuapp.app;
 
-import android.content.*;
-import android.location.Address;
-import android.location.Geocoder;
-import android.os.*;
-import android.support.v4.app.*;
-import android.util.*;
-import com.google.android.gms.maps.*;
-import com.google.android.gms.maps.model.*;
+import android.content.Intent;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.util.Log;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import edu.chalmers.pickuapp.app.utils.GoogleMapsHelper;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by Tejp on 2014-10-13.
@@ -42,9 +43,15 @@ public class MapsActivity extends FragmentActivity {
         double[] posArr = intent.getDoubleArrayExtra(INTENT_START_CORDS_KEY);
 
         final GoogleMap map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
-        if (posArr != null ) {
-            map.addMarker(new MarkerOptions().position(new LatLng(posArr[0], posArr[1])));
-        } else {
+        map.getUiSettings().setMyLocationButtonEnabled(true);
+        map.setMyLocationEnabled(true);
+        if (posArr != null ) { // Show position gotten from intent
+            LatLng markerPos = new LatLng(posArr[0], posArr[1]);
+            map.addMarker(new MarkerOptions().position(markerPos));
+            CameraUpdate cameraPos = CameraUpdateFactory.newLatLngZoom(markerPos, 5);
+            map.animateCamera(cameraPos);
+        } else { //No position available from intent. Act as a selector of position
+
             map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
                 public void onMapClick(LatLng latLng) {
