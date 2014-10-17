@@ -11,7 +11,7 @@ import edu.chalmers.pickuapp.app.model.*;
 public class DriverMatchmaker extends Sequence {
 
 	private Date date;
-	private RouteData routeData;
+	private RouteData routeData = new RouteData(new Coordinate(10, 10), new Coordinate(20, 20), new Date(2004, 01, 01, 01, 01, 01), new Date(2004, 02, 02, 02, 02, 02));
 
 	public DriverMatchmaker() {
 		super();
@@ -23,7 +23,6 @@ public class DriverMatchmaker extends Sequence {
 		//On match found, set nextSequence to be DriverResponse
 		if(event instanceof DriverMatchFoundEvent) {
 
-			isDone = true;
 			nextSequence = getSequence(DriverResponse.class);
 			//Forwards routeData and date
 			((DriverResponse)nextSequence).insert(routeData, date);
@@ -31,10 +30,7 @@ public class DriverMatchmaker extends Sequence {
 
 		//If driver aborted matchmaking, return to DriverSetRoute
 		if(event instanceof AbortMatchmakingEvent) {
-            isDone = true;
 			nextSequence = getBackSequence();
-
-
 		}
 	}
 
@@ -49,8 +45,7 @@ public class DriverMatchmaker extends Sequence {
 	 * So insert that routeData to the matchmaker here
 	 * @param routeData The route that the driver will drive
 	 */
-	public void insert(RouteData routeData, Date date) {
-		this.date = new Date(date);
+	public void insert(RouteData routeData) {
 		this.routeData = new RouteData(routeData);
 	}
 
@@ -64,5 +59,15 @@ public class DriverMatchmaker extends Sequence {
 	public Date getDate(){
 		return date;
 	}
+
+    @Override
+    public void onStart(){
+        EventBus.INSTANCE.reportEvent(new StartMatchmakingEvent(routeData));
+    }
+
+    @Override
+    public boolean isDone(){
+        return nextSequence != null;
+    }
 
 }

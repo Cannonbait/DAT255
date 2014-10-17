@@ -9,30 +9,16 @@ import edu.chalmers.pickuapp.app.model.RouteData;
 /**
  * Created by Malin on 2014-10-06.
  */
-public class MockServer implements EventListener, Runnable {
+public class MockServer implements Runnable {
 
-    private boolean doMatch,matchFound;
+
+    private RouteData routeData;
+
+    //skräpdate
+    private Date date = new Date();
 
     public MockServer(){
-        EventBus.INSTANCE.registerListener(this);
-     }
 
-
-    @Override
-    public void onEvent(Event event) {
-
-        if (event instanceof StartMatchmakingEvent) {
-            StartMatchmakingEvent sme = (StartMatchmakingEvent)event;
-            //write driver's data to a txt file. then start matchmaking from the hitchhiker txt file
-           //saveToServer(sme.getDate(), sme.getRouteData(), sme.getID());
-
-            match(sme.getRouteData(),sme.getDate(),sme.getID());
-            doMatch = true;
-        }
-
-        if (event instanceof AbortMatchmakingEvent) {
-            doMatch = false;
-        }
     }
 
 
@@ -42,35 +28,31 @@ public class MockServer implements EventListener, Runnable {
 
         RouteData mockRouteData = new RouteData(new Coordinate(10,10),new Coordinate(20,20), new Date(),new Date());
         String mockID = "h";
-        Date mockDate = date;
 
-        while(doMatch && !matchFound){
-            if(routeData.getOrigin() == mockRouteData.getOrigin()
-                    && routeData.getDestination() == mockRouteData.getDestination()
-                    && id != mockID && date == mockDate) {
-                EventBus.INSTANCE.reportEvent(new DriverMatchFoundEvent(routeData, date));
-                System.out.println("Match found!");
-                matchFound = true;
-            }
+        if(routeData.getOrigin() == mockRouteData.getOrigin()
+                && routeData.getDestination() == mockRouteData.getDestination()
+                && id != mockID) {
+            EventBus.INSTANCE.reportEvent(new DriverMatchFoundEvent(routeData, date));
         }
 
     }
 
-
-    /**
-     * Methods that in the future (?) seems to be reasonable to have.
-     * for now we add them to an array
-     */
-    public void addDriver(){
-
-    }
-
-    public void sddHH(){
-
+    public void setData(RouteData routeData){
+        this.routeData = routeData;
     }
 
     @Override
     public void run() {
+
+        try{
+            Thread.sleep(5000);
+        }catch(Exception e){
+
+        }
+
+        //Currently this causes a crash
+        //EventBus.INSTANCE.reportEvent(new DriverMatchFoundEvent(this.routeData,this.date));
+        Log.i("MockServer","FOUND MATCH!!!!!!###############");
 
     }
 }

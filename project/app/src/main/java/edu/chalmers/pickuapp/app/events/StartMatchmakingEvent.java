@@ -8,16 +8,11 @@ import edu.chalmers.pickuapp.app.model.RouteData;
  */
 public class StartMatchmakingEvent implements Event {
 
-    private Date date;
     private RouteData routeData;
-    private String id;
-
 
     //Save data from where the event was thrown
-    public StartMatchmakingEvent (Date date, RouteData routeData, String id) {
-        this.date = date;
+    public StartMatchmakingEvent (RouteData routeData) {
         this.routeData = routeData;
-        setID(id);
     }
 
 
@@ -26,18 +21,4 @@ public class StartMatchmakingEvent implements Event {
         return routeData;
     }
 
-    public Date getDate(){
-        return date;
-    }
-
-    public String getID(){
-        return id;
-    }
-
-    public void setID(String id){
-        //sämst felhantering
-        if(!(id.equals("d") || id.equals("h"))) {
-            this.id = "d";
-        }
-    }
 }

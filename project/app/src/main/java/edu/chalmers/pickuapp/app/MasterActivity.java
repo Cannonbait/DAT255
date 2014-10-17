@@ -8,6 +8,7 @@ import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.events.EventListener;
 import edu.chalmers.pickuapp.app.model.*;
 import edu.chalmers.pickuapp.app.server.MockServer;
+import edu.chalmers.pickuapp.app.server.Network;
 
 import java.util.*;
 
@@ -21,7 +22,7 @@ public class MasterActivity extends Activity implements EventListener {
 
 
     private static ChildActivity currentRunningChild = null;
-    private MockServer mockServer;
+    private Network network;
 
 
     @Override
@@ -35,7 +36,8 @@ public class MasterActivity extends Activity implements EventListener {
         }
 
         //start mockserver
-        mockServer = new MockServer();
+        network = new Network();
+
     }
 
     @Override

@@ -11,8 +11,7 @@ public class RouteData {
      * Needs to be defined for lazy initialization
      */
     public RouteData(){}
-
-	/**
+    	/**
 	 * @param  origin      Where to pickup
 	 * @param  destination Where to go
 	 */
