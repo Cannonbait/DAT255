@@ -9,6 +9,7 @@ import edu.chalmers.pickuapp.app.events.EventListener;
 import edu.chalmers.pickuapp.app.model.*;
 import edu.chalmers.pickuapp.app.server.MockServer;
 import edu.chalmers.pickuapp.app.server.Network;
+import edu.chalmers.pickuapp.app.utils.GoogleMapsHelper;
 
 import java.util.*;
 
@@ -28,6 +29,7 @@ public class MasterActivity extends Activity implements EventListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        GoogleMapsHelper.initGoogleMapsHelper(this);
         setContentView(R.layout.error);
         EventBus.INSTANCE.registerListener(this);
         setupAvailableActivities();
