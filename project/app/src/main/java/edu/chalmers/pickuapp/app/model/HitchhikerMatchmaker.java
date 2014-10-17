@@ -31,7 +31,7 @@ public class HitchhikerMatchmaker extends Sequence {
 		if(event instanceof AbortMatchmakingEvent) {
 
 			isDone = true;
-			nextSequence = getSequence(HitchhikerSetRoute.class);
+			nextSequence = getBackSequence();
 
 		}
 	}

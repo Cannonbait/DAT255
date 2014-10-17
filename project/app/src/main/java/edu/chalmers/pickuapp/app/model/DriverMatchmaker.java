@@ -1,5 +1,6 @@
 package edu.chalmers.pickuapp.app.model;
 
+import android.util.Log;
 import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.model.*;
 
@@ -30,9 +31,9 @@ public class DriverMatchmaker extends Sequence {
 
 		//If driver aborted matchmaking, return to DriverSetRoute
 		if(event instanceof AbortMatchmakingEvent) {
+            isDone = true;
+			nextSequence = getBackSequence();
 
-			isDone = true;
-			nextSequence = getSequence(DriverSetRoute.class);
 
 		}
 	}
