@@ -22,20 +22,26 @@ public class HitchhikerResponse extends Sequence {
 		if(event instanceof HitchhikerAcceptEvent) {
 			nextSequence = Sequence.getSequence(HitchhikerWaitResponse.class);
 			//((HitchhikerWaitResponse)nextSequence).insert(routeData, date); //is this needed?
+
 			isDone = true;
+			Eventbus.INSTANCE.reportEvent(new ClickedForwardEvent());
 		}
 
 		//If decline and continue search, goto matchmaking with same indata as before
 		if(event instanceof HitchhikerDeclineMatchAndContinueEvent) {
 			//Do not need to pass any data to matchmaker; it is already known
 			nextSequence = Sequence.getSequence(HitchhikerMatchmaker.class);
+
 			isDone = true;
+			Eventbus.INSTANCE.reportEvent(new ClickedForwardEvent());
 		}
 		
 		//If decline and quit, goto mode
 		if(event instanceof HitchhikerDeclineAndQuitEvent) {
 			nextSequence = Sequence.getSequence(Mode.class);
+
 			isDone = true;
+			Eventbus.INSTANCE.reportEvent(new ClickedForwardEvent());
 		}
 	}
 
