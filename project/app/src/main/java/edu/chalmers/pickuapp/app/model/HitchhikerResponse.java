@@ -20,9 +20,8 @@ public class HitchhikerResponse extends Sequence {
 	public void processEvent(Event event) {
 		//If accept, goto HitchhikerWaitForResponse
 		if(event instanceof HitchhikerAcceptEvent) {
-			nextSequence = Sequence.getSequence(MockSequence.class); //until there is a HitchhikerWaitForResponse.class
-			//((HitchhikerWaitForResponse)nextSequence).insert(routeData, date); //Insert routeData to waitForResponse
-			//routeData and date 
+			nextSequence = Sequence.getSequence(HitchhikerWaitResponse.class);
+			//((HitchhikerWaitResponse)nextSequence).insert(routeData, date); //is this needed?
 			isDone = true;
 		}
 
@@ -42,7 +41,7 @@ public class HitchhikerResponse extends Sequence {
 
     @Override
     public Sequence getBackSequence() {
-        return getSequence(Mode.class); //TODO is this corrent? where should this lead to?
+        return getSequence(HitchhikerMatchmaker.class); //TODO is this corrent? where should this lead to?
     }
 
     public void insert(RouteData routeData, Date date){

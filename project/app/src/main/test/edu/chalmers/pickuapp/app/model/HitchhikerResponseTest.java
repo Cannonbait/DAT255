@@ -37,7 +37,7 @@ public class HitchhikerResponseTest extends Assert {
 
         //After processing HitchikerAcceptEvent nextSequence should be HitchhikerWaitForResponse
         hitchhikerResponse.processEvent(new HitchhikerAcceptEvent());
-        assertEquals(hitchhikerResponse.getNextSequence().getClass(), MockSequence.class); //Until HitchhikerWaitForResponse exists
+        assertEquals(hitchhikerResponse.getNextSequence().getClass(), HitchhikerWaitResponse.class);
 
         hitchhikerResponse.onStart(); //Reset sequence
 
