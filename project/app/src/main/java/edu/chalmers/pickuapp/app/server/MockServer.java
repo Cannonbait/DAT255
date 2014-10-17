@@ -17,12 +17,6 @@ public class MockServer implements Runnable {
     //skräpdate
     private Date date = new Date();
 
-    public MockServer(){
-
-    }
-
-
-
     //n0000b matchmaking
     public void match(RouteData routeData, Date date, String id){
 
@@ -43,16 +37,12 @@ public class MockServer implements Runnable {
 
     @Override
     public void run() {
-
         try{
             Thread.sleep(5000);
         }catch(Exception e){
 
         }
-
-        //Currently this causes a crash
-        //EventBus.INSTANCE.reportEvent(new DriverMatchFoundEvent(this.routeData,this.date));
-        Log.i("MockServer","FOUND MATCH!!!!!!###############");
-
+        EventBus.INSTANCE.reportEvent(new DriverMatchFoundEvent(this.routeData,this.date));
+        EventBus.INSTANCE.reportEvent(new ForwardClickedEvent());
     }
 }

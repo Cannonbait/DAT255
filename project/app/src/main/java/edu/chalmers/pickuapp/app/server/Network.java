@@ -19,10 +19,7 @@ public class Network implements EventListener{
     public void onEvent(Event event) {
 
         if (event instanceof StartMatchmakingEvent) {
-
-            Log.i("NetWork", "HALLÅÅÅÅ");
             StartMatchmakingEvent sme = (StartMatchmakingEvent)event;
-
             server.setData(sme.getRouteData());
             matchMakingThread = new Thread(server);
             matchMakingThread.start();

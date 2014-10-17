@@ -10,7 +10,6 @@ import edu.chalmers.pickuapp.app.model.*;
  */
 public class DriverMatchmaker extends Sequence {
 
-	private Date date;
 	private RouteData routeData = new RouteData(new Coordinate(10, 10), new Coordinate(20, 20), new Date(2004, 01, 01, 01, 01, 01), new Date(2004, 02, 02, 02, 02, 02));
 
 	public DriverMatchmaker() {
@@ -25,7 +24,7 @@ public class DriverMatchmaker extends Sequence {
 
 			nextSequence = getSequence(DriverResponse.class);
 			//Forwards routeData and date
-			((DriverResponse)nextSequence).insert(routeData, date);
+			((DriverResponse)nextSequence).insert(routeData);
 		}
 
 		//If driver aborted matchmaking, return to DriverSetRoute
@@ -56,9 +55,6 @@ public class DriverMatchmaker extends Sequence {
 		return new RouteData(routeData);
 	}
 
-	public Date getDate(){
-		return date;
-	}
 
     @Override
     public void onStart(){

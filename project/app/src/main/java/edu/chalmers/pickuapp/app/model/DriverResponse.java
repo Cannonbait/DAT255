@@ -5,7 +5,6 @@ import edu.chalmers.pickuapp.app.events.*;
 public class DriverResponse extends Sequence{
 
 	private RouteData routeData;
-	private Date date;
 
 	public DriverResponse(){
 		super();
@@ -20,7 +19,7 @@ public class DriverResponse extends Sequence{
 	public void processEvent(Event event) {
 		if(event instanceof DriverPicksUpHitchhikerEvent){
 			nextSequence = Sequence.getSequence(DisplayInfo.class);
-			((DisplayInfo)nextSequence).insert(routeData.getOrigin(), date);
+			((DisplayInfo)nextSequence).insert(routeData.getOrigin(), routeData.getStartDate());
 			setSequenceDoneAndReportForward();
 		}
 		if(event instanceof DriverDeclineKeepSearchEvent){
@@ -43,9 +42,8 @@ public class DriverResponse extends Sequence{
         return getSequence(Mode.class); //TODO where should this lead to?
     }
 
-    public void insert(RouteData routeData, Date date){
+    public void insert(RouteData routeData){
 		this.routeData = routeData;
-		this.date = date;
 	}
 
 	@Override
@@ -57,7 +55,4 @@ public class DriverResponse extends Sequence{
 		return routeData;
 	}
 
-	public Date getDate(){
-		return date;
-	}
 }//end DriverResponse
