@@ -61,15 +61,17 @@ public class DriverSetRouteActivity extends ChildActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        Log.i("PickUApp", "activityReturnResult" + resultCode + " " + RESULT_OK + " " + RESULT_CANCELED + " " + RESULT_FIRST_USER);
+
         if (resultCode == RESULT_OK) {
             double[] latLon = data.getDoubleArrayExtra(MapsActivity.INTENT_CORDS_KEY);
             if (requestCode == 1) {
-                originEditText.setText(String.format("%f ; %f", latLon[0], latLon[1]));
+                originEditText.setText(data.getStringExtra(MapsActivity.INTENT_ADRESS_STRING_KEY));
                 origin.setLatitude(latLon[0]);
                 origin.setLongitude(latLon[1]);
 
             } else if (requestCode == 2) {
-                destinationEditText.setText(String.format("%f ; %f", latLon[0], latLon[1]));
+                destinationEditText.setText(data.getStringExtra(MapsActivity.INTENT_ADRESS_STRING_KEY));
                 destination.setLatitude(latLon[0]);
                 destination.setLongitude(latLon[1]);
             }
