@@ -14,6 +14,15 @@
             android:paddingBottom="50dp"
             android:paddingLeft="100dp"
     />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+    />
+
     <Button
             android:text="@string/abort"
             android:textSize="50dp"
