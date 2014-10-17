@@ -16,6 +16,7 @@ public class HitchhikerSetRoute extends Sequence {
 		if (event instanceof SetRouteEvent){
             route = new RouteData(((SetRouteEvent) event).getRoute());
             nextSequence = getSequence(HitchhikerMatchmaker.class);
+            ((HitchhikerMatchmaker)nextSequence).insert(route);
         }
 	}
 

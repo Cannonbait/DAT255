@@ -16,6 +16,11 @@ public class HitchhikerMatchmaker extends Sequence {
 	}
 
 	@Override
+	public void onStart() {
+		EventBus.INSTANCE.reportEvent(new StartMatchmakingEvent(routeData));
+	}
+
+	@Override
 	public void processEvent(Event event) {
 
 		//On match found, set nextSequence to be HitchkerResponse
