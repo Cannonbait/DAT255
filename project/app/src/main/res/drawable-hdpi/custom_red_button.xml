@@ -4,8 +4,8 @@
 	<item
     	android:state_pressed="true"
     	android:state_enabled="true"
-        android:drawable="@drawable/button_pressed" />
+        android:drawable="@drawable/custom_red_button_pressed" />
     <item
     	android:state_enabled="true"
-        android:drawable="@drawable/button_enabled" />
+        android:drawable="@drawable/custom_red_button_enabled" />
 </selector>

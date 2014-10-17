@@ -53,7 +53,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="noKeepSearchingSelected"
-            android:background="#FFA200"
+            style="@style/custom_orange_button"
             />
     <Button
             android:text="No, stop searching"
@@ -61,7 +61,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="noStopSearchingSelected"
-            android:background="#FF3B3B"
+            style="@style/custom_red_button"
             />
 
 </LinearLayout>

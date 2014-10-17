@@ -1,9 +1,25 @@
 <resources>
-    <style name="button" parent="@android:style/Widget.Button">
+    <style name="custom_green_button" parent="@android:style/Widget.Button">
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:textColor">#EDEDED</item>
         <item name="android:textSize">48dip</item>
-        <item name="android:background">@drawable/button</item>
+        <item name="android:background">@drawable/custom_green_button</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="custom_orange_button" parent="@android:style/Widget.Button">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">#EDEDED</item>
+        <item name="android:textSize">48dip</item>
+        <item name="android:background">@drawable/custom_orange_button</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="custom_red_button" parent="@android:style/Widget.Button">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">#EDEDED</item>
+        <item name="android:textSize">48dip</item>
+        <item name="android:background">@drawable/custom_red_button</item>
         <item name="android:focusable">true</item>
         <item name="android:clickable">true</item>
     </style>
