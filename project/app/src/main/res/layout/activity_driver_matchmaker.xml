@@ -20,5 +20,6 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="abortMatchmaking"
+            android:background="#FF3B3B"
     />
 </LinearLayout>
