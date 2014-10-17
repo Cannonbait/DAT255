@@ -24,7 +24,7 @@ public class HitchhikerResponse extends Sequence {
 			//((HitchhikerWaitResponse)nextSequence).insert(routeData, date); //is this needed?
 
 			isDone = true;
-			Eventbus.INSTANCE.reportEvent(new ClickedForwardEvent());
+			EventBus.INSTANCE.reportEvent(new ForwardClickedEvent());
 		}
 
 		//If decline and continue search, goto matchmaking with same indata as before
@@ -33,7 +33,7 @@ public class HitchhikerResponse extends Sequence {
 			nextSequence = Sequence.getSequence(HitchhikerMatchmaker.class);
 
 			isDone = true;
-			Eventbus.INSTANCE.reportEvent(new ClickedForwardEvent());
+			EventBus.INSTANCE.reportEvent(new ForwardClickedEvent());
 		}
 		
 		//If decline and quit, goto mode
@@ -41,7 +41,7 @@ public class HitchhikerResponse extends Sequence {
 			nextSequence = Sequence.getSequence(Mode.class);
 
 			isDone = true;
-			Eventbus.INSTANCE.reportEvent(new ClickedForwardEvent());
+			EventBus.INSTANCE.reportEvent(new ForwardClickedEvent());
 		}
 	}
 
