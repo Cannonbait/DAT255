@@ -39,10 +39,10 @@ public class MockServer implements Runnable {
     public void run() {
         try{
             Thread.sleep(5000);
-        }catch(Exception e){
+            EventBus.INSTANCE.reportEvent(new DriverMatchFoundEvent(this.routeData,this.date));
+            EventBus.INSTANCE.reportEvent(new ForwardClickedEvent());
+        }catch(InterruptedException e){
 
         }
-        EventBus.INSTANCE.reportEvent(new DriverMatchFoundEvent(this.routeData,this.date));
-        EventBus.INSTANCE.reportEvent(new ForwardClickedEvent());
     }
 }

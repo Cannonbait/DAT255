@@ -26,7 +26,7 @@ public class Network implements EventListener{
         }
 
         if (event instanceof AbortMatchmakingEvent) {
-            //matchMakingThread.interrupt();
+            matchMakingThread.interrupt();
         }
     }
 
