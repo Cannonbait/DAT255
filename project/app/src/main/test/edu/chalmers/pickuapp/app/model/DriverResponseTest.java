@@ -23,22 +23,23 @@ public class DriverResponseTest extends Assert{
 	public void setUp() throws Exception{
 		model = new Model();
 		coordinate = new Coordinate(2, 5);
-		routeData = new RouteData(coordinate, coordinate, date, date);
-		date = new Date(2014, 10, 16, 8, 20, 27);
+        date = new Date(2014, 10, 16, 8, 20, 27);
+        routeData = new RouteData(coordinate, coordinate, date, date);
+
 
 		dr = (DriverResponse)Sequence.getSequence(DriverResponse.class);
 
 		dr.insert(routeData);
 	}
 
-    /*
+
 	@Test
 	public void testOnStart(){
       	boolean temp = dr.isDone();
 		DriverPicksUpHitchhikerEvent dpu = new DriverPicksUpHitchhikerEvent(routeData, date);
 		dr.processEvent(dpu);
 		assertTrue(!temp && dr.isDone());
-	}*/
+	}
 
 	@Test
 	public void testProssesEvent_Event(){
@@ -53,7 +54,7 @@ public class DriverResponseTest extends Assert{
 		assertTrue(!(dr.getRouteData().equals(routeData)));
 	}
 
-    /*
+
 	@Test
 	public void testIsDone(){
 		//Nothing done, should be false
@@ -63,15 +64,13 @@ public class DriverResponseTest extends Assert{
 		dr.processEvent(drp);
 		assertTrue(dr.isDone());
 	}
-    */
 
 	@Test
 	public void testGetRouteData(){
 		assertTrue(dr.getRouteData().equals(new RouteData(new Coordinate(2, 5), new Coordinate(2, 5), date, date)));
 	}
 
-    /*
-	@Test
+    @Test
 	public void testGetNextSequnce(){
 		assertTrue(dr.getNextSequence() == null);
 
@@ -87,5 +86,5 @@ public class DriverResponseTest extends Assert{
 		dr.processEvent(drDecline);
 		assertEquals(dr.getNextSequence().getClass(), DriverSetRoute.class);
 	}
-	*/
+	
 }
