@@ -29,7 +29,7 @@ public class MapsActivity extends FragmentActivity {
 
     public static final String INTENT_START_CORDS_KEY = "start_cords";
     public static final String INTENT_ADRESS_STRING_KEY = "adress";
-    public static final String INTENT_CORDS_KEY = "coords";
+    public static final String INTENT_CORDS_KEY = "cords";
     private LatLng latLng;
 
     private String address;
@@ -45,9 +45,14 @@ public class MapsActivity extends FragmentActivity {
         final GoogleMap map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
         map.getUiSettings().setMyLocationButtonEnabled(true);
         map.setMyLocationEnabled(true);
-        if (posArr != null ) { // Show position gotten from intent
+        if (posArr != null ) {
+        // Show start position gotten from intent
             LatLng markerPos = new LatLng(posArr[0], posArr[1]);
-            map.addMarker(new MarkerOptions().position(markerPos));
+            map.addMarker(new MarkerOptions().position(markerPos).title("Origin").snippet("Place to pick up hitchhiker."));
+			//Show position of destination with a marker
+			LatLng markerPosDestination = new LatLng(posArr[2], posArr[3]);
+			map.addMarker(new MarkerOptions().position(markerPosDestination).title("Destination").snippet("Place to drop of hitchhiker."));
+
             CameraUpdate cameraPos = CameraUpdateFactory.newLatLngZoom(markerPos, 5);
             map.animateCamera(cameraPos);
         } else { //No position available from intent. Act as a selector of position
