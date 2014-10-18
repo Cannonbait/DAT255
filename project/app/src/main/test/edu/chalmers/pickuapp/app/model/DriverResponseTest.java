@@ -1,6 +1,7 @@
 package edu.chalmers.pickuapp.app.model;
 
 import static org.junit.Assert.*;
+
 import edu.chalmers.pickuapp.app.events.EventBus;
 import edu.chalmers.pickuapp.app.events.DriverDeclineHitchhikerEvent;
 import edu.chalmers.pickuapp.app.events.DriverPicksUpHitchhikerEvent;
@@ -26,7 +27,6 @@ public class DriverResponseTest extends Assert{
         date = new Date(2014, 10, 16, 8, 20, 27);
         routeData = new RouteData(coordinate, coordinate, date, date);
 
-
 		dr = (DriverResponse)Sequence.getSequence(DriverResponse.class);
 
 		dr.insert(routeData);
@@ -43,7 +43,34 @@ public class DriverResponseTest extends Assert{
 
 	@Test
 	public void testProssesEvent_Event(){
-		//TODO
+
+		DriverPicksUpHitchhikerEvent drPick = new DriverPicksUpHitchhikerEvent(routeData, date);
+		dr.processEvent(drPick);
+		assertEquals(dr.getNextSequence().getClass(), DisplayInfo.class);
+		assertTrue(dr.isDone());
+
+		//set variable isDone to false
+		dr.onStart();
+		DriverDeclineKeepSearchEvent keepSearch = new DriverDeclineKeepSearchEvent();
+		dr.processEvent(keepSearch);
+		assertEquals(dr.getNextSequence().getClass(), DriverMatchmaker.class);
+		assertTrue(dr.isDone());
+
+		dr.isDone();
+		DriverDeclineHitchhikerEvent drDecline = new DriverDeclineHitchhikerEvent();
+		dr.processEvent(drDecline);
+		assertEquals(dr.getNextSequence().getClass(), DriverSetRoute.class);
+		assertTrue(dr.isDone());
+	}
+
+	@Test
+	public void testSetSequenceDoneAndReportForward(){
+		//Is tested by other, public, methods
+	}
+
+	@Test
+	public void testGetBackSequence(){
+		assertEquals(dr.getBackSequence().getClass(), Mode.class);
 	}
 
 	@Test
@@ -86,5 +113,4 @@ public class DriverResponseTest extends Assert{
 		dr.processEvent(drDecline);
 		assertEquals(dr.getNextSequence().getClass(), DriverSetRoute.class);
 	}
-	
-}
+}//end DriverResponseTest
