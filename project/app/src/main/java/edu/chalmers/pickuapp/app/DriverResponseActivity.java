@@ -44,9 +44,10 @@ public class DriverResponseActivity extends ChildActivity{
     }
 
 	public void showMeetingPointOnMap(View view){
-		//TODO- create activity or fragment to show map
 		Intent intent = new Intent(this, MapsActivity.class);
-		startActivityForResult(intent, 1);
+		intent.putExtra(MapsActivity.INTENT_START_CORDS_KEY, new double[]{routeData.getOrigin().getLatitude(), routeData.getOrigin().getLongitude(),
+															routeData.getDestination().getLatitude(), routeData.getDestination().getLongitude()});
+		startActivity(intent);
 	}
 
 	public void yesSelected(View view){
