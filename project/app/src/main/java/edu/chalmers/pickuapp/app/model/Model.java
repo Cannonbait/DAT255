@@ -49,10 +49,15 @@ public class Model implements EventListener {
             EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.getClass()));
             activeSequence.onStart();
         } else if(event instanceof BackClickedEvent) {
-            activeSequence = activeSequence.getBackSequence();
 
-            EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.getClass()));
-            activeSequence.onStart();
+            //If backSequence is null nothing should happen on clicking back
+            if(activeSequence.getBackSequence() != null) {
+                activeSequence = activeSequence.getBackSequence();
+                EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.getClass()));
+                activeSequence.onStart();
+            }
+            
+
         }
 	}
 
