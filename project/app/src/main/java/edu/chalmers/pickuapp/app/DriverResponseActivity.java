@@ -46,8 +46,8 @@ public class DriverResponseActivity extends ChildActivity{
 
 	public void showMeetingPointOnMap(View view){
 		Intent intent = new Intent(this, MapsActivity.class);
-		intent.putExtra(MapsActivity.INTENT_START_CORDS_KEY, new double[]{routeData.getOrigin().getLatitude(), routeData.getOrigin().getLongitude(),
-															routeData.getDestination().getLatitude(), routeData.getDestination().getLongitude()});
+			intent.putExtra(MapsActivity.INTENT_START_CORDS_KEY, new double[]{routeData.getOrigin().getLatitude(), routeData.getOrigin().getLongitude(),
+																routeData.getDestination().getLatitude(), routeData.getDestination().getLongitude()});
 		startActivity(intent);
 	}
 
