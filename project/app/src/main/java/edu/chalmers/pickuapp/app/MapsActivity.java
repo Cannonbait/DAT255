@@ -49,9 +49,11 @@ public class MapsActivity extends FragmentActivity {
         // Show start position gotten from intent
             LatLng markerPos = new LatLng(posArr[0], posArr[1]);
             map.addMarker(new MarkerOptions().position(markerPos).title("Origin").snippet("Place to pick up hitchhiker."));
-			//Show position of destination with a marker
-			LatLng markerPosDestination = new LatLng(posArr[2], posArr[3]);
-			map.addMarker(new MarkerOptions().position(markerPosDestination).title("Destination").snippet("Place to drop of hitchhiker."));
+			if(posArr.length > 2) {
+				//Show position of destination with a marker
+				LatLng markerPosDestination = new LatLng(posArr[2], posArr[3]);
+				map.addMarker(new MarkerOptions().position(markerPosDestination).title("Destination").snippet("Place to drop of hitchhiker."));
+			}
 
             CameraUpdate cameraPos = CameraUpdateFactory.newLatLngZoom(markerPos, 5);
             map.animateCamera(cameraPos);
