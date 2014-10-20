@@ -11,13 +11,9 @@ import edu.chalmers.pickuapp.app.model.RouteData;
  */
 public class MockServer implements Runnable {
 
-
     private RouteData routeData;
-
-    //skräpdate
     private Date date = new Date();
 
-    //n0000b matchmaking
     public void match(RouteData routeData, Date date, String id){
 
         RouteData mockRouteData = new RouteData(new Coordinate(10,10),new Coordinate(20,20), new Date(),new Date());
