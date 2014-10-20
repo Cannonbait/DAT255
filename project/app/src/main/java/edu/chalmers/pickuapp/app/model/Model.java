@@ -34,6 +34,7 @@ public class Model implements EventListener {
 
         EventBus.INSTANCE.registerListener(this);
         EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.getClass()));
+        activeSequence.onStart();
 
     }
 
@@ -41,20 +42,22 @@ public class Model implements EventListener {
 	public void onEvent(Event event) {
         activeSequence.processEvent(event);
 
+        if(event instanceof OnStartEvent) {
+            activeSequence.onStart();
+        }
+
         if(event instanceof ForwardClickedEvent) {
            if(activeSequence.isDone()) {
                activeSequence = activeSequence.getNextSequence();
            }
 
             EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.getClass()));
-            activeSequence.onStart();
         } else if(event instanceof BackClickedEvent) {
 
             //If backSequence is null nothing should happen on clicking back
             if(activeSequence.getBackSequence() != null) {
                 activeSequence = activeSequence.getBackSequence();
                 EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.getClass()));
-                activeSequence.onStart();
             }
             
 

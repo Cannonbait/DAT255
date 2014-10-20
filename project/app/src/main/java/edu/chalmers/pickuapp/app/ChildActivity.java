@@ -15,6 +15,12 @@ public class ChildActivity extends Activity {
         MasterActivity.setCurrentRunningChild(this);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.INSTANCE.reportEvent(new OnStartEvent());
+    }
+
     public void processEvent(Event e){
 
     }
