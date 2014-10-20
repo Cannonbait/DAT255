@@ -6,12 +6,12 @@ import edu.chalmers.pickuapp.app.events.*;
 /**
  * Created by cannonbait on 2014-10-16.
  */
-public class Network implements EventListener{
+public class NetworkWrapper implements EventListener{
 
     Thread matchMakingThread;
 
     private final MockServer server = new MockServer();
-    public Network(){
+    public NetworkWrapper(){
         EventBus.INSTANCE.registerListener(this);
     }
 

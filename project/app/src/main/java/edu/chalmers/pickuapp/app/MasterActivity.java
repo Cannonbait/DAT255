@@ -3,12 +3,10 @@ package edu.chalmers.pickuapp.app;
 import android.app.*;
 import android.content.*;
 import android.os.*;
-import android.util.*;
 import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.events.EventListener;
 import edu.chalmers.pickuapp.app.model.*;
-import edu.chalmers.pickuapp.app.server.MockServer;
-import edu.chalmers.pickuapp.app.server.Network;
+import edu.chalmers.pickuapp.app.server.NetworkWrapper;
 import edu.chalmers.pickuapp.app.utils.GoogleMapsHelper;
 
 import java.util.*;
@@ -23,7 +21,7 @@ public class MasterActivity extends Activity implements EventListener {
 
 
     private static ChildActivity currentRunningChild = null;
-    private Network network;
+    private NetworkWrapper network;
 
 
     @Override
@@ -38,7 +36,7 @@ public class MasterActivity extends Activity implements EventListener {
         }
 
         //start mockserver
-        network = new Network();
+        network = new NetworkWrapper();
 
     }
 
