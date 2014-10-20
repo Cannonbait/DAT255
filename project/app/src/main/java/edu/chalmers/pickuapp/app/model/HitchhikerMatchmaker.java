@@ -16,7 +16,7 @@ public class HitchhikerMatchmaker extends Sequence {
 
 	@Override
 	public void onStart() {
-		EventBus.INSTANCE.reportEvent(new DriverStartMatchmakingEvent(routeData));
+		EventBus.INSTANCE.reportEvent(new HitchhikerStartMatchmakingEvent(routeData));
 	}
 
 	@Override
