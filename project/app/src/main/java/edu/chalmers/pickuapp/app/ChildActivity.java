@@ -19,7 +19,7 @@ public class ChildActivity extends Activity {
 
     }
 
-    // Child-activities closes when the master sais they do.
+    // Child-activities closes when the master says they do.
     @Override
     public void onBackPressed() {
         EventBus.INSTANCE.reportEvent(new BackClickedEvent());

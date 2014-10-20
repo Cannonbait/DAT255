@@ -15,12 +15,13 @@ public class DriverResponseActivity extends ChildActivity{
 
 	private RouteData routeData;
 	private Date date;
+	private TextView timeAndDate;
 
-    @Override
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_response);
-		TextView timeAndDate = (TextView) findViewById(R.id.time_and_date);
+		timeAndDate = (TextView) findViewById(R.id.time_and_date);
     }
 
 
@@ -64,7 +65,7 @@ public class DriverResponseActivity extends ChildActivity{
 
 	@Override
 	public void processEvent(Event e) {
-		/* TODO- which event?
+		/* TODO- which event? And which date as output?
 		if(e instanceof Whatever){
 			Whatever wtf= new Whatever(((Whatever)e));
 			routeData = wtf.getRouterData();
