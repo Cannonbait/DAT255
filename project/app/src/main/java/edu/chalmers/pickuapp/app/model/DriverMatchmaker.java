@@ -10,7 +10,7 @@ import edu.chalmers.pickuapp.app.model.*;
  */
 public class DriverMatchmaker extends Sequence {
 
-	private RouteData routeData = new RouteData(new Coordinate(10, 10), new Coordinate(20, 20), new Date(2004, 01, 01, 01, 01, 01), new Date(2004, 02, 02, 02, 02, 02));
+	private RouteData routeData;
 
 	public DriverMatchmaker() {
 		super();
@@ -32,6 +32,10 @@ public class DriverMatchmaker extends Sequence {
 			nextSequence = getBackSequence();
 		}
 	}
+
+    public void setRouteData(RouteData data){
+        routeData = data;
+    }
 
     @Override
     public Sequence getBackSequence() {
