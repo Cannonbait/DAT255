@@ -9,6 +9,6 @@ public class SetDefaultRouteDataEvent implements Event {
 	public RouteData routeData;
 
     public SetDefaultRouteDataEvent(RouteData routeData) {
-    	routeData = new RouteData(routeData);
+    	this.routeData = new RouteData(routeData);
     }
 }

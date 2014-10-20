@@ -9,9 +9,7 @@ import android.view.*;
 import android.widget.*;
 import edu.chalmers.pickuapp.app.Fragments.DatePickerFragment;
 import edu.chalmers.pickuapp.app.Fragments.TimePickerFragment;
-import edu.chalmers.pickuapp.app.events.EventBus;
-import edu.chalmers.pickuapp.app.events.ForwardClickedEvent;
-import edu.chalmers.pickuapp.app.events.SetRouteEvent;
+import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.model.Coordinate;
 import edu.chalmers.pickuapp.app.model.Date;
 import edu.chalmers.pickuapp.app.model.RouteData;
@@ -22,6 +20,9 @@ public class DriverSetRouteActivity extends ChildActivity {
 
     private EditText originEditText;
     private EditText destinationEditText;
+    private TextView originTimeView;
+    private TextView originDateView;
+
     private Date startDate;
     private Date stopDate;
     private Coordinate origin;
@@ -34,6 +35,9 @@ public class DriverSetRouteActivity extends ChildActivity {
 
         originEditText = (EditText) findViewById(R.id.set_from_input);
         destinationEditText= (EditText) findViewById(R.id.set_to_input);
+        originTimeView = (TextView) findViewById(R.id.set_from_time);
+        originDateView = (TextView) findViewById(R.id.set_from_date);
+
         startDate = new Date();
         stopDate = new Date();
         origin = new Coordinate(60, 60);
@@ -75,6 +79,17 @@ public class DriverSetRouteActivity extends ChildActivity {
                 destination.setLatitude(latLon[0]);
                 destination.setLongitude(latLon[1]);
             }
+        }
+    }
+
+    @Override
+    public void processEvent(Event event) {
+        if(event instanceof SetDefaultRouteDataEvent) {
+            Log.i("PickUApp", "Recieved SetDefaultRouteDataEvent in DriverSetRouteActivity");
+            RouteData routeData = ((SetDefaultRouteDataEvent)event).routeData;
+            Date date = routeData.getStartDate();
+            originDateView.setText(date.year + "/" + date.month + "/" + date.day);
+            originTimeView.setText(date.hour + ":" + date.minute);
         }
     }
 
