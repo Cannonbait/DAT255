@@ -17,8 +17,8 @@ public class NetworkWrapper implements EventListener{
     @Override
     public void onEvent(Event event) {
 
-        if (event instanceof StartMatchmakingEvent) {
-            StartMatchmakingEvent sme = (StartMatchmakingEvent)event;
+        if (event instanceof DriverStartMatchmakingEvent) {
+            DriverStartMatchmakingEvent sme = (DriverStartMatchmakingEvent)event;
             server.setData(sme.getRouteData());
             matchMakingThread = new Thread(server);
             matchMakingThread.start();

@@ -6,12 +6,12 @@ import edu.chalmers.pickuapp.app.model.RouteData;
 /**
  * Created by Malin on 2014-10-09.
  */
-public class StartMatchmakingEvent implements Event {
+public class DriverStartMatchmakingEvent implements Event {
 
     private RouteData routeData;
 
     //Save data from where the event was thrown
-    public StartMatchmakingEvent (RouteData routeData) {
+    public DriverStartMatchmakingEvent(RouteData routeData) {
         this.routeData = routeData;
     }
 

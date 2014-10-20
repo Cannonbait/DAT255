@@ -1,8 +1,6 @@
 package edu.chalmers.pickuapp.app.model;
 
-import android.util.Log;
 import edu.chalmers.pickuapp.app.events.*;
-import edu.chalmers.pickuapp.app.model.*;
 
 /**
  * This class represents the "Matchmaking..."-screen.
@@ -62,7 +60,7 @@ public class DriverMatchmaker extends Sequence {
 
     @Override
     public void onStart(){
-        EventBus.INSTANCE.reportEvent(new StartMatchmakingEvent(routeData));
+        EventBus.INSTANCE.reportEvent(new DriverStartMatchmakingEvent(routeData));
     }
 
     @Override
