@@ -1,6 +1,5 @@
 package edu.chalmers.pickuapp.app.server;
 
-import android.util.Log;
 import edu.chalmers.pickuapp.app.events.*;
 
 /**
@@ -10,7 +9,7 @@ public class NetworkWrapper implements EventListener{
 
     Thread matchMakingThread;
 
-    private final MockServer server = new MockServer();
+    private final MockNetworkClient server = new MockNetworkClient();
     public NetworkWrapper(){
         EventBus.INSTANCE.registerListener(this);
     }

@@ -9,7 +9,7 @@ import edu.chalmers.pickuapp.app.model.RouteData;
 /**
  * Created by Malin on 2014-10-06.
  */
-public class MockServer implements Runnable {
+public class MockNetworkClient implements Runnable {
 
     private RouteData routeData;
     private Date date = new Date();
