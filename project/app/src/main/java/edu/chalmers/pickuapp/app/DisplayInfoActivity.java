@@ -1,9 +1,16 @@
 package edu.chalmers.pickuapp.app;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.TextView;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.model.Coordinate;
 import edu.chalmers.pickuapp.app.model.Date;
@@ -14,12 +21,16 @@ public class DisplayInfoActivity extends ChildActivity {
     private Coordinate meetupPoint;
     private Date date;
     private TextView meetupTime;
+    private GoogleMap map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_info);
         meetupTime = (TextView) findViewById(R.id.meetup_info_time);
+        map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+
+
     }
 
 
@@ -52,6 +63,7 @@ public class DisplayInfoActivity extends ChildActivity {
             meetupPoint = ((MeetupEvent) e).getMeetupPoint();
             date = ((MeetupEvent) e).getDate();
             setMeetupTimeText();
+            showMeetupPoint();
         }
     }
     public void setMeetupTimeText(){
@@ -59,6 +71,9 @@ public class DisplayInfoActivity extends ChildActivity {
         String timeText = date.hour + ":" + date.minute;
         meetupTime.setText(dateText + "\n" + timeText);
 
+    }
+    public void showMeetupPoint(){
+        map.addMarker(new MarkerOptions().position(new LatLng(meetupPoint.getLatitude(), meetupPoint.getLongitude())));
     }
 
 }
