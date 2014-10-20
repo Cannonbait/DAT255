@@ -10,7 +10,7 @@ import java.util.*;
 public enum EventBus {
     INSTANCE;
 
-    private Set<EventListener> listeners = new HashSet<EventListener>();
+    private List<EventListener> listeners = new ArrayList<EventListener>();
 
     public void registerListener(EventListener listener) {
         listeners.add(listener);
