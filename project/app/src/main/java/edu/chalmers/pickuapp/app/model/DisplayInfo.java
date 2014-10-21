@@ -8,6 +8,7 @@ import edu.chalmers.pickuapp.app.events.*;
  */
 public class DisplayInfo extends Sequence {
     private Coordinate meetupPoint = null;
+    private Coordinate dropOffPoint = null;
     private Date date = null;
 
     public DisplayInfo(){
@@ -24,25 +25,37 @@ public class DisplayInfo extends Sequence {
 
     @Override
     public Sequence getBackSequence() {
-        return getSequence(Mode.class); //TODO where should this goto?
+        return getSequence(Mode.class);
     }
 
     @Override
     public void onStart(){
         super.onStart();
-        EventBus.INSTANCE.reportEvent(new MeetupEvent(meetupPoint, date));
+        EventBus.INSTANCE.reportEvent(new MeetupEvent(meetupPoint, dropOffPoint, date));
     }
 
-    public void insert(Coordinate meetupPoint, Date date){
+    /**
+     * Method to insert the data needed for the sequence
+     *
+     * @param meetupPoint The coordinate on which the driver and hitchhiker shouls meet up
+     * @param dropOffPoint
+     * @param date
+     */
+    public void insert(Coordinate meetupPoint, Coordinate dropOffPoint, Date date){
         this.meetupPoint = meetupPoint;
+        this.dropOffPoint = dropOffPoint;
         this.date = date;
     }
 
     public Date getDate(){
-        return date;
+        return new Date(date);
     }
 
     public Coordinate getMeetupPoint(){
-        return meetupPoint;
+        return new Coordinate(meetupPoint);
+    }
+
+    public Coordinate getDropOffPoint(){
+        return new Coordinate(dropOffPoint);
     }
 }

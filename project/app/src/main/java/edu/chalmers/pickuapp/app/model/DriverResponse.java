@@ -19,7 +19,7 @@ public class DriverResponse extends Sequence{
 	public void processEvent(Event event) {
 		if(event instanceof DriverPicksUpHitchhikerEvent){
 			nextSequence = Sequence.getSequence(DisplayInfo.class);
-			((DisplayInfo)nextSequence).insert(routeData.getOrigin(), routeData.getStartDate());
+			((DisplayInfo)nextSequence).insert(routeData.getOrigin(), routeData.getDestination(), routeData.getStartDate());
 			setSequenceDoneAndReportForward();
 		}
 		if(event instanceof DriverDeclineKeepSearchEvent){

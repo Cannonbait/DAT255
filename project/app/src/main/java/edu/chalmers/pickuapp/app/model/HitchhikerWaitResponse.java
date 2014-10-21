@@ -23,7 +23,7 @@ public class HitchhikerWaitResponse extends Sequence {
 		if(e instanceof DriverPicksUpHitchhikerEvent) {
 			DriverPicksUpHitchhikerEvent temp = (DriverPicksUpHitchhikerEvent)e;
 			nextSequence = Sequence.getSequence(DisplayInfo.class);
-			((DisplayInfo)nextSequence).insert(temp.getRouteData().getOrigin(), temp.getDate());
+			((DisplayInfo)nextSequence).insert(temp.getRouteData().getOrigin(),temp.getRouteData().getDestination(), temp.getDate());
 
 			isDone = true;
 		}

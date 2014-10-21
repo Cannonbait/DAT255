@@ -10,15 +10,21 @@ import edu.chalmers.pickuapp.app.model.Date;
 public class MeetupEvent implements Event {
 
     private Coordinate meetupPoint;
+    private Coordinate dropOffPoint;
     private Date date;
 
-    public MeetupEvent(Coordinate meetupPoint, Date date){
+    public MeetupEvent(Coordinate meetupPoint, Coordinate dropOffPoint, Date date){
         this.meetupPoint = meetupPoint;
+        this.dropOffPoint = dropOffPoint;
         this.date = date;
     }
 
     public Coordinate getMeetupPoint(){
         return new Coordinate(meetupPoint.getLatitude(), meetupPoint.getLongitude());
+    }
+
+    public Coordinate getDropOffPoint(){
+        return new Coordinate(dropOffPoint);
     }
 
     public Date getDate(){
