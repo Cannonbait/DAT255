@@ -85,11 +85,13 @@ public class DriverSetRouteActivity extends ChildActivity {
     @Override
     public void processEvent(Event event) {
         if(event instanceof SetDefaultRouteDataEvent) {
-            Log.i("PickUApp", "Recieved SetDefaultRouteDataEvent in DriverSetRouteActivity");
             RouteData routeData = ((SetDefaultRouteDataEvent)event).routeData;
-            Date date = routeData.getStartDate();
-            originDateView.setText(date.year + "/" + date.month + "/" + date.day);
-            originTimeView.setText(date.hour + ":" + date.minute);
+            startDate = routeData.getStartDate();
+            stopDate = routeData.getStopDate();
+            origin = routeData.getOrigin();
+            destination = routeData.getDestination();
+            originDateView.setText(String.format("%d/%d/%d",startDate.year, startDate.month, startDate.day));
+            originTimeView.setText(String.format("%d:%d",startDate.hour, startDate.minute));
         }
     }
 
