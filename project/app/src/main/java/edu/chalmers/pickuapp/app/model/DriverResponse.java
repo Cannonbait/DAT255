@@ -13,6 +13,7 @@ public class DriverResponse extends Sequence{
 	@Override
 	public void onStart() {
 		super.onStart();
+        EventBus.INSTANCE.reportEvent(new SetupDriverResponseViewEvent(routeData));
 	}
 
 	@Override

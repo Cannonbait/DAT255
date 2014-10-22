@@ -2,6 +2,7 @@ package edu.chalmers.pickuapp.app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -65,14 +66,12 @@ public class DriverResponseActivity extends ChildActivity{
 
 	@Override
 	public void processEvent(Event e) {
-		/* TODO- which event? And which date as output?
-		if(e instanceof Whatever){
-			Whatever wtf= new Whatever(((Whatever)e));
-			routeData = wtf.getRouterData();
-			date = wtf.getDate();
-			timeAndDate.setText(String.format("%s:%s %s/%s-%s", date.hour, date.minute, date.day, date.month, date.year));
-		}
-		*/
-
+        if(e instanceof SetupDriverResponseViewEvent){
+            routeData = ((SetupDriverResponseViewEvent)e).getRouteData();
+            date = routeData.getStartDate();
+            Log.i("PickUApp", "HELLOAUE");
+            Log.i("PickUApp", String.format("%d/%d - %d   %d:%d", date.day, date.month, date.year, date.hour, date.minute, date.second));
+            timeAndDate.setText(String.format("%s:%s %s/%s-%s", date.hour, date.minute, date.day, date.month, date.year));
+        }
 	}
 }
