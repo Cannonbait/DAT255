@@ -39,6 +39,14 @@ public class RouteData {
 		return new Coordinate(destination);
 	}
 
+    public void setOrigin(Coordinate origin) {
+        this.origin = origin;
+    }
+
+    public void setDestination(Coordinate destination) {
+        this.destination = destination;
+    }
+
     public Date getStartDate() { return new Date(startDate); }
 
     public Date getStopDate() { return new Date(stopDate); }
