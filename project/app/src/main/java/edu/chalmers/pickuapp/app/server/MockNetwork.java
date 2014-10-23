@@ -8,6 +8,7 @@ import edu.chalmers.pickuapp.app.model.RouteData;
 
 
 public class MockNetwork implements Network{
+
     RouteData data;
     Thread t;
 
@@ -24,7 +25,16 @@ public class MockNetwork implements Network{
     }
 
     public void hitchhikerAcceptMatch(){
-        sendPacket(new DriverPicksUpHitchhikerEvent(data, data.getStartDate()));
+        final double num = Math.random();
+        if (num< 0.4){
+            sendPacket(new DriverPicksUpHitchhikerEvent(data, data.getStartDate()));
+        } else if (num < 0.8){
+            sendPacket(new DriverDeclineHitchhikerEvent());
+        } else {
+            sendPacket(new DriverDeclineHitchhikerEvent(), 20000);
+        }
+
+
     }
 
     public void hitchhikerDeclineMatch(){
@@ -35,17 +45,21 @@ public class MockNetwork implements Network{
         t.interrupt();
     }
 
-    private void sendPacket(final Event event){
+    private void sendPacket(final Event event, final long timer){
         t = new Thread(){
             public void run(){
                 try {
-                    this.sleep(5000);
+                    this.sleep(timer);
                     EventBus.INSTANCE.reportEvent(event);
                     EventBus.INSTANCE.reportEvent(new ForwardClickedEvent());
                 } catch (InterruptedException e){}
             }
         };
         t.start();
+    }
+
+    private void sendPacket(final Event event){
+        sendPacket(event, 5000);
     }
 
 
