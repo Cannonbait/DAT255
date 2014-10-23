@@ -10,7 +10,7 @@ public class NetworkWrapper implements EventListener{
 
     Thread matchMakingThread;
 
-    private final Network networkClient = new MockNetworkClient();
+    private final Network network = new MockNetwork();
     public NetworkWrapper(){
         EventBus.INSTANCE.registerListener(this);
     }
@@ -20,16 +20,16 @@ public class NetworkWrapper implements EventListener{
 
         if (event instanceof DriverStartMatchmakingEvent) {
             RouteData data = ((DriverStartMatchmakingEvent)event).getRouteData();
-            networkClient.startDriverMatchmaking(data);
+            network.startDriverMatchmaking(data);
         } else if (event instanceof HitchhikerStartMatchmakingEvent){
             RouteData data = ((HitchhikerStartMatchmakingEvent)event).getRouteData();
-            networkClient.startHitchhikerMatchmaking(data);
+            network.startHitchhikerMatchmaking(data);
         } else if (event instanceof HitchhikerAcceptEvent){
-            networkClient.acceptMatch();
+            network.acceptMatch();
         } else if (event instanceof HitchhikerDeclineMatchAndContinueEvent || event instanceof HitchhikerDeclineAndQuitEvent){
-            networkClient.declineMatch();
+            network.declineMatch();
         } else if (event instanceof AbortMatchmakingEvent) {
-            networkClient.abortMatchmaking();
+            network.abortMatchmaking();
         }
     }
 

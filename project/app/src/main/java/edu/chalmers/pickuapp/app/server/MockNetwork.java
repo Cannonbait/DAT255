@@ -7,7 +7,7 @@ import edu.chalmers.pickuapp.app.model.Date;
 import edu.chalmers.pickuapp.app.model.RouteData;
 
 
-public class MockNetworkClient implements Network{
+public class MockNetwork implements Network{
 
 
     public void startDriverMatchmaking(RouteData data){
