@@ -8,7 +8,7 @@ import edu.chalmers.pickuapp.app.model.RouteData;
 public interface Network{
         public void startDriverMatchmaking(RouteData data);
         public void startHitchhikerMatchmaking(RouteData data);
-        public void acceptMatch();
-        public void declineMatch();
-        public void abortMatchmaking();
+        public void hitchhikerAcceptMatch();
+        public void hitchhikerDeclineMatch();
+        public void hitchhikerAbortMatchmaking();
 }

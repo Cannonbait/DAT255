@@ -46,6 +46,7 @@ public class Model implements EventListener {
             activeSequence.onStart();
         }
 
+        //TODO: Wtf, plz fix
         if(event instanceof ForwardClickedEvent) {
            if(activeSequence.isDone()) {
                activeSequence = activeSequence.getNextSequence();

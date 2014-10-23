@@ -25,11 +25,11 @@ public class NetworkWrapper implements EventListener{
             RouteData data = ((HitchhikerStartMatchmakingEvent)event).getRouteData();
             network.startHitchhikerMatchmaking(data);
         } else if (event instanceof HitchhikerAcceptEvent){
-            network.acceptMatch();
+            network.hitchhikerAcceptMatch();
         } else if (event instanceof HitchhikerDeclineMatchAndContinueEvent || event instanceof HitchhikerDeclineAndQuitEvent){
-            network.declineMatch();
+            network.hitchhikerDeclineMatch();
         } else if (event instanceof AbortMatchmakingEvent) {
-            network.abortMatchmaking();
+            network.hitchhikerAbortMatchmaking();
         }
     }
 
