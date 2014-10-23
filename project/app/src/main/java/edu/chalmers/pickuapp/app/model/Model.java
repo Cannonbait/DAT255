@@ -46,12 +46,7 @@ public class Model implements EventListener {
             activeSequence.onStart();
         }
 
-        //TODO: Wtf, plz fix
-        if(event instanceof ForwardClickedEvent) {
-           if(activeSequence.isDone()) {
-               activeSequence = activeSequence.getNextSequence();
-           }
-
+        if(event instanceof ForwardClickedEvent && activeSequence.isDone()) {
             EventBus.INSTANCE.reportEvent(new ChangeViewEvent(activeSequence.getClass()));
         } else if(event instanceof BackClickedEvent) {
 
