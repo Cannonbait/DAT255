@@ -95,7 +95,7 @@ public class DriverSetRouteActivity extends ChildActivity {
             origin = routeData.getOrigin();
             destination = routeData.getDestination();
             originDateView.setText(String.format("%d/%d/%d",startDate.year, startDate.month, startDate.day));
-            originTimeView.setText(String.format("%d:%d", startDate.hour, startDate.minute));
+            originTimeView.setText(String.format("%02d:%02d", startDate.hour, startDate.minute));
             String locationString = GoogleMapsHelper.getAdressfromCoord(origin.getLatitude(), origin.getLongitude());
             originEditText.setText(locationString);
         }

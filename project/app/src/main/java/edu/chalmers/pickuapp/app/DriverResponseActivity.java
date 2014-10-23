@@ -68,7 +68,7 @@ public class DriverResponseActivity extends ChildActivity{
         if(e instanceof SetupDriverResponseViewEvent){
             routeData = ((SetupDriverResponseViewEvent)e).getRouteData();
             Date date = routeData.getStartDate();
-            timeAndDate.setText(String.format("%s:%s %s/%s-%s", date.hour, date.minute, date.day, date.month, date.year));
+            timeAndDate.setText(String.format("%02d:%02d %s/%s-%s", date.hour, date.minute, date.day, date.month, date.year));
         }
 	}
 }
