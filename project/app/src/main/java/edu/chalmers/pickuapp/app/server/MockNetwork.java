@@ -15,19 +15,19 @@ public class MockNetwork implements Network{
     public void startDriverMatchmaking(final RouteData data){
         //If we want to modify the match do this here
         this.data = new RouteData(data);
-        sendPacket(new DriverMatchFoundEvent(this.data, this.data.getStartDate()));
+        sendPacket(new DriverMatchFoundEvent(this.data));
     }
 
     public void startHitchhikerMatchmaking(final RouteData data){
         //If we want to modify the match do this here
         this.data = new RouteData(data);
-        sendPacket(new HitchhikerMatchFoundEvent(this.data, this.data.getStartDate()));
+        sendPacket(new HitchhikerMatchFoundEvent(this.data));
     }
 
     public void hitchhikerAcceptMatch(){
         final double num = Math.random();
         if (num< 0.4){
-            sendPacket(new DriverPicksUpHitchhikerEvent(data, data.getStartDate()));
+            sendPacket(new DriverPicksUpHitchhikerEvent(data));
         } else if (num < 0.8){
             sendPacket(new DriverDeclineHitchhikerEvent());
         } else {

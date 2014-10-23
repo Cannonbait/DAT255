@@ -59,6 +59,7 @@ public class DisplayInfoActivity extends ChildActivity {
     public void processEvent(Event e){
         if(e instanceof MeetupEvent){
             meetupPoint = ((MeetupEvent) e).getRouteData().getOrigin();
+			dropOffPoint = ((MeetupEvent) e).getRouteData().getDestination();
             date = ((MeetupEvent) e).getRouteData().getStartDate();
             setMeetupTimeText();
             showMeetupPoint();

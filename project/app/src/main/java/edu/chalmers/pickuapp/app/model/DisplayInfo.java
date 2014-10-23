@@ -30,24 +30,7 @@ public class DisplayInfo extends Sequence {
     @Override
     public void onStart(){
         super.onStart();
-<<<<<<< HEAD
-        EventBus.INSTANCE.reportEvent(new MeetupEvent(meetupPoint, dropOffPoint, date));
-    }
-
-    /**
-     * Method to insert the data needed for the sequence
-     *
-     * @param meetupPoint The place on which the driver and hitchhiker should meet up
-     * @param dropOffPoint The place on which the hitchhiker should be dropped off
-     * @param date When to meet
-     */
-    public void insert(Coordinate meetupPoint, Coordinate dropOffPoint, Date date){
-        this.meetupPoint = meetupPoint;
-        this.dropOffPoint = dropOffPoint;
-        this.date = date;
-=======
-        EventBus.INSTANCE.reportEvent(new MeetupEvent(routeData));
->>>>>>> Fixing
+		EventBus.INSTANCE.reportEvent(new MeetupEvent(routeData));
     }
 
 	/**
