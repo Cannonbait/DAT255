@@ -1,19 +1,24 @@
 package edu.chalmers.pickuapp.app;
 
-import android.app.*;
-import android.content.*;
+import android.app.DialogFragment;
+import android.content.Context;
+import android.content.Intent;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
-import android.text.format.*;
-import android.util.*;
-import android.view.*;
-import android.widget.*;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import edu.chalmers.pickuapp.app.Fragments.DatePickerFragment;
 import edu.chalmers.pickuapp.app.Fragments.TimePickerFragment;
 import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.model.Coordinate;
 import edu.chalmers.pickuapp.app.model.Date;
 import edu.chalmers.pickuapp.app.model.RouteData;
-
+import edu.chalmers.pickuapp.app.utils.GoogleMapsHelper;
 
 
 public class DriverSetRouteActivity extends ChildActivity {
@@ -38,10 +43,21 @@ public class DriverSetRouteActivity extends ChildActivity {
         originTimeView = (TextView) findViewById(R.id.set_from_time);
         originDateView = (TextView) findViewById(R.id.set_from_date);
 
+        // Set originEditText to my location as default.
+        LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        if (location != null){
+            double latitude = location.getLatitude();
+            double longitude = location.getLongitude();
+            originEditText.setText(GoogleMapsHelper.getAdressfromCoord(latitude, longitude));
+            origin = new Coordinate(latitude, longitude);
+        } else {
+        }
+        origin = new Coordinate(60, 60);  // Random magic numbers becuase origin can't be null
+
+        destination = new Coordinate(70, 70);
         startDate = new Date();
         stopDate = new Date();
-        origin = new Coordinate(60, 60);
-        destination = new Coordinate(70, 70);
     }
 
     @Override
