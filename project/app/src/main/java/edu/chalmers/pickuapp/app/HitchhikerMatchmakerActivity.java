@@ -28,6 +28,12 @@ public class HitchhikerMatchmakerActivity extends ChildActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        EventBus.INSTANCE.reportEvent(new AbortMatchmakingEvent());
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.hitchhiker_matchmaker, menu);
