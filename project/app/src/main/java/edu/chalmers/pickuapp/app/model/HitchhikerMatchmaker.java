@@ -28,7 +28,7 @@ public class HitchhikerMatchmaker extends Sequence {
 
 			isDone = true;
 			nextSequence = getSequence(HitchhikerResponse.class);
-			((HitchhikerResponse)nextSequence).insert(hitchhikerMatchFoundEvent.routeData, hitchhikerMatchFoundEvent.date);
+			((HitchhikerResponse)nextSequence).insert(hitchhikerMatchFoundEvent.routeData);
 		}
 
 		//If hitchhiker aborted matchmaking, return to HitchhikerSetRoute

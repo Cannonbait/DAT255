@@ -7,23 +7,17 @@ import edu.chalmers.pickuapp.app.model.*;
  */
 public class DriverPickedRouteEvent implements Event {
 
-	private Date date;
 	private RouteData routeData;
 
 	/**
 	 * @param routeData what route did the driver select?
 	 */
-	public DriverPickedRouteEvent(RouteData routeData, Date date) {
-		this.date = date;
+	public DriverPickedRouteEvent(RouteData routeData) {
 		this.routeData = routeData;
 	}
 
     public RouteData getRouteData(){
         return routeData;
     }
-
-	public Date getDate(){
-		return date;
-	}
 
 }

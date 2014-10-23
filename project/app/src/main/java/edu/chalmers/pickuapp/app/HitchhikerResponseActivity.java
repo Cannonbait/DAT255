@@ -1,20 +1,17 @@
 package edu.chalmers.pickuapp.app;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import edu.chalmers.pickuapp.app.events.*;
-import edu.chalmers.pickuapp.app.model.Date;
 import edu.chalmers.pickuapp.app.model.RouteData;
 
 
 public class HitchhikerResponseActivity extends ChildActivity{
 
 	private RouteData routeData;
-	private Date date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

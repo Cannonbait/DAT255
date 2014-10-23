@@ -36,7 +36,7 @@ public class DriverResponseTest extends Assert{
 	@Test
 	public void testOnStart(){
       	boolean temp = dr.isDone();
-		DriverPicksUpHitchhikerEvent dpu = new DriverPicksUpHitchhikerEvent(routeData, date);
+		DriverPicksUpHitchhikerEvent dpu = new DriverPicksUpHitchhikerEvent(routeData);
 		dr.processEvent(dpu);
 		assertTrue(!temp && dr.isDone());
 	}
@@ -44,7 +44,7 @@ public class DriverResponseTest extends Assert{
 	@Test
 	public void testProssesEvent_Event(){
 
-		DriverPicksUpHitchhikerEvent drPick = new DriverPicksUpHitchhikerEvent(routeData, date);
+		DriverPicksUpHitchhikerEvent drPick = new DriverPicksUpHitchhikerEvent(routeData);
 		dr.processEvent(drPick);
 		assertEquals(dr.getNextSequence().getClass(), DisplayInfo.class);
 		assertTrue(dr.isDone());
@@ -86,7 +86,7 @@ public class DriverResponseTest extends Assert{
 	public void testIsDone(){
 		//Nothing done, should be false
 		assertTrue(!dr.isDone());
-		DriverPicksUpHitchhikerEvent drp = new DriverPicksUpHitchhikerEvent(routeData, date);
+		DriverPicksUpHitchhikerEvent drp = new DriverPicksUpHitchhikerEvent(routeData);
 
 		dr.processEvent(drp);
 		assertTrue(dr.isDone());
@@ -101,7 +101,7 @@ public class DriverResponseTest extends Assert{
 	public void testGetNextSequnce(){
 		assertTrue(dr.getNextSequence() == null);
 
-		DriverPicksUpHitchhikerEvent drPick = new DriverPicksUpHitchhikerEvent(routeData, date);
+		DriverPicksUpHitchhikerEvent drPick = new DriverPicksUpHitchhikerEvent(routeData);
 		dr.processEvent(drPick);
 		assertEquals(dr.getNextSequence().getClass(), DisplayInfo.class);
 

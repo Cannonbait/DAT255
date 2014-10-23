@@ -5,7 +5,6 @@ import edu.chalmers.pickuapp.app.events.*;
 public class HitchhikerResponse extends Sequence {
 
 	private RouteData routeData;
-	private Date date;
 
 	public HitchhikerResponse(){
 		super();
@@ -50,9 +49,8 @@ public class HitchhikerResponse extends Sequence {
         return getSequence(HitchhikerMatchmaker.class); //TODO is this corrent? where should this lead to?
     }
 
-    public void insert(RouteData routeData, Date date){
+    public void insert(RouteData routeData){
 		this.routeData = routeData;
-		this.date = date;
 	}
 
 	@Override

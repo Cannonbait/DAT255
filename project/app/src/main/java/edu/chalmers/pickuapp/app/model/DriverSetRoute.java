@@ -42,7 +42,7 @@ public class DriverSetRoute extends Sequence {
 		if (event instanceof SetRouteEvent){
             route = new RouteData(((SetRouteEvent) event).getRoute());
             nextSequence = getSequence(DriverMatchmaker.class);
-            ((DriverMatchmaker)nextSequence).setRouteData(route);
+            ((DriverMatchmaker)nextSequence).insert(route);
         }
 	}
 

@@ -13,12 +13,10 @@ public class HitchhikerMatchFoundEvent implements Event {
 	//I.E: Time, location, Name of driver and hitchhiker etcetc
 	
 	public RouteData routeData;
-	public Date date;
 
 	//Pass that data to this constructor
-	public HitchhikerMatchFoundEvent(RouteData routeData, Date date) {
+	public HitchhikerMatchFoundEvent(RouteData routeData) {
 		this.routeData = new RouteData(routeData);
-		this.date = new Date(date);
 	}
 
 }

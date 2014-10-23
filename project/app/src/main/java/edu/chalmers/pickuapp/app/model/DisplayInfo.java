@@ -7,9 +7,8 @@ import edu.chalmers.pickuapp.app.events.*;
  * Created by elvirajonsson on 2014-10-09.
  */
 public class DisplayInfo extends Sequence {
-    private Coordinate meetupPoint = null;
-    private Coordinate dropOffPoint = null;
-    private Date date = null;
+
+    private RouteData routeData;
 
     public DisplayInfo(){
         super();
@@ -31,6 +30,7 @@ public class DisplayInfo extends Sequence {
     @Override
     public void onStart(){
         super.onStart();
+<<<<<<< HEAD
         EventBus.INSTANCE.reportEvent(new MeetupEvent(meetupPoint, dropOffPoint, date));
     }
 
@@ -45,17 +45,21 @@ public class DisplayInfo extends Sequence {
         this.meetupPoint = meetupPoint;
         this.dropOffPoint = dropOffPoint;
         this.date = date;
+=======
+        EventBus.INSTANCE.reportEvent(new MeetupEvent(routeData));
+>>>>>>> Fixing
     }
 
-    public Date getDate(){
-        return new Date(date);
+	/**
+	 * Method to insert the data needed for the sequence
+	 *
+	 * @param routeData The coordinate on which the driver and hitchhiker should meet up
+	 */
+    public void insert(RouteData routeData){
+        this.routeData = routeData;
     }
 
-    public Coordinate getMeetupPoint(){
-        return new Coordinate(meetupPoint);
-    }
-
-    public Coordinate getDropOffPoint(){
-        return new Coordinate(dropOffPoint);
-    }
+    public RouteData getRouteData(){
+		return routeData;
+	}
 }

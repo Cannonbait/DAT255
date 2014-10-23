@@ -31,10 +31,6 @@ public class DriverMatchmaker extends Sequence {
 		}
 	}
 
-    public void setRouteData(RouteData data){
-        routeData = data;
-    }
-
     @Override
     public Sequence getBackSequence() {
         return getSequence(DriverSetRoute.class);

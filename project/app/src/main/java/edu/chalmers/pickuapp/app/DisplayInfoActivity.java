@@ -1,20 +1,16 @@
 package edu.chalmers.pickuapp.app;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import edu.chalmers.pickuapp.app.model.Coordinate;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.*;
 import android.widget.TextView;
-import com.google.android.gms.location.LocationClient;
-import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.maps.model.LatLngBoundsCreator;
 import com.google.android.gms.maps.model.MarkerOptions;
 import edu.chalmers.pickuapp.app.events.*;
-import edu.chalmers.pickuapp.app.model.Coordinate;
 import edu.chalmers.pickuapp.app.model.Date;
 
 
@@ -33,7 +29,6 @@ public class DisplayInfoActivity extends ChildActivity {
         meetupTime = (TextView) findViewById(R.id.meetup_info_time);
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
         map.setMyLocationEnabled(true);
-
     }
 
 
@@ -63,9 +58,8 @@ public class DisplayInfoActivity extends ChildActivity {
     @Override
     public void processEvent(Event e){
         if(e instanceof MeetupEvent){
-            meetupPoint = ((MeetupEvent) e).getMeetupPoint();
-            dropOffPoint = ((MeetupEvent) e).getDropOffPoint();
-            date = ((MeetupEvent) e).getDate();
+            meetupPoint = ((MeetupEvent) e).getRouteData().getOrigin();
+            date = ((MeetupEvent) e).getRouteData().getStartDate();
             setMeetupTimeText();
             showMeetupPoint();
         }

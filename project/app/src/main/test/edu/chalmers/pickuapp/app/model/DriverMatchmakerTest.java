@@ -37,7 +37,7 @@ public class DriverMatchmakerTest extends Assert {
         assertEquals(driverMatchmaker.getNextSequence(), null);
 
         //If match was found, next sequence should prompt the driver to accept or decline
-        Event driverMatchFoundEvent = new DriverMatchFoundEvent(mockRouteData, mockDate);
+        Event driverMatchFoundEvent = new DriverMatchFoundEvent(mockRouteData);
         driverMatchmaker.processEvent(driverMatchFoundEvent);
         assertEquals(driverMatchmaker.getNextSequence().getClass(), DriverResponse.class);
         
@@ -54,7 +54,7 @@ public class DriverMatchmakerTest extends Assert {
         assertTrue(!driverMatchmaker.isDone());
 
         //If match was found, it's done
-        Event driverMatchFoundEvent = new DriverMatchFoundEvent(mockRouteData, mockDate);
+        Event driverMatchFoundEvent = new DriverMatchFoundEvent(mockRouteData);
         driverMatchmaker.processEvent(driverMatchFoundEvent);
         assertTrue(driverMatchmaker.isDone());
 

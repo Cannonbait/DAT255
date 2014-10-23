@@ -15,7 +15,6 @@ import edu.chalmers.pickuapp.app.model.RouteData;
 public class DriverResponseActivity extends ChildActivity{
 
 	private RouteData routeData;
-	private Date date;
 	private TextView timeAndDate;
 
 	@Override
@@ -53,7 +52,7 @@ public class DriverResponseActivity extends ChildActivity{
 	}
 
 	public void yesSelected(View view){
-		EventBus.INSTANCE.reportEvent(new DriverPicksUpHitchhikerEvent(routeData, date));
+		EventBus.INSTANCE.reportEvent(new DriverPicksUpHitchhikerEvent(routeData));
 	}
 
 	public void noKeepSearchingSelected(View view){
@@ -68,9 +67,7 @@ public class DriverResponseActivity extends ChildActivity{
 	public void processEvent(Event e) {
         if(e instanceof SetupDriverResponseViewEvent){
             routeData = ((SetupDriverResponseViewEvent)e).getRouteData();
-            date = routeData.getStartDate();
-            Log.i("PickUApp", "HELLOAUE");
-            Log.i("PickUApp", String.format("%d/%d - %d   %d:%d", date.day, date.month, date.year, date.hour, date.minute, date.second));
+            Date date = routeData.getStartDate();
             timeAndDate.setText(String.format("%s:%s %s/%s-%s", date.hour, date.minute, date.day, date.month, date.year));
         }
 	}

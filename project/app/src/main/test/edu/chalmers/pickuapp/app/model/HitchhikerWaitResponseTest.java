@@ -47,7 +47,7 @@ public class HitchhikerWaitResponseTest {
         assertEquals(hitchhikerWaitResponse.getNextSequence().getClass(), HitchhikerMatchmaker.class);
 
         hitchhikerWaitResponse.onStart();
-        hitchhikerWaitResponse.processEvent(new DriverPicksUpHitchhikerEvent(mockRouteData, mockDate));
+        hitchhikerWaitResponse.processEvent(new DriverPicksUpHitchhikerEvent(mockRouteData));
         assertEquals(hitchhikerWaitResponse.getNextSequence().getClass(), DisplayInfo.class);        
     }
 
@@ -63,7 +63,7 @@ public class HitchhikerWaitResponseTest {
         assertTrue(hitchhikerWaitResponse.isDone());
 
         hitchhikerWaitResponse.onStart();
-        hitchhikerWaitResponse.processEvent(new DriverPicksUpHitchhikerEvent(mockRouteData, mockDate));
+        hitchhikerWaitResponse.processEvent(new DriverPicksUpHitchhikerEvent(mockRouteData));
         assertTrue(hitchhikerWaitResponse.isDone());
     }   
 }

@@ -20,7 +20,8 @@ public class DriverResponse extends Sequence{
 	public void processEvent(Event event) {
 		if(event instanceof DriverPicksUpHitchhikerEvent){
 			nextSequence = Sequence.getSequence(DisplayInfo.class);
-			((DisplayInfo)nextSequence).insert(routeData.getOrigin(), routeData.getDestination(), routeData.getStartDate());
+			((DisplayInfo)nextSequence).insert(routeData);
+
 			setSequenceDoneAndReportForward();
 		}
 		if(event instanceof DriverDeclineKeepSearchEvent){
@@ -40,7 +41,7 @@ public class DriverResponse extends Sequence{
 
     @Override
     public Sequence getBackSequence() {
-        return getSequence(Mode.class); //TODO where should this lead to?
+        return getSequence(Mode.class);
     }
 
     public void insert(RouteData routeData){
