@@ -6,40 +6,30 @@ import edu.chalmers.pickuapp.app.model.Coordinate;
 import edu.chalmers.pickuapp.app.model.Date;
 import edu.chalmers.pickuapp.app.model.RouteData;
 
-/**
- * Created by Malin on 2014-10-06.
- */
-public class MockNetworkClient implements Runnable {
 
-    private RouteData routeData;
-    private Date date = new Date();
+public class MockNetworkClient {
 
-    public void match(RouteData routeData, Date date, String id){
 
-        RouteData mockRouteData = new RouteData(new Coordinate(10,10),new Coordinate(20,20), new Date(),new Date());
-        String mockID = "h";
-
-        if(routeData.getOrigin() == mockRouteData.getOrigin()
-                && routeData.getDestination() == mockRouteData.getDestination()
-                && id != mockID) {
-            EventBus.INSTANCE.reportEvent(new DriverMatchFoundEvent(routeData, date));
-        }
+    public void startDriverMatchmaking(RouteData data){
 
     }
 
-    public void setData(RouteData routeData){
-        this.routeData = routeData;
+    public void startHitchhikerMatchmaking(RouteData data){
+
     }
 
-    @Override
-    public void run() {
-        try{
-            Thread.sleep(5000);
-            EventBus.INSTANCE.reportEvent(new HitchhikerMatchFoundEvent(routeData, date));
-            EventBus.INSTANCE.reportEvent(new DriverMatchFoundEvent(this.routeData,this.date));
-            EventBus.INSTANCE.reportEvent(new ForwardClickedEvent());
-        }catch(InterruptedException e){
+    public void acceptMatch(){
 
-        }
     }
+
+    public void declineMatch(){
+
+    }
+
+    public void abortMatchmaking(){
+
+    }
+
+
 }
+

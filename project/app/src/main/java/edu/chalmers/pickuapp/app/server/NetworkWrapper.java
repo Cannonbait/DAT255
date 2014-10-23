@@ -1,6 +1,7 @@
 package edu.chalmers.pickuapp.app.server;
 
 import edu.chalmers.pickuapp.app.events.*;
+import edu.chalmers.pickuapp.app.model.RouteData;
 
 /**
  * Created by cannonbait on 2014-10-16.
@@ -9,7 +10,7 @@ public class NetworkWrapper implements EventListener{
 
     Thread matchMakingThread;
 
-    private final MockNetworkClient server = new MockNetworkClient();
+    private final MockNetworkClient networkClient = new MockNetworkClient();
     public NetworkWrapper(){
         EventBus.INSTANCE.registerListener(this);
     }
@@ -18,14 +19,17 @@ public class NetworkWrapper implements EventListener{
     public void onEvent(Event event) {
 
         if (event instanceof DriverStartMatchmakingEvent) {
-            DriverStartMatchmakingEvent sme = (DriverStartMatchmakingEvent)event;
-            server.setData(sme.getRouteData());
-            matchMakingThread = new Thread(server);
-            matchMakingThread.start();
-        }
-
-        if (event instanceof AbortMatchmakingEvent) {
-            matchMakingThread.interrupt();
+            RouteData data = ((DriverStartMatchmakingEvent)event).getRouteData();
+            networkClient.startDriverMatchmaking(data);
+        } else if (event instanceof HitchhikerStartMatchmakingEvent){
+            RouteData data = ((HitchhikerStartMatchmakingEvent)event).getRouteData();
+            networkClient.startHitchhikerMatchmaking(data);
+        } else if (event instanceof HitchhikerAcceptEvent){
+            networkClient.acceptMatch();
+        } else if (event instanceof HitchhikerDeclineMatchAndContinueEvent || event instanceof HitchhikerDeclineAndQuitEvent){
+            networkClient.declineMatch();
+        } else if (event instanceof AbortMatchmakingEvent) {
+            networkClient.abortMatchmaking();
         }
     }
 
