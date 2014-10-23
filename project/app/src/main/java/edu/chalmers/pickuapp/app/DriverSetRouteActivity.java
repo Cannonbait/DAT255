@@ -43,18 +43,6 @@ public class DriverSetRouteActivity extends ChildActivity {
         originTimeView = (TextView) findViewById(R.id.set_from_time);
         originDateView = (TextView) findViewById(R.id.set_from_date);
 
-        // Set originEditText to my location as default.
-        LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        if (location != null){
-            double latitude = location.getLatitude();
-            double longitude = location.getLongitude();
-            originEditText.setText(GoogleMapsHelper.getAdressfromCoord(latitude, longitude));
-            origin = new Coordinate(latitude, longitude);
-        } else {
-        }
-        origin = new Coordinate(60, 60);  // Random magic numbers becuase origin can't be null
-
         destination = new Coordinate(70, 70);
         startDate = new Date();
         stopDate = new Date();
@@ -107,7 +95,9 @@ public class DriverSetRouteActivity extends ChildActivity {
             origin = routeData.getOrigin();
             destination = routeData.getDestination();
             originDateView.setText(String.format("%d/%d/%d",startDate.year, startDate.month, startDate.day));
-            originTimeView.setText(String.format("%d:%d",startDate.hour, startDate.minute));
+            originTimeView.setText(String.format("%d:%d", startDate.hour, startDate.minute));
+            String locationString = GoogleMapsHelper.getAdressfromCoord(origin.getLatitude(), origin.getLongitude());
+            originEditText.setText(locationString);
         }
     }
 
