@@ -3,7 +3,10 @@ package edu.chalmers.pickuapp.app.utils;
 import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationManager;
 import com.google.android.gms.maps.model.LatLng;
+import edu.chalmers.pickuapp.app.model.Coordinate;
 
 import java.io.IOException;
 import java.util.List;
@@ -17,9 +20,11 @@ public enum GoogleMapsHelper {
     INSTANCE;
 
     private static Geocoder geocoder;
+    private static LocationManager lm;
 
     public static void initGoogleMapsHelper(Context context) {
         geocoder = new Geocoder(context); //new Geocoder(this, Locale.getDefault());
+        lm = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
     }
 
     /**
@@ -68,4 +73,7 @@ public enum GoogleMapsHelper {
         return address;
     }
 
+    public static Location getMyLocation() {
+        return lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+    }
 }
