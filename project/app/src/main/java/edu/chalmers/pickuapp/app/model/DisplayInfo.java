@@ -37,9 +37,9 @@ public class DisplayInfo extends Sequence {
     /**
      * Method to insert the data needed for the sequence
      *
-     * @param meetupPoint The coordinate on which the driver and hitchhiker shouls meet up
-     * @param dropOffPoint
-     * @param date
+     * @param meetupPoint The place on which the driver and hitchhiker should meet up
+     * @param dropOffPoint The place on which the hitchhiker should be dropped off
+     * @param date When to meet
      */
     public void insert(Coordinate meetupPoint, Coordinate dropOffPoint, Date date){
         this.meetupPoint = meetupPoint;

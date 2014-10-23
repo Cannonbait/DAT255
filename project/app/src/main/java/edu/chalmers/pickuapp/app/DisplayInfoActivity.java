@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.TextView;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.MapView;
+import com.google.android.gms.location.LocationClient;
+import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.LatLngBoundsCreator;
 import com.google.android.gms.maps.model.MarkerOptions;
 import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.model.Coordinate;
@@ -19,6 +21,7 @@ import edu.chalmers.pickuapp.app.model.Date;
 public class DisplayInfoActivity extends ChildActivity {
 
     private Coordinate meetupPoint;
+    private Coordinate dropOffPoint;
     private Date date;
     private TextView meetupTime;
     private GoogleMap map;
@@ -29,7 +32,7 @@ public class DisplayInfoActivity extends ChildActivity {
         setContentView(R.layout.activity_display_info);
         meetupTime = (TextView) findViewById(R.id.meetup_info_time);
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-
+        map.setMyLocationEnabled(true);
 
     }
 
@@ -61,6 +64,7 @@ public class DisplayInfoActivity extends ChildActivity {
     public void processEvent(Event e){
         if(e instanceof MeetupEvent){
             meetupPoint = ((MeetupEvent) e).getMeetupPoint();
+            dropOffPoint = ((MeetupEvent) e).getDropOffPoint();
             date = ((MeetupEvent) e).getDate();
             setMeetupTimeText();
             showMeetupPoint();
@@ -72,8 +76,17 @@ public class DisplayInfoActivity extends ChildActivity {
         meetupTime.setText(dateText + "\n" + timeText);
 
     }
+
     public void showMeetupPoint(){
-        map.addMarker(new MarkerOptions().position(new LatLng(meetupPoint.getLatitude(), meetupPoint.getLongitude())));
+        LatLng startPosition = new LatLng(meetupPoint.getLatitude(), meetupPoint.getLongitude());
+        LatLng endPosition = new LatLng(dropOffPoint.getLatitude(), dropOffPoint.getLongitude());
+
+
+        CameraUpdate location = CameraUpdateFactory.newLatLngZoom(startPosition, 10f);
+        map.addMarker(new MarkerOptions().position(startPosition));
+        map.addMarker(new MarkerOptions().position(endPosition));
+        map.animateCamera(location);
+
     }
 
 }
