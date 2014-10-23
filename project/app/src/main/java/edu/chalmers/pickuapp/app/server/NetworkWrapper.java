@@ -10,7 +10,7 @@ public class NetworkWrapper implements EventListener{
 
     Thread matchMakingThread;
 
-    private final MockNetworkClient networkClient = new MockNetworkClient();
+    private final Network networkClient = new MockNetworkClient();
     public NetworkWrapper(){
         EventBus.INSTANCE.registerListener(this);
     }
