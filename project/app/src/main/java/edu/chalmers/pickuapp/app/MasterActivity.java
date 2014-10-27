@@ -6,7 +6,7 @@ import android.os.*;
 import edu.chalmers.pickuapp.app.events.*;
 import edu.chalmers.pickuapp.app.events.EventListener;
 import edu.chalmers.pickuapp.app.model.*;
-import edu.chalmers.pickuapp.app.server.NetworkWrapper;
+import edu.chalmers.pickuapp.app.network.NetworkWrapper;
 import edu.chalmers.pickuapp.app.utils.GoogleMapsHelper;
 
 import java.util.*;

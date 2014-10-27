@@ -1,4 +1,4 @@
-package edu.chalmers.pickuapp.app.server;
+package edu.chalmers.pickuapp.app.network;
 
 import edu.chalmers.pickuapp.app.model.RouteData;
 

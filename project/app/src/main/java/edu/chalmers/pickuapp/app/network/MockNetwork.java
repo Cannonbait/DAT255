@@ -1,9 +1,6 @@
-package edu.chalmers.pickuapp.app.server;
+package edu.chalmers.pickuapp.app.network;
 
-import android.util.Log;
 import edu.chalmers.pickuapp.app.events.*;
-import edu.chalmers.pickuapp.app.model.Coordinate;
-import edu.chalmers.pickuapp.app.model.Date;
 import edu.chalmers.pickuapp.app.model.RouteData;
 
 
